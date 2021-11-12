@@ -1,0 +1,72 @@
+<Home>:
+    name: "home"
+    canvas:
+        Color:
+            rgba: 0,255,0, 0.5
+        Rectangle:
+            pos : 0, 0
+            size: self.size
+    FloatLayout:
+        Label:
+            text: "Welcome Jane Doe"
+            size_hint: 1,1
+            pos_hint: {"x":0.5, "y" :5}
+
+        Label:
+            text: "What would you like to recycle?"
+            size_hint: 1,1
+            pos_hint: {"x":3, "y" :4}
+
+        Button:
+            pos_hint:{'x': 6,'y': 0}
+            text: 'Settings'
+
+
+        Button:
+            pos_hint:{'left': 1,'bottom': 1}
+            text: 'Badge'
+            #on_release:
+            #    root.manager.transition.direction = "left"
+            #    root.badges()
+
+        Button:
+            pos_hint:{'x': 1,'y': 3}
+            text: 'Plastic'
+
+
+        Button:
+            pos_hint:{'x': 3,'y': 3}
+            text: 'Glass'
+
+
+        Button:
+            pos_hint:{'x': 5,'y': 3}
+            text: 'Cardboard'
+
+
+        Button:
+            pos_hint:{'x': 1,'y': 1.5}
+            text: 'Metal'
+
+
+        Button:
+            pos_hint:{'x': 3, 'y': 1.5}
+            text: 'Paper'
+
+
+        Button:
+            pos_hint:{'x': 5,'y': 1.5}
+            text: 'Other'
+
+
+<Badge>:
+    name: "badges"
+    canvas:
+        Color:
+            rgba: 0,255,0, 0.5
+
+<Settings>:
+    name: "settings"
+    canvas:
+        Color:
+            rgba: 0,255,0, 0.5
