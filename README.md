@@ -7,6 +7,7 @@
 - [How To Run](#how-to-run)
 - [Diagrams](#diagrams)
 - [Dependencies](#dependencies)
+- [Reference](#reference)
 
 ## Overview
 <Include project description?
