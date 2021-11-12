@@ -13,6 +13,10 @@
 
 ## Team
 <a href="https://github.com/msalloum" target="_blank"><img src="https://avatars3.githubusercontent.com/u/1790819?s=400&v=4" align="left" height="30px">Mariam Salloum </a>
+<a href="https://github.com/estela-ramirez" target="_blank">Estela Ramirez Ramirez </a>
+<a href="https://github.com/Jess-say" target="_blank">Jessie Lu </a>
+<a href="https://github.com/mandy840907" target="_blank">Tzu-Ying Chuang </a>
+<a href="https://github.com/briortega" target="_blank">Briana Ortega Vazquez </a>
 
 ## Usage
 Demo: <Link to youtube video>
@@ -66,4 +70,9 @@ Overall System Diagram
 
 ## Dependencies
 Install Node Package Manager (npm). [Helpful Documentation](https://www.npmjs.com/get-npm)
+  
+## Reference  
+### Datasets
+- [Waste Classification](https://www.kaggle.com/szdxfkmgnb/waste-classification)
+- [Garbage Classification](https://www.kaggle.com/asdasdasasdas/garbage-classification)
 
