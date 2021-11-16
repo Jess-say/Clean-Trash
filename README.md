@@ -76,4 +76,5 @@ Install Node Package Manager (npm). [Helpful Documentation](https://www.npmjs.co
 ### Datasets
 - [Waste Classification](https://www.kaggle.com/szdxfkmgnb/waste-classification)
 - [Garbage Classification](https://www.kaggle.com/asdasdasasdas/garbage-classification)
+- [Garbage Classification (12 Classes)](https://www.kaggle.com/mostafaabla/garbage-classification)
 
