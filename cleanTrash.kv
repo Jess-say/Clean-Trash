@@ -1,11 +1,12 @@
-<Home>:
+<HomeWindow>:
     name: "home"
     canvas:
         Color:
-            rgba: 0,255,0, 0.5
+            rgb: 144,238,144, .5
         Rectangle:
             pos : 0, 0
             size: self.size
+
     FloatLayout:
         Label:
             text: "Welcome Jane Doe"
@@ -25,9 +26,8 @@
         Button:
             pos_hint:{'left': 1,'bottom': 1}
             text: 'Badge'
-            #on_release:
-            #    root.manager.transition.direction = "left"
-            #    root.badges()
+            on_release:
+                root.manager.current = "badge"
 
         Button:
             pos_hint:{'x': 1,'y': 3}
@@ -59,14 +59,37 @@
             text: 'Other'
 
 
-<Badge>:
-    name: "badges"
+<BadgeWindow>:
+    name: "badge"
     canvas:
         Color:
-            rgba: 0,255,0, 0.5
+            rgba: 144,238,144, 0.5
 
-<Settings>:
+    FloatLayout:
+        Button:
+            pos_hint:{'left': 1,'bottom': 1}
+            text: 'Home'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.badgeBtn()
+
+<SettingsWindow>:
     name: "settings"
     canvas:
         Color:
             rgba: 0,255,0, 0.5
+    FloatLayout:
+        Button:
+            pos_hint:{'left': 1,'bottom': 1}
+            text: 'Home'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.badgeBtn()
+        Button:
+            pos_hint:{}
+            text: 'Logout'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.badgeBtn()
+
+#<CameraWindow>:
