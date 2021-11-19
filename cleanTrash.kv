@@ -67,7 +67,7 @@
 
     FloatLayout:
         Button:
-            pos_hint:{'left': 1,'bottom': 1}
+            pos_hint:{'x': .05,'y': 5}
             text: 'Home'
             on_release:
                 root.manager.transition.direction = "left"
@@ -79,17 +79,61 @@
         Color:
             rgba: 0,255,0, 0.5
     FloatLayout:
+        Label:
+            text: "Jane Doe"
+            size_hint: 1,1
+            pos_hint: {"x":3, "y" :4}
+
         Button:
-            pos_hint:{'left': 1,'bottom': 1}
+            pos_hint:{'x': .05,'y': 4}
+            text: 'Picture'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.AddPictureWindow()
+
+        Button:
+            pos_hint:{'x': .05,'y': 5}
             text: 'Home'
             on_release:
                 root.manager.transition.direction = "left"
-                root.badgeBtn()
+                root.HomeWindow()
+
         Button:
-            pos_hint:{}
+            pos_hint:{"x":3, "y":1.5}
+            text: 'Change Password'
+            on_release:
+                root.manager.transition.direction = "left"
+                root.UpdatePasswordWindow()
+
+        Button:
+            pos_hint:{"x":3, "y":1.5}
             text: 'Logout'
             on_release:
                 root.manager.transition.direction = "left"
-                root.badgeBtn()
+                root.HomeWindow() #For testing
+                #root.login()
+
+<UpdatePasswordWindow>
+    name: "updatePassword"
+    canvas:
+        Color:
+            rgba: 144,238,144, 0.5
+
+<AddPictureWindow>
+    name: "addPicture"
+    canvas:
+        Color:
+            rgba: 144,238,144, 0.5
+
 
 #<CameraWindow>:
+    name: "camera"
+    canvas:
+        Color:
+            rgba: 144,238,144, 0.5
+
+    FloatLayout:
+        Label:
+            text: "This should be camera"
+            size_hint: 1,1
+            pos_hint: {"x":0.5, "y" :5}

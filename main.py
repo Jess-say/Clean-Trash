@@ -17,6 +17,29 @@ class HomeWindow(Screen):
         self.reset()
         sm.current = "settings"
 
+    def PlasticBtn(self):
+        self.reset()
+        sm.current = "camera"
+
+    def GlassBtn(self):
+        self.reset()
+        sm.current = "camera"
+
+    def PaperBtn(self):
+        self.reset()
+        sm.current = "camera"
+
+    def MetalBtn(self):
+        self.reset()
+        sm.current = "camera"
+
+    def CardboardBtn(self):
+        self.reset()
+        sm.current = "camera"
+
+    def OtherBtn(self):
+        self.reset()
+        sm.current = "camera"
 
 class BadgeWindow(Screen):
     def homeBtn(self):
