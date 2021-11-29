@@ -70,40 +70,23 @@ class MainWindow(Screen):
         sm.current = "settings"
 
     def PlasticBtn(self):
-        self.reset()
         sm.current = "camera"
 
     def GlassBtn(self):
-        self.reset()
         sm.current = "camera"
 
     def PaperBtn(self):
-        self.reset()
         sm.current = "camera"
 
     def MetalBtn(self):
-        self.reset()
         sm.current = "camera"
 
     def CardboardBtn(self):
-        self.reset()
         sm.current = "camera"
 
     def OtherBtn(self):
-        self.reset()
         sm.current = "camera"
-    #username = ObjectProperty(None)
-    #name = ObjectProperty(None)
-    #email = ObjectProperty(None)
-    #current = ""
 
-    #def logOut(self):
-        #sm.current = "Main"
-
-    #def on_enter(self, *args):
-        #password, username, email = db.get_user(self.current)
-        #self.username.text = "Account Name: " + username
-        #self.email.text = "Email: " + self.current
 
 class Badges(Widget):
     pass
@@ -132,7 +115,7 @@ kv = Builder.load_file("cleanTrash.kv")
 sm = WindowManager()
 #db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"),CameraWindow(name="camera")]
 for screen in screens:
     sm.add_widget(screen)
 
