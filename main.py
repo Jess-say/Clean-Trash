@@ -1,14 +1,66 @@
-#import kivy
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.uix.widget import Widget
-from kivy.uix.button import Button
-from kivy.base import runTouchApp #for scrolling on badges page
-from kivy.uix.camera import Camera #camera
-from kivy.uix.boxlayout import BoxLayout #camera layout
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import ObjectProperty
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
+from kivy.uix.label import Widget
+#from database import DataBase
 
-class HomeWindow(Screen):
+
+class CreateAccountWindow(Screen):
+    username = ObjectProperty(None)
+    password = ObjectProperty(None)
+    email = ObjectProperty(None)
+    name = ObjectProperty(None)
+
+    def submit(self):
+        if self.username.text != "" and self.email.text != "" and self.email.text.count("@") == 1 and self.email.text.count(".") > 0 and self.name.text != "":
+            if self.password != "":
+                #db.add_user(self.email.text, self.password.text, self.username.text, self.name.text)
+
+                self.reset()
+
+                sm.current = "login"
+            else:
+                invalidForm()
+        else:
+            invalidForm()
+
+    def login(self):
+        self.reset()
+        sm.current = "login"
+
+    def reset(self):
+        self.password.text = ""
+        self.username.text = ""
+        self.email.text = ""
+
+
+class LoginWindow(Screen):
+    username = ObjectProperty(None)
+    password = ObjectProperty(None)
+
+    def loginBtn(self):
+        #if db.validate(self.username.text, self.password.text):
+         #   MainWindow.current = self.username.text
+          #  self.reset()
+          #  sm.current = "main"
+
+       # else:
+        #    invalidLogin()
+            sm.current = "main"
+
+    def createBtn(self):
+        self.reset()
+        sm.current = "create"
+
+    def reset(self):
+        self.username.text = ""
+        self.password.text = ""
+
+
+class MainWindow(Screen):
     def badgeBtn(self):
         self.reset()
         sm.current = "badge"
@@ -40,58 +92,57 @@ class HomeWindow(Screen):
     def OtherBtn(self):
         self.reset()
         sm.current = "camera"
+    #username = ObjectProperty(None)
+    #name = ObjectProperty(None)
+    #email = ObjectProperty(None)
+    #current = ""
 
-class BadgeWindow(Screen):
-    def homeBtn(self):
-        self.reset()
-        sm.current = "home"
+    #def logOut(self):
+        #sm.current = "Main"
 
-    root = Builder.load_string(r'''
-        ScrollView:
-            Label:
-                text: 'Scrollview Example' * 100
-                font_size: 30
-                size_hint_x:1.0
-                size_hint_y: None
-                text_size: size.width, None
-                height: self.texture_size[1]
-                ''')
-    runTouchApp(root)
+    #def on_enter(self, *args):
+        #password, username, email = db.get_user(self.current)
+        #self.username.text = "Account Name: " + username
+        #self.email.text = "Email: " + self.current
 
-
-class CameraWindow(Screen):
-    def build(self):
-        layout = BoxLayout(orientation = 'vertical')
-        self.cameraObject = Camera(play = False)
-        self.cameraObject.play = True
-        self.cameraObject.resolution = (360, 360)
-        self.camaraClick = Button(text="Take Photo")
-        self.camaraClick.size_hint = (.5, .2)
-        self.camaraClick.pos_hint = {'x': .25, 'y': .75}
-        self.camaraClick.bind(on_press=self.onCameraClick)
-        layout.add_widget(self.cameraObject)
-        layout.add_widget(self.camaraClick)
-        # return the root widget
-        return layout
-    def onCameraClick(self, *args):
-        self.cameraObject.export_to_png('/kivyexamples/selfie.png')
+class Badges(Widget):
+    pass
 
 class WindowManager(ScreenManager):
     pass
 
 
-kv = Builder.load_file("cleanTrash.kv")
-sm = WindowManager()
+def invalidLogin():
+    pop = Popup(title='Invalid Login',
+                  content=Label(text='Invalid username or password.'),
+                  size_hint=(None, None), size=(400, 400))
+    pop.open()
 
-screens = [HomeWindow(name="home"), BadgeWindow(name="badge")]
+
+def invalidForm():
+    pop = Popup(title='Invalid Form',
+                  content=Label(text='Please fill in all inputs with valid information.'),
+                  size_hint=(None, None), size=(400, 400))
+
+    pop.open()
+
+
+kv = Builder.load_file("cleanTrash.kv")
+
+sm = WindowManager()
+#db = DataBase("users.txt")
+
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main")]
 for screen in screens:
     sm.add_widget(screen)
 
-sm.current = "home"
+sm.current = "login"
 
-class CleanTrashApp(App):
+
+class MyMainApp(App):
     def build(self):
         return sm
 
+
 if __name__ == "__main__":
-    CleanTrashApp().run()
+    MyMainApp().run()
