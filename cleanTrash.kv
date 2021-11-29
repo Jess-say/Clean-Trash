@@ -210,16 +210,34 @@
                 root.badges()
 
         Button:
-            pos_hint:{'x': 1,'y': 3}
+            pos_hint:{"x":.25,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
             text: "Plastic"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.PlasticBtn()
 
         Button:
-            pos_hint:{'x': 3,'y': 3}
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
             text: "Glass"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.GlassBtn()
 
         Button:
-            pos_hint:{'x': 5,'y': 3}
+            pos_hint:{"x":.65,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
             text: "Cardboard"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.CardboardBtn()
 
         Button:
             pos_hint:{'x': 1,'y': 1.5}
