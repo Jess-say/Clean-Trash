@@ -62,7 +62,6 @@ class LoginWindow(Screen):
 
 class MainWindow(Screen):
     def badgeBtn(self):
-        self.reset()
         sm.current = "badge"
 
     def settingsBtn(self):
@@ -87,9 +86,13 @@ class MainWindow(Screen):
     def OtherBtn(self):
         sm.current = "camera"
 
+class BadgeWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
 
-class Badges(Widget):
-    pass
+class CameraWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
 
 class WindowManager(ScreenManager):
     pass
@@ -115,7 +118,7 @@ kv = Builder.load_file("cleanTrash.kv")
 sm = WindowManager()
 #db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"),CameraWindow(name="camera")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge")]
 for screen in screens:
     sm.add_widget(screen)
 
