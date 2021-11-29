@@ -94,6 +94,29 @@ class CameraWindow(Screen):
     def HomeBtn(self):
         sm.current = "main"
 
+class SettingsWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+    def AddPictureBtn(self):
+        sm.current = "addPicture"
+
+    def ChangePassBtn(self):
+        sm.current = "updatePassword"
+
+    def LogoutBtn(self):
+        sm.current = "login"
+
+
+class AddPictureWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
+class UpdatePasswordWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
+
 class WindowManager(ScreenManager):
     pass
 
@@ -118,7 +141,7 @@ kv = Builder.load_file("cleanTrash.kv")
 sm = WindowManager()
 #db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge"),SettingsWindow(name = "settings"),UpdatePasswordWindow(name="updatePassword"), AddPictureWindow(name="addPicture")]
 for screen in screens:
     sm.add_widget(screen)
 
