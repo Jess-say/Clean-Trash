@@ -12,7 +12,7 @@ class LoginPage(MDApp):
         self.theme_cls.primary_palette = "Green"
         global screen_manager
         screen_manager = ScreenManager()
-        #screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
+        screen_manager.add_widget(Builder.load_file("pre-splash.kv"))
         screen_manager.add_widget(Builder.load_file("login.kv"))
         return screen_manager
     

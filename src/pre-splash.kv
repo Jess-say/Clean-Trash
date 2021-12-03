@@ -1,0 +1,21 @@
+MDScreen:
+    name: "pre-splash"
+    MDFloatLayout:
+        Image:
+            source: "logo.jpg"
+            size_hint: .26, .26
+            pos_hint: {"center_x": .5, "center_y": .55}
+            canvas.before:
+                Color:
+                    rgb: 1, 1, 1, 1
+                Ellipse:
+                    size: 260, 260
+                    pos: 220, 510
+        
+        MDLabel:
+            text: "Clean Trash"
+            pos_hint: {"center_x": .5, "center_y": .2}
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 'lightgreen'
+            font_size: "24sp"
