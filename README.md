@@ -3,6 +3,8 @@
 
 ## Table of Contents
 - [Overview](#overview)
+- [Team](#team)
+- [Usage](#usage)
 - [How To Run](#how-to-run)
 - [Diagrams](#diagrams)
 - [Dependencies](#dependencies)
