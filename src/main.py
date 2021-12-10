@@ -133,6 +133,64 @@ class UpdatePasswordWindow(Screen):
         sm.current = "settings"
 
 
+    def badgeBtn(self):
+        sm.current = "badge"
+
+    def settingsBtn(self):
+        sm.current = "settings"
+
+    def PlasticBtn(self):
+        sm.current = "camera"
+
+    def GlassBtn(self):
+        sm.current = "camera"
+
+    def PaperBtn(self):
+        sm.current = "camera"
+
+    def MetalBtn(self):
+        sm.current = "camera"
+
+    def CardboardBtn(self):
+        sm.current = "camera"
+
+    def OtherBtn(self):
+        sm.current = "camera"
+
+
+class BadgeWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+
+class CameraWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+
+class SettingsWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+    def AddPictureBtn(self):
+        sm.current = "addPicture"
+
+    def ChangePassBtn(self):
+        sm.current = "updatePassword"
+
+    def LogoutBtn(self):
+        sm.current = "login"
+
+
+class AddPictureWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
+
+class UpdatePasswordWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
 
 class WindowManager(ScreenManager):
     pass
@@ -140,15 +198,15 @@ class WindowManager(ScreenManager):
 
 def invalidLogin():
     pop = Popup(title='Invalid Login',
-                  content=Label(text='Invalid username or password.'),
-                  size_hint=(None, None), size=(400, 400))
+                content=Label(text='Invalid username or password.'),
+                size_hint=(None, None), size=(400, 400))
     pop.open()
 
 
 def invalidForm():
     pop = Popup(title='Invalid Form',
-                  content=Label(text='Please fill in all inputs with valid information.'),
-                  size_hint=(None, None), size=(400, 400))
+                content=Label(text='Please fill in all inputs with valid information.'),
+                size_hint=(None, None), size=(400, 400))
 
     pop.open()
 
@@ -158,7 +216,9 @@ kv = Builder.load_file("my.kv")
 sm = WindowManager()
 db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge"),SettingsWindow(name = "settings"),UpdatePasswordWindow(name="updatePassword"), AddPictureWindow(name="addPicture")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"),
+           CameraWindow(name="camera"), BadgeWindow(name="badge"), SettingsWindow(name="settings"),
+           UpdatePasswordWindow(name="updatePassword"), AddPictureWindow(name="addPicture")]
 
 for screen in screens:
     sm.add_widget(screen)
