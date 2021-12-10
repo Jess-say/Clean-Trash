@@ -4,20 +4,24 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
-from kivy.uix.label import Widget
-#from database import DataBase
+from database import DataBase
 
 
 class CreateAccountWindow(Screen):
+    namee = ObjectProperty(None)
     username = ObjectProperty(None)
-    password = ObjectProperty(None)
     email = ObjectProperty(None)
-    name = ObjectProperty(None)
+    password = ObjectProperty(None)
 
     def submit(self):
-        if self.username.text != "" and self.email.text != "" and self.email.text.count("@") == 1 and self.email.text.count(".") > 0 and self.name.text != "":
+        print(type(self.namee))
+        print(type(self.username))
+        print(type(self.email))
+        print(type(self.password))
+        if self.namee.text != "" and self.email.text != "" and self.email.text.count("@") == 1 \
+                and self.email.text.count(".") > 0 and self.username.text != "":
             if self.password != "":
-                #db.add_user(self.email.text, self.password.text, self.username.text, self.name.text)
+                db.add_user(self.username.text, self.namee.text, self.password.text, self.email.text)
 
                 self.reset()
 
@@ -32,9 +36,10 @@ class CreateAccountWindow(Screen):
         sm.current = "login"
 
     def reset(self):
-        self.password.text = ""
-        self.username.text = ""
         self.email.text = ""
+        self.password.text = ""
+        self.namee.text = ""
+        self.username.text = ""
 
 
 class LoginWindow(Screen):
@@ -42,14 +47,12 @@ class LoginWindow(Screen):
     password = ObjectProperty(None)
 
     def loginBtn(self):
-        #if db.validate(self.username.text, self.password.text):
-         #   MainWindow.current = self.username.text
-          #  self.reset()
-          #  sm.current = "main"
-
-       # else:
-        #    invalidLogin()
+        if db.validate(self.username.text, self.password.text):
+            MainWindow.current = self.username.text
+            self.reset()
             sm.current = "main"
+        else:
+            invalidLogin()
 
     def createBtn(self):
         self.reset()
@@ -61,6 +64,20 @@ class LoginWindow(Screen):
 
 
 class MainWindow(Screen):
+    n = ObjectProperty(None)
+    email = ObjectProperty(None)
+    username = ObjectProperty(None)
+    current = ""
+
+    def logOut(self):
+        sm.current = "login"
+
+    def on_enter(self, *args):
+        namee, password, email = db.get_user(self.current)
+        self.n = "Account Name: " + namee
+        self.email = "Email: " + email
+        self.username = "Username: " + self.current
+        
     def badgeBtn(self):
         sm.current = "badge"
 
@@ -117,6 +134,7 @@ class UpdatePasswordWindow(Screen):
         sm.current = "settings"
 
 
+
 class WindowManager(ScreenManager):
     pass
 
@@ -139,9 +157,10 @@ def invalidForm():
 kv = Builder.load_file("my.kv")
 
 sm = WindowManager()
-#db = DataBase("users.txt")
+db = DataBase("users.txt")
 
 screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge"),SettingsWindow(name = "settings"),UpdatePasswordWindow(name="updatePassword"), AddPictureWindow(name="addPicture")]
+
 for screen in screens:
     sm.add_widget(screen)
 
