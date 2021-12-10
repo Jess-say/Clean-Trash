@@ -8,7 +8,8 @@
 
     canvas:
         Color:
-            rgba: 0, 255, 0, 0.5
+            rgba: 0, 255, 0, 0.9
+
         Rectangle:
             pos: 0,0
             size: self.size
@@ -109,7 +110,8 @@
 
     canvas:
         Color:
-            rgba: 0, 255, 0, 0.5
+            rgba: 0, 255, 0, 0.9
+
         Rectangle:
             pos: 0,0
             size: self.size
@@ -170,7 +172,7 @@
 
     canvas:
         Color:
-            rgba: 0,255,0, 0.5
+            rgba: 0,255,0, 0.9
         Rectangle:
             pos : 0, 0
             size: self.size
@@ -179,6 +181,253 @@
         Label:
             id: username
             text: "Welcome "
-            size_hint: 1,1
-            pos_hint: {"x":0.5, "y" :5}
+            size_hint: 0,0.12
+            pos_hint: {"x":0.1, "top":1}
+            font_size: (root.width**2 + root.height**2) / 14**4
 
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.25, "top":0.8}
+            text: "What would you like to recycle?"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":.85,"y":0}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Settings"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.badges()
+
+        Button:
+            pos_hint:{"x":0,"y":0}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Badge"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.badgeBtn()
+
+        Button:
+            pos_hint:{"x":.25,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Plastic"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.PlasticBtn()
+
+        Button:
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Glass"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.GlassBtn()
+
+        Button:
+            pos_hint:{"x":.65,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Cardboard"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.CardboardBtn()
+
+        Button:
+            pos_hint:{"x":.25,"y":.30}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Metal"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.MetalBtn()
+
+        Button:
+            pos_hint:{"x":.45,"y":.30}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Paper"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.PaperBtn()
+
+        Button:
+            pos_hint:{"x":.65,"y":.30}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Other"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.OtherBtn()
+
+
+<BadgeWindow>:
+    name: "badge"
+    canvas:
+        Color:
+            rgba: 0, 255, 0, 0.9
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    FloatLayout:
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.25, "top":0.8}
+            text: "Badges Page"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Home"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.HomeBtn()
+
+<SettingsWindow>:
+    name: "settings"
+    canvas:
+        Color:
+            rgba: 0, 255, 0, 0.9
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    FloatLayout:
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.28, "top":0.78}
+            text: "Jane Doe"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0,"top":1}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Home"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.HomeBtn()
+        Button:
+            pos_hint:{"x":.25,"y":.65}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Picture"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.AddPictureBtn()
+
+        Button:
+            pos_hint:{"x":.35,"y":.35}
+            size_hint: 0.40, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Change Password"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.ChangePassBtn()
+
+        Button:
+            pos_hint:{"x":.35,"y":.15}
+            size_hint: 0.40, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Logout"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.LogoutBtn()
+
+<UpdatePasswordWindow>
+    name: "updatePassword"
+    canvas:
+        Color:
+            rgba: 0, 255, 0, 0.9
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    FloatLayout:
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.25, "top":0.8}
+            text: "Should be where you update password"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Settings"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.settingsBtn()
+
+<AddPictureWindow>
+    name: "addPicture"
+    canvas:
+        Color:
+            rgba: 0, 255, 0, 0.9
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    FloatLayout:
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.25, "top":0.8}
+            text: "Should be add Picture Page"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Settings"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.settingsBtn()
+
+<CameraWindow>:
+    name: "camera"
+
+    canvas:
+        Color:
+            rgba: 0, 255, 0, 0.9
+        Rectangle:
+            pos: 0,0
+            size: self.size
+
+    FloatLayout:
+        Label:
+            size_hint: 0.5,0.12
+            pos_hint: {"x":0.25, "top":0.8}
+            text: "This Should Be Camera"
+            font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":.45,"y":.50}
+            size_hint: 0.15, 0.15
+            background_color: 0.1,0.4,0.1,0.5
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Home"
+            on_release:
+                root.manager.transition.direction = "down"
+                root.HomeBtn()

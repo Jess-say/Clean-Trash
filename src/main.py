@@ -77,6 +77,62 @@ class MainWindow(Screen):
         self.n = "Account Name: " + namee
         self.email = "Email: " + email
         self.username = "Username: " + self.current
+        
+    def badgeBtn(self):
+        sm.current = "badge"
+
+    def settingsBtn(self):
+        self.reset()
+        sm.current = "settings"
+
+    def PlasticBtn(self):
+        sm.current = "camera"
+
+    def GlassBtn(self):
+        sm.current = "camera"
+
+    def PaperBtn(self):
+        sm.current = "camera"
+
+    def MetalBtn(self):
+        sm.current = "camera"
+
+    def CardboardBtn(self):
+        sm.current = "camera"
+
+    def OtherBtn(self):
+        sm.current = "camera"
+
+class BadgeWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+class CameraWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+class SettingsWindow(Screen):
+    def HomeBtn(self):
+        sm.current = "main"
+
+    def AddPictureBtn(self):
+        sm.current = "addPicture"
+
+    def ChangePassBtn(self):
+        sm.current = "updatePassword"
+
+    def LogoutBtn(self):
+        sm.current = "login"
+
+
+class AddPictureWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
+class UpdatePasswordWindow(Screen):
+    def settingsBtn(self):
+        sm.current = "settings"
+
 
 
 class WindowManager(ScreenManager):
@@ -103,7 +159,8 @@ kv = Builder.load_file("my.kv")
 sm = WindowManager()
 db = DataBase("users.txt")
 
-screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main")]
+screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"), MainWindow(name="main"), CameraWindow(name="camera"), BadgeWindow(name="badge"),SettingsWindow(name = "settings"),UpdatePasswordWindow(name="updatePassword"), AddPictureWindow(name="addPicture")]
+
 for screen in screens:
     sm.add_widget(screen)
 
