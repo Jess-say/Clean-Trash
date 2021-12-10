@@ -31,10 +31,12 @@ Demo: <Link to youtube video>
 To be able to run our project you need to have pycharm downloaded best version is 3.8 as new verison may not work
   
 Then create a new a new project. In the terminal open a git bash then clone the repository into the project run
-  * git clone <link> 
+  * git clone https://github.com/CS-UCR/senior-design-project-ct.git
   
 Once you have cloned the repository direct yourself to the src folder by runing 
   * cd src
+  
+  Note: You may have to run cd senior-design-project-ct-main/src
   
 You should now be in the src folder. Now run each of these commands in order
  * python -m pip install --upgrade pip wheel setuptools
