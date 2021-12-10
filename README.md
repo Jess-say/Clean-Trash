@@ -10,7 +10,8 @@
 - [Reference](#reference)
 
 ## Overview
-<Include project description?
+Clean Trash is mobile application that allows users to take a picture of an object to determine if it’s recyclable or not in their county.
+Our goal is to reduce current recycling contamination which has a current rate of 25%, reduce pollution, and conserve energy.
 
 ## Team
 - <a href="https://github.com/msalloum" target="_blank"><img src="https://avatars3.githubusercontent.com/u/1790819?s=400&v=4" align="left" height="30px">Mariam Salloum </a>
@@ -68,6 +69,10 @@ Frontend Structure
 
 
 Overall System Diagram
+![systemDiagram](/images/systemDiagram.png)
+  
+UML for Badge System
+![UML_For_badge](/images/UML_For_badges.png) 
 
 ## Dependencies
 Install Node Package Manager (npm). [Helpful Documentation](https://www.npmjs.com/get-npm)
