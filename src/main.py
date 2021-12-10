@@ -82,7 +82,6 @@ class MainWindow(Screen):
         sm.current = "badge"
 
     def settingsBtn(self):
-        self.reset()
         sm.current = "settings"
 
     def PlasticBtn(self):
