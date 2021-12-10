@@ -3,7 +3,6 @@
 
 ## Table of Contents
 - [Overview](#overview)
-- [Usage](#usage)
 - [How To Run](#how-to-run)
 - [Diagrams](#diagrams)
 - [Dependencies](#dependencies)
@@ -14,7 +13,7 @@ Clean Trash is mobile application that allows users to take a picture of an obje
 Our goal is to reduce current recycling contamination which has a current rate of 25%, reduce pollution, and conserve energy.
 
 ## Team
-- <a href="https://github.com/msalloum" target="_blank"><img src="https://avatars3.githubusercontent.com/u/1790819?s=400&v=4" align="left" height="30px">Mariam Salloum </a>
+- <a href="https://github.com/msalloum" target="_blank">Mariam Salloum </a>
 - <a href="https://github.com/estela-ramirez" target="_blank">Estela Ramirez Ramirez </a>
 - <a href="https://github.com/Jess-say" target="_blank">Jessie Lu </a>
 - <a href="https://github.com/mandy840907" target="_blank">Tzu-Ying Chuang </a>
@@ -62,11 +61,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Diagrams
-
-Sequence Diagram
-
-Frontend Structure
-
 
 Overall System Diagram
 ![systemDiagram](/images/systemDiagram.png)
