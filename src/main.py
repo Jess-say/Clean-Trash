@@ -136,7 +136,7 @@ def invalidForm():
     pop.open()
 
 
-kv = Builder.load_file("cleanTrash.kv")
+kv = Builder.load_file("my.kv")
 
 sm = WindowManager()
 #db = DataBase("users.txt")
