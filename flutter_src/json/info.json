@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Glass",
+    "img": "assets/Glass.png"
+  },
+
+  {
+    "title": "Plastic",
+    "img": "assets/Plastic.png"
+  },
+
+  {
+    "title": "Cardboard",
+    "img": "assets/Cardboard.png"
+  },
+
+  {
+    "title": "Metal",
+    "img": "assets/Metal.png"
+  },
+
+  {
+    "title": "Paper",
+    "img": "assets/Paper.png"
+  },
+
+  {
+    "title": "Other",
+    "img": "assets/Other.png"
+  }
+]
