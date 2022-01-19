@@ -35,14 +35,7 @@ class _PlasticPageState extends State<PlasticPage>{
             width: fwidth,
             fit: BoxFit.fitWidth),
         ),
-//       bottomNavigationBar: BottomNavigationBar(
-//           items : <BottomNavigationBarItem>[
-//             BottomNavigationBarItem(
-//               icon:Icon(Icons.check_circle),
-//             ),
-//           ]
-//               //onTap: _onItemTapped,
-//       )
+
     );
   }
 }

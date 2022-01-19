@@ -98,32 +98,3 @@ void _appModalBottomSheet(context){
     ),
   );
 }
-
-//void _ScrollPage(context) {
-//  final primaryColor = const Color(0xFF81C784);
-//  final fwidth = MediaQuery.of(context).size.width;
-//  final fheight = MediaQuery.of(context).size.height;
-//  Widget build(BuildContext context) {
-//    ScrollPage(
-//      //context: context,
-//      builder: (context) =>
-//          SafeArea(
-//          return Scaffold(
-//          body: Center(
-//          child: SingleChildScrollView(
-//          scrollDirection: Axis.horizontal,
-//          child: Row(
-//          children: [
-//          Container(
-//          color: primaryColor,
-//
-//          )
-//      ],
-//    )))
-//    ,
-//
-//    );
-//    );
-//    );
-//  }
-//}
