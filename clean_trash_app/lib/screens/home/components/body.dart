@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './header.dart';
+import './recommended_classes1.dart';
+import './recommended_classes2.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -15,6 +17,8 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Header(size: size),
+          const RecomendsClasses(),
+          const RecomendsClasses2(),
         ],
       ),
     );
