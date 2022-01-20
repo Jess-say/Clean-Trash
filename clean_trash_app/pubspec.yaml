@@ -38,6 +38,10 @@ dependencies:
   # We wll add our dependecies here 
   #Search flutter_svg in Dart Packages
   flutter_svg: ^1.0.0
+  #Search path_provider in Dart Packages
+  path_provider: ^2.0.8
+  #Search image_picker in Dart Packages
+  image_picker: ^0.8.4+4
 
 dev_dependencies:
   flutter_test:
