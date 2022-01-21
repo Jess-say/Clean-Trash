@@ -1,5 +1,6 @@
 import 'package:cleantrash_app/glass_page.dart';
 import 'package:cleantrash_app/metal_page.dart';
+import 'package:cleantrash_app/plastic_bottle_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cleantrash_app/plastic_page.dart';
 
@@ -53,12 +54,23 @@ class _HomeViewState extends State<HomeView>{
                       height: 40 * 0.30,
                     ),
                     ElevatedButton(
-                      child: Text('Plastic'),
+                      child: Text('Plastic laundry'),
                       onPressed: (){
                         print("Pressed");
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PlasticPage()
+                          MaterialPageRoute(builder: (context) => PlasticLaundryPage()
+                          ),
+                        );
+                      },
+                    ),
+                    ElevatedButton(
+                      child: Text('Plastic bottle'),
+                      onPressed: (){
+                        print("Pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlasticBottlePage()
                           ),
                         );
                       },

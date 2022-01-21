@@ -63,13 +63,18 @@ flutter:
      - assets/plastic_laundry_bottle1.jpg
      - assets/plastic_laundry_bottle2.jpg
      - assets/plastic_laundry_bottle3.jpg
+     - assets/plastic_laundry_tub.jpg
      - assets/glass_soda.jpg
      - assets/plastic_water_bottle.jpg
      - assets/plastic_soda.jpg
+     - assets/plastic_juice.jpg
      - assets/coke_can.jpg
      - assets/metal_food_can.jpg
      - assets/milk_glass.jpg
      - assets/glass_jar.jpg
+     - assets/glass_bottle.jpg
+     - assets/plastic_2liter.jpg
+     -
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

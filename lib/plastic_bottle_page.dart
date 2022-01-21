@@ -1,13 +1,14 @@
+import 'package:cleantrash_app/scroll_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cleantrash_app/home_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class MetalPage extends StatefulWidget{
+class PlasticBottlePage extends StatefulWidget{
   @override
-  _MetalPageState createState() => _MetalPageState();
+  _PlasticBottlePageState createState() => _PlasticBottlePageState();
 }
 
-class _MetalPageState extends State<MetalPage>{
+class _PlasticBottlePageState extends State<PlasticBottlePage>{
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context){
@@ -30,11 +31,12 @@ class _MetalPageState extends State<MetalPage>{
       ),
       body: Container(
         color: primaryColor,
-        child: Image.asset('assets/metal_food_can.jpg',
-          height: fheight,
-          width: fwidth,
-          fit: BoxFit.fill, ),
+        child: Image.asset('assets/plastic_water_bottle.jpg',
+            height: fheight,
+            width: fwidth,
+            fit: BoxFit.fitWidth),
       ),
+
     );
   }
 }
@@ -65,6 +67,7 @@ void _appModalBottomSheet(context){
                   ),
                 ],
               ),
+
               Text(
                 "See similiar",
                 style: TextStyle(fontSize: 25),
@@ -79,25 +82,25 @@ void _appModalBottomSheet(context){
                         height: 150,
                         width: 150,
                         child: Card(
-                          child: Image.asset('assets/coke_can.jpg'),
+                          child: Image.asset('assets/plastic_soda.jpg'),
                         ),
                       ),
                       Container(
-                          //color: primaryColor,
+                        //color: primaryColor,
                           margin: EdgeInsets.all(8),
                           height: 150,
                           width: 150,
                           child: Card(
-                              child: Image.asset('assets/glass_jar.jpg')
+                              child: Image.asset('assets/plastic_juice.jpg')
                           )
                       ),
                       Container(
-                          //color: primaryColor,
+                        //color: primaryColor,
                           margin: EdgeInsets.all(8),
                           height: 150,
                           width: 150,
                           child: Card(
-                              child: Image.asset('assets/plastic_water_bottle.jpg')
+                              child: Image.asset('assets/plastic_2liter.jpg')
                           )
                       ),
                     ],
@@ -107,25 +110,9 @@ void _appModalBottomSheet(context){
                 "It's Recycable",
                 style: TextStyle(fontSize: 25),
               ),
-              Text("Instructions:\n1. Rinse can with warm water. May have to repeat this step a few times to completly remove food from can"
-                  "\n2. Place lid into can after rinsing",
+              Text("Instructions:\n1. Fill detergent bottle with warm watter and let it stand for about 30 mins."
+                  "\n2. Rinse with warm water. If water comes out foamy repeat step 1 again.",
                 style: TextStyle(fontSize:20),
-              ),
-              Row(
-                children: [
-                  Spacer(),
-                  IconButton(
-                    icon: Icon(Icons.cancel, color: Colors.red, size:30,),
-                    alignment: Alignment.topRight,
-                    onPressed: (){
-                      print("Pressed");
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeView()),
-                      );
-                    },
-                  ),
-                ],
               ),
             ],
           ),
@@ -134,9 +121,3 @@ void _appModalBottomSheet(context){
     ),
   );
 }
-
-Widget buildCard() => Container(
-  width: 150,
-  height: 150,
-  color: Colors.grey,
-);

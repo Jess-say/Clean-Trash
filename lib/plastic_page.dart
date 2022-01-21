@@ -1,13 +1,14 @@
+import 'package:cleantrash_app/scroll_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cleantrash_app/home_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class PlasticPage extends StatefulWidget{
+class PlasticLaundryPage extends StatefulWidget{
   @override
-  _PlasticPageState createState() => _PlasticPageState();
+  _PlasticLaundryPageState createState() => _PlasticLaundryPageState();
 }
 
-class _PlasticPageState extends State<PlasticPage>{
+class _PlasticLaundryPageState extends State<PlasticLaundryPage>{
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context){
@@ -67,16 +68,43 @@ void _appModalBottomSheet(context){
                 ],
               ),
 
-              Row(
-                children: [
-                  buildCard(),
-                  SizedBox(width:12),
-                  buildCard(),
-                  SizedBox(width:12),
-                  buildCard(),
-                  SizedBox(width:12),
-
-                ],
+              Text(
+                "See similiar",
+                style: TextStyle(fontSize: 25),
+              ),
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        //color: primaryColor,
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        child: Card(
+                          child: Image.asset('assets/plastic_laundry_bottle2.jpg'),
+                        ),
+                      ),
+                      Container(
+                        //color: primaryColor,
+                          margin: EdgeInsets.all(8),
+                          height: 150,
+                          width: 150,
+                          child: Card(
+                              child: Image.asset('assets/plastic_laundry_bottle3.jpg')
+                          )
+                      ),
+                      Container(
+                        //color: primaryColor,
+                          margin: EdgeInsets.all(8),
+                          height: 150,
+                          width: 150,
+                          child: Card(
+                              child: Image.asset('assets/plastic_laundry_tub.jpg')
+                          )
+                      ),
+                    ],
+                  )
               ),
               Text(
                 "It's Recycable",
@@ -93,9 +121,3 @@ void _appModalBottomSheet(context){
     ),
   );
 }
-
-Widget buildCard() => Container(
-  width: 150,
-  height: 150,
-  color: Colors.grey,
-);

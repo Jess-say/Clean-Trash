@@ -65,23 +65,44 @@ void _appModalBottomSheet(context){
                     },
                   ),
                 ],
-
               ),
-              Row(
-                children: [
-                  ElevatedButton(
-                      child: Text("See similar"),
-                      onPressed: (){
-                        print("Pressed");
-                        Navigator.push(
-                            context,
-                          MaterialPageRoute(
-                              builder: (context) => ScrollPage()
-                          ),
-                        );
-                      }
+              Text(
+                "See similiar",
+                style: TextStyle(fontSize: 25),
+              ),
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        //color: primaryColor,
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        child: Card(
+                          child: Image.asset('assets/glass_bottle.jpg'),
+                        ),
+                      ),
+                      Container(
+                        //color: primaryColor,
+                          margin: EdgeInsets.all(8),
+                          height: 150,
+                          width: 150,
+                          child: Card(
+                              child: Image.asset('assets/milk_glass.jpg')
+                          )
+                      ),
+                      Container(
+                        //color: primaryColor,
+                          margin: EdgeInsets.all(8),
+                          height: 150,
+                          width: 150,
+                          child: Card(
+                              child: Image.asset('assets/glass_jar.jpg')
+                          )
+                      ),
+                    ],
                   )
-                ],
               ),
               Text(
                 "It's Recycable",
@@ -91,6 +112,17 @@ void _appModalBottomSheet(context){
                   "\n2. Place bottle in appropriate bin deicated to recycling and discard the lid of the bottle",
                 style: TextStyle(fontSize:20),
               ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  print("pressed");
+                },
+                child: const Text('Recycle'),
+                ),
             ],
           ),
         ),
