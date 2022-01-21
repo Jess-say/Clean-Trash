@@ -43,6 +43,7 @@ class _PlasticLaundryPageState extends State<PlasticLaundryPage>{
 
 void _appModalBottomSheet(context){
   showModalBottomSheet(
+    isScrollControlled: true,
     context: context,
     builder: (context) => SafeArea(
       child: Padding(
@@ -114,6 +115,58 @@ void _appModalBottomSheet(context){
                         "\n2. Rinse with warm water. If water comes out foamy repeat step 1 again.",
                   style: TextStyle(fontSize:20),
               ),
+              ElevatedButton(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  _appModalBottomSheet2(context);
+                  print("pressed");
+                },
+                child: const Text('Recycle'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+void _appModalBottomSheet2(context){
+  showModalBottomSheet(
+    isScrollControlled: true,
+    context: context,
+    builder: (context) => SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height * .80,
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: [
+                  Spacer(),
+                  IconButton(
+                    icon: Icon(Icons.cancel, color: Colors.red, size:30,),
+                    alignment: Alignment.topRight,
+                    onPressed: (){
+                      print("Pressed");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeView()),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              Text(
+                "Thank you for recycling ",
+                style: TextStyle(fontSize: 25),
+              ),
+
             ],
           ),
         ),

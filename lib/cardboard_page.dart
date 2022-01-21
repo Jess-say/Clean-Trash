@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:cleantrash_app/home_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class MetalPage extends StatefulWidget{
+class CardboardPage extends StatefulWidget{
   @override
-  _MetalPageState createState() => _MetalPageState();
+  _CardboardPageState createState() => _CardboardPageState();
 }
 
-class _MetalPageState extends State<MetalPage>{
+class _CardboardPageState extends State<CardboardPage>{
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context){
@@ -30,7 +30,7 @@ class _MetalPageState extends State<MetalPage>{
       ),
       body: Container(
         color: primaryColor,
-        child: Image.asset('assets/metal_food_can.jpg',
+        child: Image.asset('assets/cardboard.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill, ),
@@ -47,7 +47,7 @@ void _appModalBottomSheet(context){
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * .80,
+          height: MediaQuery.of(context).size.height * .65,
           child: Column(
             children: <Widget>[
               Row(
@@ -80,20 +80,20 @@ void _appModalBottomSheet(context){
                         height: 150,
                         width: 150,
                         child: Card(
-                          child: Image.asset('assets/coke_can.jpg'),
+                          child: Image.asset('assets/cardboard-bundled.jpg'),
                         ),
                       ),
                       Container(
-                          //color: primaryColor,
+                        //color: primaryColor,
                           margin: EdgeInsets.all(8),
                           height: 150,
                           width: 150,
                           child: Card(
-                              child: Image.asset('assets/glass_jar.jpg')
+                              child: Image.asset('assets/cardboard_box.jpg')
                           )
                       ),
                       Container(
-                          //color: primaryColor,
+                        //color: primaryColor,
                           margin: EdgeInsets.all(8),
                           height: 150,
                           width: 150,
@@ -108,8 +108,7 @@ void _appModalBottomSheet(context){
                 "It's Recycable",
                 style: TextStyle(fontSize: 25),
               ),
-              Text("Instructions:\n1. Scrape any left over food residue off the can"
-                  "\n2. Rinse can \n3.Place lid into can after rinsing",
+              Text("Instructions:\n1. Make sure it's clean dry otherwise not recycable \n 2.Place in recycling bin",
                 style: TextStyle(fontSize:20),
               ),
               ElevatedButton(

@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/cardboard_page.dart';
 import 'package:cleantrash_app/glass_page.dart';
 import 'package:cleantrash_app/metal_page.dart';
 import 'package:cleantrash_app/plastic_bottle_page.dart';
@@ -93,6 +94,17 @@ class _HomeViewState extends State<HomeView>{
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => MetalPage()
+                          ),
+                        );
+                      },
+                    ),
+                    ElevatedButton(
+                      child: Text('Cardboard'),
+                      onPressed: (){
+                        print("Pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => CardboardPage()
                           ),
                         );
                       },

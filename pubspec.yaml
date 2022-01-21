@@ -74,7 +74,11 @@ flutter:
      - assets/glass_jar.jpg
      - assets/glass_bottle.jpg
      - assets/plastic_2liter.jpg
-     -
+     - assets/cardboard.jpg
+     - assets/cardboard-bundled.jpg
+     - assets/eggcartonpaper.jpg
+     - assets/cereal.jpg
+     - assets/cardboard_box.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
