@@ -189,7 +189,7 @@ void _appModalBottomSheet(context) {
                             barrierDismissible: false,
                             context: context,
                             builder: (_) => const CustomAlert(
-                                "Awesome! You logged your first item! Did you know that Americans dispose fdhshfkjdhkfsdsfhdkfshdsfhd fshd of 10 million metric tons of glass anually."),
+                                "Awesome! You logged your first item! Did you know that Steel is the most recycled material in North America—more than cardboard or paper!"),
                           );
                           print("pressed Recyle Button");
                         },
