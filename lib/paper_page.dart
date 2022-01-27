@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:cleantrash_app/home_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class CardboardPage extends StatefulWidget{
+class PaperPage extends StatefulWidget{
   @override
-  _CardboardPageState createState() => _CardboardPageState();
+  _PaperPageState createState() => _PaperPageState();
 }
 
-class _CardboardPageState extends State<CardboardPage>{
+class _PaperPageState extends State<PaperPage>{
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context){
@@ -30,7 +30,7 @@ class _CardboardPageState extends State<CardboardPage>{
       ),
       body: Container(
         color: primaryColor,
-        child: Image.asset('assets/cardboard.jpg',
+        child: Image.asset('assets/eggcartonpaper.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill, ),
@@ -80,7 +80,7 @@ void _appModalBottomSheet(context){
                         height: 150,
                         width: 150,
                         child: Card(
-                          child: Image.asset('assets/cardboard-bundled.jpg'),
+                          child: Image.asset('assets/cereal.jpg'),
                         ),
                       ),
                       Container(
