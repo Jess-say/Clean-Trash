@@ -2,6 +2,7 @@ import 'package:cleantrash_app/scroll_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cleantrash_app/home_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cleantrash_app/recycled_pop_up.dart';
 
 class GlassPage extends StatefulWidget{
   @override
@@ -120,8 +121,8 @@ void _appModalBottomSheet(context){
                   textStyle: const TextStyle(fontSize: 20),
                 ),
                 onPressed: () {
-                  _appModalBottomSheet2(context);
-                  print("pressed");
+                  showDialog(context: context, builder: (_) => const CustomAlert("Awesome! You logged your first item! Did you know that Americans dispose of 10 million metric tons of glass anually."),);
+                  print("pressed Recyle Button");
                 },
                 child: const Text('Recycle'),
               ),
@@ -131,6 +132,58 @@ void _appModalBottomSheet(context){
       ),
     ),
   );
+}
+
+class CustomAlert extends StatelessWidget {
+  final String message;
+
+  const CustomAlert(this.message, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+   
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0)
+      ),
+      child: Stack(
+        clipBehavior: Clip.none, alignment: Alignment.topCenter,
+        children: [
+          SizedBox(
+            height: 350,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
+              child: Column(
+                children: [
+                  const Text('Way to go!', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                  const SizedBox(height: 15,),
+                  Text(message, style: const TextStyle(fontSize: 20),),
+                  const SizedBox(height: 25,),
+                  ElevatedButton(onPressed: () {
+                    //Navigator.of(context).pop();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeView()),
+                      );
+                  },
+                    child: const Text('Yay! I recycled!', style: TextStyle(color: Colors.white),),
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Positioned(
+            top: -60,
+            child: CircleAvatar(
+              backgroundColor: Color.fromARGB(255, 72, 194, 135),
+              radius: 60,
+              child: Icon(Icons.star, color: Colors.white, size: 50,),
+            )
+          ),
+        ],
+      )
+    );
+  }
 }
 
 void _appModalBottomSheet2(context){
