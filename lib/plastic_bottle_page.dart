@@ -123,6 +123,31 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/plastic_bottle1.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
                                 child: Image.asset('assets/plastic_soda.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
@@ -167,6 +192,7 @@ void _appModalBottomSheet(context) {
                               ],
                             ),
                           ),
+
                         ],
                       )),
                   infoSection0,

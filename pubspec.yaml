@@ -90,6 +90,10 @@ flutter:
      - assets/alum_container.jpg
      - assets/towelrolls.jpg
      - assets/tissue_box.jpg
+     - assets/coffee.jpg
+     - assets/persil_pod.jpg
+     - assets/soda_can1.jpg
+     - assets/plastic_bottle1.jpg
 
      - assets/labels.txt
      - assets/model_unquant.tflite

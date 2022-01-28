@@ -286,7 +286,9 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Make sure it's clean and dry otherwise it is not recycable. Flatten down the cardboard. Place in recycling bin",
+              "Make sure it's clean and dry otherwise it is not recycable. "
+                  "If there is tape please remove. "
+                  "Flatten down the cardboard. Place in recycling bin",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
