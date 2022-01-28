@@ -126,7 +126,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/metal_food_can.jpg'),
+                                child: Image.asset('assets/metal_foil.png'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -153,7 +153,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/metal_food_can.jpg'),
+                                child: Image.asset('assets/alum_container.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),

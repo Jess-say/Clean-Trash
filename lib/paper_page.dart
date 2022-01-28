@@ -31,7 +31,7 @@ class _PaperPageState extends State<PaperPage> {
       body: Container(
         color: primaryColor,
         child: Image.asset(
-          'assets/eggcartonpaper.jpg',
+          'assets/cereal.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill,
@@ -99,7 +99,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/cardboard.jpg'),
+                                child: Image.asset('assets/cereal1.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -126,7 +126,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/eggcartonpaper.jpg'),
+                                child: Image.asset('assets/eggo_paper.png'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -153,7 +153,32 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/cereal.jpg'),
+                                child: Image.asset('assets/eggcartonpaper.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/paper.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -258,7 +283,9 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Instructions here.",
+              "Remove cereal bag from the box and either recycle or discard according to box recycle logo. "
+                  "Check to make sure there are no left over cereal or crumbs in the box. "
+                  "Then flatten your box and place in appropriate bin.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

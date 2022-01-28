@@ -101,7 +101,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/cardboard.jpg'),
+                                child: Image.asset('assets/towelrolls.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -157,6 +157,31 @@ void _appModalBottomSheet(context) {
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.asset('assets/cardboard_box.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/tissue_box.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -261,7 +286,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Make sure it's clean dry otherwise it is not recycable. Flatten down the cardboard. Place in recycling bin",
+              "Make sure it's clean and dry otherwise it is not recycable. Flatten down the cardboard. Place in recycling bin",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

@@ -83,6 +83,14 @@ flutter:
      - assets/eggcartonpaper.jpg
      - assets/cereal.jpg
      - assets/cardboard_box.jpg
+     - assets/eggo_paper.png
+     - assets/metal_foil.png
+     - assets/cereal1.jpg
+     - assets/paper.jpg
+     - assets/alum_container.jpg
+     - assets/towelrolls.jpg
+     - assets/tissue_box.jpg
+
      - assets/labels.txt
      - assets/model_unquant.tflite
 
