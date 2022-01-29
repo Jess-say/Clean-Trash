@@ -47,6 +47,9 @@ void _appModalBottomSheet(context) {
   showModalBottomSheet(
     isScrollControlled: true,
     context: context,
+    shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+        ),
     builder: (context) => SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(12.0),

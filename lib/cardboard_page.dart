@@ -47,6 +47,9 @@ void _appModalBottomSheet(context) {
   showModalBottomSheet(
     isScrollControlled: true,
     context: context,
+    shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+        ),
     builder: (context) => SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -202,25 +205,27 @@ void _appModalBottomSheet(context) {
                       )),
                   infoSection0,
                   infoSection1,
-                  ElevatedButton(
-                    style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(18.0),
-                        primary: Colors.white,
-                        textStyle: const TextStyle(fontSize: 18),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                    onPressed: () {
-                      showDialog(
-                        barrierDismissible: false,
-                        context: context,
-                        builder: (_) => const CustomAlert(
-                            "Awesome! You logged your first item! Did you know that Recycling cardboard only takes 75% of the energy needed to make new cardboard."),
-                      );
-                      print("pressed Recyle Button");
-                    },
-                    child: const Text('Recycle'),
-                  )
+                  Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                      child: ElevatedButton(
+                        style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(18.0),
+                            primary: Colors.white,
+                            textStyle: const TextStyle(fontSize: 18),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )),
+                        onPressed: () {
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (_) => const CustomAlert(
+                                  "Awesome! You logged your first item! Did you know that Recycling cardboard only takes 75% of the energy needed to make new cardboard."),
+                          );
+                          print("pressed Recyle Button");
+                        },
+                        child: const Text('Recycle'),
+                      )),
                 ],
               ),
             ],
