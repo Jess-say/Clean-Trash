@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
+import '/screens/home/home_view.dart';
 
 class CustomAlert extends StatelessWidget {
   final String message;

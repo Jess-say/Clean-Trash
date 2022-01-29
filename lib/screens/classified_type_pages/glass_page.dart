@@ -1,7 +1,7 @@
-import 'package:cleantrash_app/scroll_page.dart';
+//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
-import 'package:cleantrash_app/custom_alert.dart';
+import '/screens/home/home_view.dart';
+import 'components/custom_alert.dart';
 
 class GlassPage extends StatefulWidget {
   const GlassPage({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _GlassPageState extends State<GlassPage> {
       body: Container(
         color: primaryColor,
         child: Image.asset(
-          'assets/glass_soda.jpg',
+          'assets/images/glass_soda.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill,
@@ -104,7 +104,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/glass_bottle.jpg'),
+                                child: Image.asset('assets/images/glass_bottle.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -131,7 +131,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/milk_glass.jpg'),
+                                child: Image.asset('assets/images/milk_glass.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -158,7 +158,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/glass_jar.jpg'),
+                                child: Image.asset('assets/images/glass_jar.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -183,7 +183,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/coffee.jpg'),
+                                child: Image.asset('assets/images/coffee.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),

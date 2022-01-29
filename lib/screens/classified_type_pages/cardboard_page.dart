@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cleantrash_app/custom_alert.dart';
+import '/screens/home/home_view.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
+import 'components/custom_alert.dart';
 
-class MetalPage extends StatefulWidget {
+
+class CardboardPage extends StatefulWidget {
+  const CardboardPage({Key? key}) : super(key: key);
+
   @override
-  _MetalPageState createState() => _MetalPageState();
+  _CardboardPageState createState() => _CardboardPageState();
 }
 
-class _MetalPageState extends State<MetalPage> {
+class _CardboardPageState extends State<CardboardPage> {
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class _MetalPageState extends State<MetalPage> {
       body: Container(
         color: primaryColor,
         child: Image.asset(
-          'assets/metal_food_can.jpg',
+          'assets/images/cardboard.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill,
@@ -102,7 +105,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/coke_can.jpg'),
+                                child: Image.asset('assets/images/towelrolls.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -129,7 +132,8 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/metal_foil.png'),
+                                child:
+                                    Image.asset('assets/images/cardboard-bundled.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -156,7 +160,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/alum_container.jpg'),
+                                child: Image.asset('assets/images/cardboard_box.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -181,7 +185,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/soda_can1.jpg'),
+                                child: Image.asset('assets/images/tissue_box.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -217,12 +221,11 @@ void _appModalBottomSheet(context) {
                             barrierDismissible: false,
                             context: context,
                             builder: (_) => const CustomAlert(
-                              "Awesome! Thank you for recyling correctly! Did you know that 1 in 4 items placed in recycling bins are in fact not recyclabe."),
-                                /*"Awesome! You logged your first item! Did you know that Steel is the most recycled material in North America—more than cardboard or paper!"),*/
+                                  "Awesome! You logged your first item! Did you know that Recycling cardboard only takes 75% of the energy needed to make new cardboard."),
                           );
                           print("pressed Recyle Button");
                         },
-                        child: const Text('Throw Away'),
+                        child: const Text('Recycle'),
                       )),
                 ],
               ),
@@ -247,7 +250,7 @@ Widget infoSection0 = Container(
             Container(
               padding: const EdgeInsets.only(bottom: 5, top: 5),
               child: const Text(
-                'It\'s Not Recyclable!',
+                'It\'s Recyclable!',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -255,7 +258,7 @@ Widget infoSection0 = Container(
               ),
             ),
             Text(
-              "Do Not Recyle in Riverside County.",
+              "Recyle in Riverside County.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
@@ -289,8 +292,9 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Place in trash can.",
-              /*"Scrape any food residue off the can. Rinse can. Place the lid inside the can.",*/
+              "Make sure it's clean and dry otherwise it is not recycable. "
+                  "If there is tape please remove. "
+                  "Flatten down the cardboard. Place in recycling bin",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

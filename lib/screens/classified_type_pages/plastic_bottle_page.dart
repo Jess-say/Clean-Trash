@@ -1,14 +1,15 @@
+//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cleantrash_app/custom_alert.dart';
+import '/screens/home/home_view.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
+import 'components/custom_alert.dart';
 
-class PaperPage extends StatefulWidget {
+class PlasticBottlePage extends StatefulWidget {
   @override
-  _PaperPageState createState() => _PaperPageState();
+  _PlasticBottlePageState createState() => _PlasticBottlePageState();
 }
 
-class _PaperPageState extends State<PaperPage> {
+class _PlasticBottlePageState extends State<PlasticBottlePage> {
   final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,8 @@ class _PaperPageState extends State<PaperPage> {
       ]),
       body: Container(
         color: primaryColor,
-        child: Image.asset(
-          'assets/cereal.jpg',
-          height: fheight,
-          width: fwidth,
-          fit: BoxFit.fill,
-        ),
+        child: Image.asset('assets/images/plastic_water_bottle.jpg',
+            height: fheight, width: fwidth, fit: BoxFit.fitWidth),
       ),
     );
   }
@@ -102,7 +99,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/cereal1.jpg'),
+                                child: Image.asset('assets/images/plastic_2liter.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -129,7 +126,32 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/eggo_paper.png'),
+                                child: Image.asset('assets/images/plastic_bottle1.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/images/plastic_soda.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -156,7 +178,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/eggcartonpaper.jpg'),
+                                child: Image.asset('assets/images/plastic_juice.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -173,31 +195,7 @@ void _appModalBottomSheet(context) {
                               ],
                             ),
                           ),
-                          Container(
-                            //color: primaryColor,
-                            margin: const EdgeInsets.all(8),
-                            height: 120,
-                            width: 125,
-                            child: Card(
-                              child: Container(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/paper.jpg'),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            decoration: const BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 214, 214, 214),
-                                  blurRadius: 5.0,
-                                  offset: Offset(0, 7),
-                                ),
-                              ],
-                            ),
-                          ),
+
                         ],
                       )),
                   infoSection0,
@@ -215,7 +213,7 @@ void _appModalBottomSheet(context) {
                         barrierDismissible: false,
                         context: context,
                         builder: (_) => const CustomAlert(
-                            "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
+                            "Awesome! You logged your first item! Did you know that recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more."),
                       );
                       print("pressed Recyle Button");
                     },
@@ -286,9 +284,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Remove cereal bag from the box and either recycle or discard according to box recycle logo. "
-                  "Check to make sure there are no left over cereal or crumbs in the box. "
-                  "Then flatten your box and place in appropriate bin.",
+              "Rinse with warm water. Check if liquid is clear if not rinse again.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

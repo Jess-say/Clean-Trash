@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import '/screens/home/home_view.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 
 class ScrollPage extends StatefulWidget{
   @override

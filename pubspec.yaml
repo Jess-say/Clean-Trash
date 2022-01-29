@@ -35,6 +35,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0
+  image_picker: ^0.8.4+5
+  flutter_svg: ^1.0.3
   #image_picker: ^0.8.4+4
   #meta: ^1.7.0
   #tflite: ^1.1.2
@@ -64,39 +66,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/plastic_laundry_bottle1.jpg
-     - assets/plastic_laundry_bottle2.jpg
-     - assets/plastic_laundry_bottle3.jpg
-     - assets/plastic_laundry_tub.jpg
-     - assets/glass_soda.jpg
-     - assets/plastic_water_bottle.jpg
-     - assets/plastic_soda.jpg
-     - assets/plastic_juice.jpg
-     - assets/coke_can.jpg
-     - assets/metal_food_can.jpg
-     - assets/milk_glass.jpg
-     - assets/glass_jar.jpg
-     - assets/glass_bottle.jpg
-     - assets/plastic_2liter.jpg
-     - assets/cardboard.jpg
-     - assets/cardboard-bundled.jpg
-     - assets/eggcartonpaper.jpg
-     - assets/cereal.jpg
-     - assets/cardboard_box.jpg
-     - assets/eggo_paper.png
-     - assets/metal_foil.png
-     - assets/cereal1.jpg
-     - assets/paper.jpg
-     - assets/alum_container.jpg
-     - assets/towelrolls.jpg
-     - assets/tissue_box.jpg
-     - assets/coffee.jpg
-     - assets/persil_pod.jpg
-     - assets/soda_can1.jpg
-     - assets/plastic_bottle1.jpg
-
-     - assets/labels.txt
-     - assets/model_unquant.tflite
+    - assets/icons/
+    - assets/images/
+    - assets/model/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

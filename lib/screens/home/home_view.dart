@@ -1,10 +1,11 @@
-import 'package:cleantrash_app/cardboard_page.dart';
-import 'package:cleantrash_app/glass_page.dart';
-import 'package:cleantrash_app/metal_page.dart';
-import 'package:cleantrash_app/paper_page.dart';
-import 'package:cleantrash_app/plastic_bottle_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/plastic_page.dart';
+import '../classified_type_pages/cardboard_page.dart';
+import '../classified_type_pages/glass_page.dart';
+import '../classified_type_pages/metal_page.dart';
+import '../classified_type_pages/paper_page.dart';
+import '../classified_type_pages/plastic_bottle_page.dart';
+import '../classified_type_pages/plastic_page.dart';
+
 
 class HomeView extends StatefulWidget{
 

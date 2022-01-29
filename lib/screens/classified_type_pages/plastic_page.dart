@@ -1,8 +1,8 @@
-import 'package:cleantrash_app/scroll_page.dart';
+//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import 'package:cleantrash_app/home_view.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cleantrash_app/custom_alert.dart';
+import '/screens/home/home_view.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
+import 'components/custom_alert.dart';
 
 class PlasticLaundryPage extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _PlasticLaundryPageState extends State<PlasticLaundryPage> {
       ]),
       body: Container(
         color: primaryColor,
-        child: Image.asset('assets/plastic_laundry_bottle1.jpg',
+        child: Image.asset('assets/images/plastic_laundry_bottle1.jpg',
             height: fheight, width: fwidth, fit: BoxFit.fitWidth),
       ),
     );
@@ -100,7 +100,7 @@ void _appModalBottomSheet(context) {
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.asset(
-                                    'assets/plastic_laundry_bottle1.jpg'),
+                                    'assets/images/plastic_laundry_bottle1.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -128,7 +128,7 @@ void _appModalBottomSheet(context) {
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.asset(
-                                    'assets/plastic_laundry_bottle2.jpg'),
+                                    'assets/images/plastic_laundry_bottle2.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -156,7 +156,7 @@ void _appModalBottomSheet(context) {
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.asset(
-                                    'assets/persil_pod.jpg'),
+                                    'assets/images/persil_pod.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -182,7 +182,7 @@ void _appModalBottomSheet(context) {
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Image.asset(
-                                    'assets/plastic_laundry_bottle3.jpg'),
+                                    'assets/images/plastic_laundry_bottle3.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
