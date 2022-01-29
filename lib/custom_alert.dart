@@ -32,7 +32,7 @@ class CustomAlert extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => HomeView()),
                       );
                   },
-                    child: const Text('Yay! I recycled!', style: TextStyle(color: Colors.white),),
+                    child: const Text('Yay! I helped!', style: TextStyle(color: Colors.white),),
                   )
                 ],
               ),

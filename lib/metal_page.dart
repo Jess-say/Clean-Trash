@@ -217,11 +217,12 @@ void _appModalBottomSheet(context) {
                             barrierDismissible: false,
                             context: context,
                             builder: (_) => const CustomAlert(
-                                "Awesome! You logged your first item! Did you know that Steel is the most recycled material in North America—more than cardboard or paper!"),
+                              "Awesome! Thank you for recyling correctly! Did you know that 1 in 4 items placed in recycling bins are in fact not recyclabe."),
+                                /*"Awesome! You logged your first item! Did you know that Steel is the most recycled material in North America—more than cardboard or paper!"),*/
                           );
                           print("pressed Recyle Button");
                         },
-                        child: const Text('Recycle'),
+                        child: const Text('Throw Away'),
                       )),
                 ],
               ),
@@ -288,7 +289,8 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Scrape any food residue off the can. Rinse can. Place the lid inside the can.",
+              "Place in trash can.",
+              /*"Scrape any food residue off the can. Rinse can. Place the lid inside the can.",*/
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
