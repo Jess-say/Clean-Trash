@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../styles.dart';
+import '../../camera/camera.dart';
 
 class RecomendsClasses2 extends StatelessWidget {
   const RecomendsClasses2({
@@ -58,7 +59,14 @@ class RecomendClassCard extends StatelessWidget {
         children: <Widget>[
           Image.asset(image),
           GestureDetector(
-            //onTap: press,
+            onTap: (){
+              print("Pressed");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CameraPage()
+                ),
+              );
+            },
             child: Container(
               padding: const EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
