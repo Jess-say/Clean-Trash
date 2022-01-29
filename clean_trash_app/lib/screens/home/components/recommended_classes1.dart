@@ -15,20 +15,46 @@ class RecomendsClasses extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: <Widget>[
-          RecomendClassCard(
-            image: "assets/images/green_plastic_bottle.png",
-            title: "Plastic",
-            press: () {},
+          GestureDetector(
+            onTap: () {
+              print("Pressed Plastic");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CameraPage()),
+              );
+            },
+            child: const RecomendClassCard(
+              image: "assets/images/green_plastic_bottle.png",
+              title: "Plastic",
+              
+            ),
           ),
-          RecomendClassCard(
-            image: "assets/images/green_cardboard_box.png",
-            title: "Cardboard",
-            press: () {},
+          GestureDetector(
+            onTap: () {
+              print("Pressed Cardboard");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CameraPage()),
+              );
+            },
+            child: const RecomendClassCard(
+              image: "assets/images/green_cardboard_box.png",
+              title: "Cardboard",
+              
+            ),
           ),
-          RecomendClassCard(
-            image: "assets/images/green_glass_bottle.png",
-            title: "Glass",
-            press: () {},
+          GestureDetector(
+            onTap: () {
+              print("Pressed Glass");
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CameraPage()),
+              );
+            },
+            child: const RecomendClassCard(
+              image: "assets/images/green_glass_bottle.png",
+              title: "Glass",
+            ),
           ),
         ],
       ),
@@ -41,11 +67,10 @@ class RecomendClassCard extends StatelessWidget {
     Key? key,
     required this.image,
     required this.title,
-    required this.press,
   }) : super(key: key);
 
   final String image, title;
-  final Function press;
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,49 +81,40 @@ class RecomendClassCard extends StatelessWidget {
         bottom: kDefaultPadding * 2.5,
       ),
       width: size.width * 0.26,
+      // add gesture detector here??
       child: Column(
         children: <Widget>[
           Image.asset(image),
-          GestureDetector(
-            onTap: (){
-              print("Pressed");
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CameraPage()
-                ),
-              );
-            },
-            child: Container(
-              padding: const EdgeInsets.all(kDefaultPadding / 2),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: const Offset(0, 10),
-                    blurRadius: 50,
-                    color: kPrimaryColor.withOpacity(0.23),
-                  ),
-                ],
+          Container(
+            padding: const EdgeInsets.all(kDefaultPadding / 2),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
               ),
-              child: Row(
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                            text: title.toUpperCase(),
-                            style: Theme.of(context).textTheme.button),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 10),
+                  blurRadius: 50,
+                  color: kPrimaryColor.withOpacity(0.23),
+                ),
+              ],
             ),
-          )
+            child: Row(
+              children: <Widget>[
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text: title.toUpperCase(),
+                          style: Theme.of(context).textTheme.button),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

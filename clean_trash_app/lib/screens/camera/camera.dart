@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cleantrash_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:path_provider/path_provider.dart';
 import 'package:image_picker/image_picker.dart';
@@ -39,6 +40,7 @@ class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         // ignore: unnecessary_null_comparison
         child: _image == null ? const Text("No Images Selected") : Image.file(_image!),
