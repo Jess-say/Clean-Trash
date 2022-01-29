@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/home/home_view.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: HomeView(),
+      home: HomeScreen(),
     );
   }
 }
