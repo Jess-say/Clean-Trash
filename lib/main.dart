@@ -16,7 +16,6 @@
 //  }
 //}
 
-import 'package:cleantrash_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'home_view.dart';
 
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: HomeScreen(),
+      home: HomeView(),
     );
   }
 }

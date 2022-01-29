@@ -35,14 +35,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.0.0
-
-  # We wll add our dependecies here
-  #Search flutter_svg in Dart Packages
-  flutter_svg: ^1.0.0
-  #Search path_provider in Dart Packages
-  path_provider: ^2.0.8
-  #Search image_picker in Dart Packages
-  image_picker: ^0.8.4+4
+  #image_picker: ^0.8.4+4
+  #meta: ^1.7.0
+  #tflite: ^1.1.2
 
 
 dev_dependencies:
@@ -99,8 +94,7 @@ flutter:
      - assets/persil_pod.jpg
      - assets/soda_can1.jpg
      - assets/plastic_bottle1.jpg
-     - assets/icons/
-     - assets/images/
+
      - assets/labels.txt
      - assets/model_unquant.tflite
 
