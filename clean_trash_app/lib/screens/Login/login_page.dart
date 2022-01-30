@@ -1,163 +1,118 @@
 import 'package:flutter/material.dart';
-import '../ForgotPass/forgot_pass.dart';
-import '../Signup/signup_page.dart';
-import '../Login/colors.dart' as color;
+import 'input_form.dart';
+import 'create_account_page.dart';
+import 'forgot_pass.dart';
+import '../../theme.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: color.AppColor.homePageBackground,
-      body: Container(
-        padding: const EdgeInsets.only(top:70, left: 30, right: 30),
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
+      body: Padding(
+        padding: kDefaultPadding,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Text(
-                  "Clean Trash",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
-                SizedBox(
-                  height: 100,
-                ),
-              ],
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 200,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: <Widget>[
-                  inputFile(label: "Username"),
-                  inputFile(label: "Password", obscureText: true)
-                ],
-              ),
+            Text(
+              "Welcome Back",
+              style: titleText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            // LOGIN BUTTON
-            Column(
-              children: <Widget>[
-                MaterialButton(
-                  minWidth: double.infinity,
-                  height: 60,
-                  onPressed: () { /*Should lead to home page*/ },
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.green,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            // CREATE ACCOUNT BUTTON
-            Column(
-              children: <Widget>[
-                MaterialButton(
-                  minWidth: double.infinity,
-                  height: 60,
-                  // goes to create account page
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => CreateAccountPage()));
-                  },
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.green,
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Text(
-                    "Create Account",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 5,
+            const InputForm(),
+            const SizedBox(
+              height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                MaterialButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => ForgotPassPage()));
-                },
-                    child: Text(
+                MaterialButton(
+                  padding:const EdgeInsets.only(left: 0),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgotPassPage()));
+                    },
+                    child: const Text(
                       "Forgot Password?",
                       style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.green,
+                        color: kZambeziColor,
+                        fontSize: 14,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 1,
                       ),
-                    )
-                ),
+                    )),
               ],
             ),
+            // const Text(
+            //   "Forgot password?",
+            //   style: TextStyle(
+            //     color: kZambeziColor,
+            //     fontSize: 14,
+            //     decoration: TextDecoration.underline,
+            //     decorationThickness: 1,
+            //   ),
+            // ),
+            const SizedBox(
+              height: 50,
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  primary: kPrimaryColor, // background
+                  onPrimary: kWhiteColor, // foreground
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 125, vertical: 15),
+                ),
+                child: const Text(
+                  "LOG IN",
+                  style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 2.2,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CreateAccountPage()));
+                },
+                style: OutlinedButton.styleFrom(
+                  primary: kPrimaryColor,
+                  side: const BorderSide(width: 0.5, color: kDarkGreyColor),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 120, vertical: 15),
+                ),
+                child: const Text(
+                  "SIGN UP",
+                  style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 2.2,
+                  ),
+                ),
+              ),
+            ),
           ],
-        )
-      )
+        ),
+      ),
     );
   }
-
-}
-
-Widget inputFile({label, obscureText = false}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        label,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w300,
-          color: Colors.green,
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      TextField(
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.green
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.green
-            )
-          )
-        ),
-      ),
-    ],
-  );
 }

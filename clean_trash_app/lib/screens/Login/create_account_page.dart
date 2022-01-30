@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Login/colors.dart' as color;
+import 'colors.dart' as color;
 
 class CreateAccountPage extends StatelessWidget {
   @override
