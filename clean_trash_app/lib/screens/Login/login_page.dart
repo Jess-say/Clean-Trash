@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login/ForgotPass/forgot_pass.dart';
-import 'package:login/Login/colors.dart' as color;
-import 'package:login/Signup/signup_page.dart';
+import '../ForgotPass/forgot_pass.dart';
+import '../Signup/signup_page.dart';
+import '../Login/colors.dart' as color;
 
 class LoginPage extends StatelessWidget {
   @override
