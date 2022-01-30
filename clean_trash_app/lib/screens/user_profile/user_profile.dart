@@ -122,7 +122,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     hintText: "************",
                     hintStyle: const TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
@@ -206,7 +206,7 @@ Padding buildTextField(
         hintText: placeHolder,
         hintStyle: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
           color: Colors.black,
         ),
       ),
