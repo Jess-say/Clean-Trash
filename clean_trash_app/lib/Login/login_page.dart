@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget {
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: () { /*Should lead to home page*/ },
+                  onPressed: () { /*Should lead to create account page*/ },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       color: Colors.green,
@@ -92,6 +92,24 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 5,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                MaterialButton(onPressed: () {/* Goes to forget button page */},
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.green,
+                      ),
+                    )
+                ),
+              ],
+            )
           ],
         )
       )
