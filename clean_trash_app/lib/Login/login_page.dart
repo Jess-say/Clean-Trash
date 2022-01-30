@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/Login/colors.dart' as color;
+import 'package:login/Signup/signup_page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -73,7 +74,11 @@ class LoginPage extends StatelessWidget {
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: () { /*Should lead to create account page*/ },
+                  // goes to create account page
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => CreateAccountPage()));
+                  },
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                       color: Colors.green,
@@ -109,7 +114,7 @@ class LoginPage extends StatelessWidget {
                     )
                 ),
               ],
-            )
+            ),
           ],
         )
       )
