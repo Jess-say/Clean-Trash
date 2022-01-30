@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/screens/settings/settings.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -20,17 +21,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
             Icons.arrow_back,
             color: Colors.green,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()),
+            );
+          },
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.green,
-            ),
-          ),
-        ],
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 16, top: 25, right: 16),
@@ -108,18 +105,17 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 child: TextField(
                   obscureText: !showPassword,
                   decoration: InputDecoration(
-                    suffixIcon: 
-                        IconButton(
-                            icon: const Icon(
-                              Icons.remove_red_eye,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                showPassword = !showPassword;
-                              });
-                            },
-                          ),
+                    suffixIcon: IconButton(
+                      icon: const Icon(
+                        Icons.remove_red_eye,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          showPassword = !showPassword;
+                        });
+                      },
+                    ),
                     contentPadding: const EdgeInsets.only(bottom: 3),
                     labelText: "Password",
                     floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -135,13 +131,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
               //buildTextField("Password", "***********", true),
               buildTextField("Location", "Riverside, CA", false),
               const SizedBox(
-                height: 35,
+                height: 15,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                      );
+                    },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
