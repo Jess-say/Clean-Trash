@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'colors.dart' as color;
 import '../../theme.dart';
-import 'input_form.dart';
+import 'reset_form.dart';
 
 class ForgotPassPage extends StatelessWidget {
   @override
@@ -15,21 +15,24 @@ class ForgotPassPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Column(
-                children: [
-                  Text(
-                    "Reset Password",
-                    style: titleText,
-                  ),
-                ],
+            children: [
+              Text(
+                "Reset Password",
+                style: titleText,
               ),
               const SizedBox(
-                height: 20,
+                height: 5,
               ),
-              const InputForm(),
+              Text(
+                "Please eneter your email address",
+                style: subTitle.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
+              ),
               const SizedBox(
-                height: 60,
+                height: 40,
+              ),
+              const ResetForm(),
+              const SizedBox(
+                height: 40,
               ),
               Center(
                 child: Column(
