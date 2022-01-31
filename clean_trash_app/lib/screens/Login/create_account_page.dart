@@ -4,6 +4,7 @@ import 'login_page.dart';
 import 'colors.dart' as color;
 import 'package:provider/provider.dart';
 import 'user/auth.dart';
+import '../../theme.dart';
 
 class CreateAccPage extends StatefulWidget {
   const CreateAccPage({Key? key}) : super(key: key);
@@ -42,20 +43,13 @@ class _CreateAccPageState extends State<CreateAccPage> {
             Column(
               children: <Widget>[
                 Text(
-                  "Clean Trash",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
-                SizedBox(
-                  height: 100,
+                  "Create Account",
+                  style: titleText,
                 ),
               ],
             ),
-            SizedBox(
-              height: 80,
+            const SizedBox(
+              height: 30,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -95,66 +89,67 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 },
               ),
             ),
-            SizedBox(
-              height: 15,
+            const SizedBox(
+              height: 30,
             ),
-            Column(
-              children: <Widget>[
-                MaterialButton(
-                  minWidth: double.infinity,
-                  height: 60,
-                  onPressed: () async {
-                    final isValid = _formKey.currentState!.validate();
-                    await auth
-                        .SignUp(
-                        _email.text, _passw.text).then((value) {
-                      Navigator.push(context, MaterialPageRoute(builder:
-                          (context) => HomeScreen()));
-                    }).catchError((e) => print(e));
-                  },
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.green,
-                      width: 2,
+            Center(
+              child: Column(
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: () async {
+                      final isValid = _formKey.currentState!.validate();
+                      await auth
+                          .SignUp(
+                          _email.text, _passw.text).then((value) {
+                        Navigator.push(context, MaterialPageRoute(builder:
+                            (context) => HomeScreen()));
+                      }).catchError((e) => print(e));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: kPrimaryColor, // background
+                      onPrimary: kWhiteColor, // foreground
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 83, vertical: 14),
                     ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Text(
-                    "Create Account",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.green,
-                  ),
-                ),
-                MaterialButton(onPressed: () {
-                  Navigator.pop(context);
-                },
-                    child: Text(
-                      "Log in",
+                    child: const Text(
+                      "SIGN UP",
                       style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 1,
+                      ), //
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        "Already have an account?",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: kPrimaryColor,
+                        ),
                       ),
-                    )
-                ),
-              ],
-            )
+                      MaterialButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Log in",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor,
+                            ),
+                          )),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
