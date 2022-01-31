@@ -1,142 +1,163 @@
 import 'package:flutter/material.dart';
-
+import '../home/home_screen.dart';
+import 'login_page.dart';
 import 'colors.dart' as color;
+import 'package:provider/provider.dart';
+import 'user/auth.dart';
 
-class CreateAccountPage extends StatelessWidget {
+class CreateAccPage extends StatefulWidget {
+  const CreateAccPage({Key? key}) : super(key: key);
+
+  @override
+  _CreateAccPageState createState() => _CreateAccPageState();
+}
+
+class _CreateAccPageState extends State<CreateAccPage> {
+
+  final _email = TextEditingController();
+  final _passw = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _passw.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final auth = Provider.of<Auth>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: color.AppColor.homePageBackground,
-      body: SingleChildScrollView(
 
-        child: Container(
-          padding: const EdgeInsets.only(top:80, left: 30, right: 30),
-          height: MediaQuery.of(context).size.height,
-          width: double.infinity,
-          child: Column(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    "Create Account",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
+      body: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              children: <Widget>[
+                Text(
+                  "Clean Trash",
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 80,
-              ),
-              Column(
-                children: <Widget>[
-                  inputFile(label: "Email:"),
-                  inputFile(label: "Username:"),
-                  inputFile(label: "Password", obscureText: true),
-                  inputFile(label: "Confirm Password: ", obscureText: true)
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 3, left: 3),
+                ),
+                SizedBox(
+                  height: 100,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 80,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: TextFormField(
                 decoration:
-                  BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border(
-                      bottom: BorderSide(color: Colors.green),
-                      top: BorderSide(color: Colors.green),
-                      left: BorderSide(color: Colors.green),
-                      right: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                child: MaterialButton(
+                const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'Email',
+                ),
+                keyboardType: TextInputType.emailAddress,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please input email';
+                  }
+                  return null;
+                },
+                controller: _email,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: TextFormField(
+                obscureText: true,
+                controller: _passw,
+                decoration:
+                const InputDecoration(
+                  labelText: 'Password',
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please input password';
+                  }
+                  else if (value.length <= 5) {
+                    return 'Password should be more than 5 characters';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Column(
+              children: <Widget>[
+                MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: () {/* create the account */},
-                  color: Colors.white,
-                  elevation: 0,
+                  onPressed: () async {
+                    final isValid = _formKey.currentState!.validate();
+                    await auth
+                        .SignUp(
+                        _email.text, _passw.text).then((value) {
+                      Navigator.push(context, MaterialPageRoute(builder:
+                          (context) => HomeScreen()));
+                    }).catchError((e) => print(e));
+                  },
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(
+                      color: Colors.green,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
-                    "Sign up",
+                    "Create Account",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                      color: Colors.green,
-                    ),
-                  )
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Already have an account?",
-                    style: TextStyle(
-                      fontSize: 15,
                       fontWeight: FontWeight.w400,
+                      fontSize: 20,
                       color: Colors.green,
                     ),
                   ),
-                  MaterialButton(onPressed: () {
-                    Navigator.pop(context);
-                  },
-                      child: Text(
-                        "Log in",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
-                      )
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Already have an account?",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.green,
                   ),
-                ],
-              )
-            ],
-          ),
+                ),
+                MaterialButton(onPressed: () {
+                  Navigator.pop(context);
+                },
+                    child: Text(
+                      "Log in",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    )
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
   }
-}
-
-Widget inputFile({label, obscureText = false}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        label,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w300,
-          color: Colors.green,
-        ),
-      ),
-      SizedBox(
-        height: 15,
-      ),
-      TextField(
-        obscureText: obscureText,
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  color: Colors.green
-              ),
-            ),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: Colors.green
-                )
-            )
-        ),
-      ),
-    ],
-  );
 }
