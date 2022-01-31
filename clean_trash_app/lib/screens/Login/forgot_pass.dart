@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
 import 'package:provider/provider.dart';
 import 'user/auth.dart';
 import '../../theme.dart';
-import '../Login/login_page.dart';
+import 'login_page.dart';
 
 class ForgotPass extends StatefulWidget {
   const ForgotPass({Key? key}) : super(key: key);
@@ -14,18 +15,14 @@ class ForgotPass extends StatefulWidget {
 
 class _ForgotPassState extends State<ForgotPass> {
 
+  //final auth = FirebaseAuth.instance;
   final _email = TextEditingController();
-  final _passw = TextEditingController();
-
-  @override
-  void dispose() {
-    _email.dispose();
-    _passw.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+
+    final auth = Provider.of<Auth>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: color.AppColor.homePageBackground,
@@ -65,26 +62,6 @@ class _ForgotPassState extends State<ForgotPass> {
                 controller: _email,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: TextFormField(
-                obscureText: true,
-                controller: _passw,
-                decoration:
-                const InputDecoration(
-                  labelText: 'Password',
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please input password';
-                  }
-                  else if (value.length <= 5) {
-                    return 'Password should be more than 5 characters';
-                  }
-                  return null;
-                },
-              ),
-            ),
             const SizedBox(
               height: 60,
             ),
@@ -92,7 +69,13 @@ class _ForgotPassState extends State<ForgotPass> {
               child: Column(
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {/*Should lead to home page*/},
+                    onPressed: () async {
+
+                      await auth
+                        .ResetPass(_email.text).then((value) {
+                          Navigator.of(context).pop();
+                      }).catchError((e) => print(e));
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor, // background
                       onPrimary: kWhiteColor, // foreground

@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'user.dart';
+import '../user/user.dart';
 
 class Auth {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
@@ -29,12 +29,12 @@ class Auth {
     return _firebaseUser(res.user);
   }
 
-  Future<User?> ResetPass(String email, String passw) async {
-    final res = await _firebaseAuth.confirmPasswordReset(
-        code: email, newPassword: passw);
+  Future<User?> ResetPass(String email) async {
+    final res = await _firebaseAuth.sendPasswordResetEmail(email: email);
+
   }
 
   Future<void> Logout() async {
     return await _firebaseAuth.signOut();
-  }
+}
 }
