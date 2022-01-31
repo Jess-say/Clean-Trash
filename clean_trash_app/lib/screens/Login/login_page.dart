@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Column(
               children: [
                 Text(
