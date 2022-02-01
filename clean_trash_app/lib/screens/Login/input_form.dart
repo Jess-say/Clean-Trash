@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../theme.dart';
+import 'user/auth.dart';
+import 'package:provider/provider.dart';
 
 class InputForm extends StatefulWidget {
   const InputForm({Key? key}) : super(key: key);
@@ -9,9 +11,24 @@ class InputForm extends StatefulWidget {
 }
 
 class _InputFormState extends State<InputForm> {
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   bool _isObscure = true;
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final auth = Provider.of<Auth>(context);
+
     return Column(
       children: [
         buildInputForm("Email", false),
@@ -35,20 +52,22 @@ class _InputFormState extends State<InputForm> {
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: kPrimaryColor),
           ),
-          suffixIcon: pass 
-            ? IconButton(
-              onPressed: (){
-                setState(() {
-                  _isObscure = !_isObscure;
-                });
-              }, 
-              icon: Icon(
-                _isObscure ? Icons.visibility_off : Icons.visibility,
-                color: kSecondaryColor,
-              ),
-            ) 
-        : null)
+            suffixIcon: pass
+                ? IconButton(
+                      onPressed: (){
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
+                    icon: Icon(
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
+                      color: kSecondaryColor,
+                    ),
+                  )
+                  : null)
       ),
     );
   }
 }
+
+

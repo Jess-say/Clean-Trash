@@ -16,6 +16,7 @@ class _CheckBoxState extends State<CheckBox> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
               onTap: () {

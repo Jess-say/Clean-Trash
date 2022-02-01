@@ -1,41 +1,97 @@
 import 'package:flutter/material.dart';
-import 'input_form.dart';
-import 'create_account_page.dart';
+import '../home/home_screen.dart';
+//import 'input_form.dart';
+import 'signup_page.dart';
 import 'forgot_pass.dart';
+import 'colors.dart' as color;
 import '../../theme.dart';
+import 'user/auth.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  bool _isObscure = true;
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final auth = Provider.of<Auth>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
-        padding: const EdgeInsets.only(top: 200, left: 30, right: 30),
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+      backgroundColor: color.AppColor.homePageBackground,
+      body: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Column(
-              children: [
+              children: <Widget>[
                 Text(
                   "Welcome Back",
                   style: titleText,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
-            const SizedBox(
-              height: 20,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: TextFormField(
+                controller: _email,
+                decoration:
+                const InputDecoration(
+                  labelText: 'Email',
+                ),
+                keyboardType: TextInputType.emailAddress,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty)
+                    return 'Please input email';
+                  return null;
+                },
+              ),
             ),
-            const InputForm(),
-            const SizedBox(
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: TextFormField(
+                obscureText: true,
+                controller: _password,
+                decoration:
+
+                const InputDecoration(
+                  labelText: 'Password',
+                ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty)
+                    return 'Please input password';
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(
               height: 20,
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ForgotPassPage()));
+                    MaterialPageRoute(builder: (context) => ForgotPass()));
               },
               child: const Text(
                 "Forgot password?",
@@ -54,7 +110,14 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      final isValid = _formKey.currentState!.validate();
+                      await auth .handleSignInEmail(
+                          _email.text, _password.text).then((value) {
+                        Navigator.push(context, MaterialPageRoute(builder:
+                            (context) => const HomeScreen()));
+                      }).catchError((e) => print(e));
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor, // background
                       onPrimary: kWhiteColor, // foreground
@@ -79,7 +142,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CreateAccountPage()));
+                              builder: (context) => CreateAccPage()));
                     },
                     style: OutlinedButton.styleFrom(
                       primary: kPrimaryColor,
@@ -101,8 +164,9 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ],
-        )),
+        ),
       ),
     );
   }
+
 }
