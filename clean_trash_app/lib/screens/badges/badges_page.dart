@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../theme.dart';
 import '../home/home_view.dart';
+import '../camera/camera.dart';
+import '../settings/settings.dart';
 
 class BadgesPage extends StatefulWidget {
   const BadgesPage({Key? key}) : super(key: key);
@@ -19,28 +21,16 @@ class _BadgesPageState extends State<BadgesPage> {
   }
 
   int _selectedItemIndex = 0;
+  final _pageOptions = [
+    HomeView(),
+    CameraPage(),
+    SettingsPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhiteColor,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: kBlackColor,
-          ),
-          onPressed: () {
-            print("X Pressed");
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomeView()),
-            );
-          },
-        ),
-      ),
       bottomNavigationBar: Row(
         children: [
           buildNaviBarItem(Icons.home, 0),
@@ -54,7 +44,7 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.only(left: 30, right: 30),
+                  padding: const EdgeInsets.only(top: 100, left: 30, right: 30),
                   child: ListView(
                     padding: const EdgeInsets.only(top: 10),
                     children: [
@@ -162,11 +152,18 @@ class _BadgesPageState extends State<BadgesPage> {
   }
 
   GestureDetector buildNaviBarItem(IconData icon, int index) {
+    _onTap() {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) =>
+              _pageOptions[index])); // this has changed
+    }
+
     return GestureDetector(
       onTap: () {
         setState(() {
           _selectedItemIndex = index;
         });
+        _onTap();
       },
       child: Container(
         width: MediaQuery.of(context).size.width / 3,
