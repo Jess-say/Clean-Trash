@@ -23,8 +23,8 @@ class _CreateAccPageState extends State<CreateAccPage> {
   final _passw = TextEditingController();
   final _checkpass = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  bool _isObscure1 = false;
-  bool _isObscure2 = false;
+  bool _isObscure1 = true;
+  bool _isObscure2 = true;
   bool check = false;
 
   @override
