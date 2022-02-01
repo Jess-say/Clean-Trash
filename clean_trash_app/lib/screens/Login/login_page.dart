@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
                 controller: _email,
                 decoration:
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
                 obscureText: true,
                 controller: _password,

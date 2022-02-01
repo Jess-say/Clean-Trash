@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'user/auth.dart';
 import '../../theme.dart';
 import 'verify_email.dart';
+import 'checkbox.dart';
 
 class CreateAccPage extends StatefulWidget {
   const CreateAccPage({Key? key}) : super(key: key);
@@ -16,14 +17,23 @@ class CreateAccPage extends StatefulWidget {
 
 class _CreateAccPageState extends State<CreateAccPage> {
 
+  final _first = TextEditingController();
+  final _last = TextEditingController();
   final _email = TextEditingController();
   final _passw = TextEditingController();
+  final _checkpass = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool _isObscure1 = false;
+  bool _isObscure2 = false;
+  bool check = false;
 
   @override
   void dispose() {
+    _first.dispose();
+    _last.dispose();
     _email.dispose();
     _passw.dispose();
+    _checkpass.dispose();
     super.dispose();
   }
 
@@ -35,7 +45,6 @@ class _CreateAccPageState extends State<CreateAccPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: color.AppColor.homePageBackground,
-
       body: Form(
         key: _formKey,
         child: Column(
@@ -50,17 +59,65 @@ class _CreateAccPageState extends State<CreateAccPage> {
               ],
             ),
             const SizedBox(
-              height: 30,
+              height: 35,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: TextFormField(
+                textInputAction: TextInputAction.next,
+                decoration:
+                const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'First Name',
+                ),
+                keyboardType: TextInputType.name,
+                onSaved: (value) {
+                  _first.text = value!;
+                },
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please input first name';
+                  }
+                  return null;
+                },
+                controller: _first,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
+                decoration:
+                const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'Last Name',
+                ),
+                keyboardType: TextInputType.name,
+                onSaved: (value) {
+                  _last.text = value!;
+                },
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please input last name';
+                  }
+                  return null;
+                },
+                controller: _last,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: TextFormField(
+                textInputAction: TextInputAction.next,
                 decoration:
                 const InputDecoration(
                   border: UnderlineInputBorder(),
                   labelText: 'Email',
                 ),
                 keyboardType: TextInputType.emailAddress,
+                onSaved: (value) {
+                  _email.text = value!;
+                },
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please input email';
@@ -71,12 +128,27 @@ class _CreateAccPageState extends State<CreateAccPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: TextFormField(
-                obscureText: true,
+                obscureText: true ? _isObscure1 : false,
                 controller: _passw,
+                onSaved: (value) {
+                  _passw.text = value!;
+                },
+                textInputAction: TextInputAction.next,
                 decoration:
-                const InputDecoration(
+                InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: (){
+                      setState(() {
+                        _isObscure1 = !_isObscure1;
+                      });
+                    },
+                    icon: Icon(
+                      _isObscure1 ? Icons.visibility_off : Icons.visibility,
+                      color: kSecondaryColor,
+                    ),
+                  ),
                   labelText: 'Password',
                 ),
                 validator: (String? value) {
@@ -90,15 +162,58 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 },
               ),
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: TextFormField(
+                obscureText: true ? _isObscure2 : false,
+                controller: _checkpass,
+                onSaved: (value) {
+                  _checkpass.text = value!;
+                },
+                textInputAction: TextInputAction.next,
+                decoration:
+                InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: (){
+                      setState(() {
+                        _isObscure2 = !_isObscure2;
+                      });
+                    },
+                    icon: Icon(
+                      _isObscure2 ? Icons.visibility_off : Icons.visibility,
+                      color: kSecondaryColor,
+                    ),
+                  ),
+                  labelText: 'Confirm Password',
+                ),
+                validator: (String? value) {
+                  if (_checkpass.text != _passw.text) {//value == null || value.isEmpty) {
+                    return 'Passwords do not match ${_checkpass.text} and ${_passw.text}';
+                  }
+                  else if (_checkpass.text.length <= 5) {
+                    return 'Password should be more than 5 characters';
+                  }
+                  return null;
+                },
+              ),
+            ),
             const SizedBox(
-              height: 30,
+              height: 20,
+            ),
+            const CheckBox(text: "Agree to terms and conditions."),
+            const SizedBox(
+              height: 20,
+            ),
+            const CheckBox(text: "I am at least 13 years old."),
+            const SizedBox(
+              height: 20,
             ),
             Center(
               child: Column(
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () async {
-                      final isValid = _formKey.currentState!.validate();
+                      final isValid = _formKey.currentState?.validate();
                       await auth
                           .SignUp(
                           _email.text, _passw.text).then((value) {

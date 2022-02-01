@@ -41,7 +41,7 @@ class _VerifyState extends State<Verify> {
     return Scaffold(
       body: Center(
         child: Text(
-          "Email sent to ${user.emailVerified}."
+          "Email sent."
         ),
       ),
     );
