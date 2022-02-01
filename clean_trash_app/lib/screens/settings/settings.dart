@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../Login/login_page.dart';
 import '../home/home_screen.dart';
 import 'user_profile.dart';
 
@@ -225,6 +226,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: OutlinedButton(
                     onPressed: () {
                       print("Sign Out");
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
                     },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
