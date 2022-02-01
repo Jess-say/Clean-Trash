@@ -71,11 +71,22 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
-                obscureText: true,
+                obscureText: true ? _isObscure : false,
                 controller: _password,
                 decoration:
 
-                const InputDecoration(
+                InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: (){
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                    icon: Icon(
+                      _isObscure ? Icons.visibility_off : Icons.visibility,
+                      color: kSecondaryColor,
+                    ),
+                  ),
                   labelText: 'Password',
                 ),
                 validator: (String? value) {
