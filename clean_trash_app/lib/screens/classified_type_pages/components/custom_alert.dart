@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../home/home_screen.dart';
 import '/screens/home/home_view.dart';
 
 class CustomAlert extends StatelessWidget {
@@ -29,7 +30,7 @@ class CustomAlert extends StatelessWidget {
                     //Navigator.of(context).pop();
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeView()),
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
                       );
                   },
                     child: const Text('Yay! I helped!', style: TextStyle(color: Colors.white),),
