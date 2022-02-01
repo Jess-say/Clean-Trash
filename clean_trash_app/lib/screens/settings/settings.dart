@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../home/home_screen.dart';
 import 'user_profile.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -21,7 +22,12 @@ class _SettingsPageState extends State<SettingsPage> {
             Icons.arrow_back,
             color: Colors.green,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
+          },
         ),
       ),
       body: Container(

@@ -105,7 +105,7 @@ class _DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Demo Modal Bottom Sheet'), actions: <Widget>[
+      appBar: AppBar(title: const Text(''), actions: <Widget>[
         IconButton(
             icon: const Icon(
               Icons.check,

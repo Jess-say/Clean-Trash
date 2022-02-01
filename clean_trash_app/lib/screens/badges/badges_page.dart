@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:cleantrash_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import '../../theme.dart';
 import '../home/home_view.dart';
 import '../camera/camera.dart';
@@ -22,7 +22,7 @@ class _BadgesPageState extends State<BadgesPage> {
 
   int _selectedItemIndex = 0;
   final _pageOptions = [
-    HomeView(),
+    HomeScreen(),
     CameraPage(),
     SettingsPage(),
   ];
