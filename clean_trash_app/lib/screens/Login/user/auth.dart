@@ -3,6 +3,7 @@ import 'user.dart';
 
 class Auth {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
+  late String _passw;
 
   User? _firebaseUser(auth.User? user) {
     if (user == null) {
@@ -18,15 +19,19 @@ class Auth {
   Future<User?> handleSignInEmail(String email, String passw) async {
     final res = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: passw);
-
+    _passw = passw;
     return _firebaseUser(res.user);
   }
 
   Future<User?> SignUp(String email, String passw) async {
     final res = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: passw);
-
+    _passw = passw;
     return _firebaseUser(res.user);
+  }
+
+  String getPass() {
+    return _passw;
   }
 
   Future<User?> ResetPass(String email) async {
@@ -36,5 +41,5 @@ class Auth {
 
   Future<void> Logout() async {
     return await _firebaseAuth.signOut();
-}
+  }
 }
