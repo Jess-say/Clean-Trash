@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  'Hi User! \nWhat would you like to recyle?',
+                  'Welcome! \nWhat would you like to recyle?',
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
