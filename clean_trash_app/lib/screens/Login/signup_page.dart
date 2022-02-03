@@ -17,8 +17,8 @@ class CreateAccPage extends StatefulWidget {
 
 class _CreateAccPageState extends State<CreateAccPage> {
 
-  final _first = TextEditingController();
-  final _last = TextEditingController();
+  //final _first = TextEditingController();
+  //final _last = TextEditingController();
   final _email = TextEditingController();
   final _passw = TextEditingController();
   final _checkpass = TextEditingController();
@@ -29,8 +29,8 @@ class _CreateAccPageState extends State<CreateAccPage> {
 
   @override
   void dispose() {
-    _first.dispose();
-    _last.dispose();
+    //_first.dispose();
+    //_last.dispose();
     _email.dispose();
     _passw.dispose();
     _checkpass.dispose();
