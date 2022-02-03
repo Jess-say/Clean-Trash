@@ -59,9 +59,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
               ],
             ),
             const SizedBox(
-              height: 35,
+              height: 50,
             ),
-            Padding(
+            /*Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
               child: TextFormField(
                 textInputAction: TextInputAction.next,
@@ -71,9 +71,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
                   labelText: 'First Name',
                 ),
                 keyboardType: TextInputType.name,
-                onSaved: (value) {
+                /*onSaved: (value) {
                   _first.text = value!;
-                },
+                },*/
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please input first name';
@@ -93,9 +93,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
                   labelText: 'Last Name',
                 ),
                 keyboardType: TextInputType.name,
-                onSaved: (value) {
+                /*onSaved: (value) {
                   _last.text = value!;
-                },
+                },*/
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please input last name';
@@ -104,7 +104,7 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 },
                 controller: _last,
               ),
-            ),
+            ),*/
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: TextFormField(
@@ -115,9 +115,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
                   labelText: 'Email',
                 ),
                 keyboardType: TextInputType.emailAddress,
-                onSaved: (value) {
+                /*onSaved: (value) {
                   _email.text = value!;
-                },
+                },*/
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please input email';
@@ -132,9 +132,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
               child: TextFormField(
                 obscureText: true ? _isObscure1 : false,
                 controller: _passw,
-                onSaved: (value) {
+                /*onSaved: (value) {
                   _passw.text = value!;
-                },
+                },*/
                 textInputAction: TextInputAction.next,
                 decoration:
                 InputDecoration(
@@ -167,9 +167,9 @@ class _CreateAccPageState extends State<CreateAccPage> {
               child: TextFormField(
                 obscureText: true ? _isObscure2 : false,
                 controller: _checkpass,
-                onSaved: (value) {
+                /*onSaved: (value) {
                   _checkpass.text = value!;
-                },
+                },*/
                 textInputAction: TextInputAction.next,
                 decoration:
                 InputDecoration(
@@ -189,9 +189,6 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 validator: (String? value) {
                   if (_checkpass.text != _passw.text) {//value == null || value.isEmpty) {
                     return 'Passwords do not match ${_checkpass.text} and ${_passw.text}';
-                  }
-                  else if (_checkpass.text.length <= 5) {
-                    return 'Password should be more than 5 characters';
                   }
                   return null;
                 },
@@ -213,13 +210,14 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () async {
-                      final isValid = _formKey.currentState?.validate();
-                      await auth
-                          .SignUp(
-                          _email.text, _passw.text).then((value) {
-                        Navigator.push(context, MaterialPageRoute(builder:
-                            (context) => Verify()));
-                      }).catchError((e) => print(e));
+                      if (_formKey.currentState!.validate()) {
+                        await auth
+                            .SignUp(
+                            _email.text, _passw.text).then((value) {
+                          Navigator.push(context, MaterialPageRoute(builder:
+                              (context) => Verify()));
+                        }).catchError((e) => print(e));
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor, // background
@@ -272,3 +270,4 @@ class _CreateAccPageState extends State<CreateAccPage> {
     );
   }
 }
+
