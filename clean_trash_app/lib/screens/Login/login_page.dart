@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../home/home_screen.dart';
-//import 'input_form.dart';
 import 'signup_page.dart';
 import 'forgot_pass.dart';
 import 'colors.dart' as color;

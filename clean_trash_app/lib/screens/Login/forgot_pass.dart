@@ -4,7 +4,6 @@ import 'colors.dart' as color;
 import 'package:provider/provider.dart';
 import 'user/auth.dart';
 import '../../theme.dart';
-import 'reset_form.dart';
 import '../Login/login_page.dart';
 
 class ForgotPass extends StatefulWidget {

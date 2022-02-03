@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'settings.dart';
+import 'package:provider/provider.dart';
+import 'user/auth.dart';
+import '../../theme.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -9,9 +13,17 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  bool showPassword = false;
+  bool showPassword = true;
+  final user = auth.FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
+
+    final auth = Provider.of<Auth>(context);
+
+    final _myController = TextEditingController.fromValue(TextEditingValue(
+      text: auth.getPass(),
+    ));
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -83,7 +95,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             border: Border.all(
                                 width: 4,
                                 color:
-                                    Theme.of(context).scaffoldBackgroundColor),
+                                Theme.of(context).scaffoldBackgroundColor),
                             color: Colors.green,
                           ),
                           child: const Icon(
@@ -98,28 +110,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
               const SizedBox(
                 height: 35,
               ),
-              buildTextField("Full Name", "Jane Doe", false),
-              buildTextField("Email", "janeDoe@gmail.com", false),
+              //buildTextField("Full Name", "Jessie Lu", false),
+              buildTextField("Email", user.email as String, false),
               Padding(
                 padding: const EdgeInsets.only(bottom: 35.0),
                 child: TextField(
-                  obscureText: !showPassword,
+                  controller: _myController,
+                  obscureText: true ? showPassword : false,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                      icon: const Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
+                      onPressed: (){
                         setState(() {
                           showPassword = !showPassword;
                         });
                       },
+                      icon: Icon(
+                        showPassword ? Icons.visibility_off : Icons.visibility,
+                        color: kSecondaryColor,
+                      ),
                     ),
                     contentPadding: const EdgeInsets.only(bottom: 3),
                     labelText: "Password",
                     floatingLabelBehavior: FloatingLabelBehavior.always,
-                    hintText: "************",
+                    //hintText: auth.getPass(),
                     hintStyle: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -193,12 +206,12 @@ Padding buildTextField(
       decoration: InputDecoration(
         suffixIcon: isPasswordTextField
             ? IconButton(
-                icon: const Icon(
-                  Icons.remove_red_eye,
-                  color: Colors.grey,
-                ),
-                onPressed: () {},
-              )
+          icon: const Icon(
+            Icons.remove_red_eye,
+            color: Colors.grey,
+          ),
+          onPressed: () {},
+        )
             : null,
         contentPadding: const EdgeInsets.only(bottom: 3),
         labelText: labelText,
