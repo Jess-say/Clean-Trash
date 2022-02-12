@@ -20,23 +20,25 @@ class _BadgesPageState extends State<BadgesPage> {
     super.initState();
   }
 
-  int _selectedItemIndex = 0;
-  final _pageOptions = [
-    HomeScreen(),
-    CameraPage(),
-    SettingsPage(),
-  ];
+  int _selectedItem = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kWhiteColor,
-      bottomNavigationBar: Row(
-        children: [
-          buildNaviBarItem(Icons.home, 0),
-          buildNaviBarItem(Icons.camera, 1),
-          buildNaviBarItem(Icons.settings, 2),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        iconList: [
+          Icons.home,
+          Icons.camera_alt,
+          Icons.assignment_turned_in,
+          Icons.settings,
         ],
+        onChange: (val) {
+          setState(() {
+            _selectedItem = val;
+          });
+        },
+        defaultSelectedIndex: 2,
       ),
       body: Stack(
         children: [
@@ -151,45 +153,6 @@ class _BadgesPageState extends State<BadgesPage> {
     );
   }
 
-  GestureDetector buildNaviBarItem(IconData icon, int index) {
-    _onTap() {
-      Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) =>
-              _pageOptions[index])); // this has changed
-    }
-
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedItemIndex = index;
-        });
-        _onTap();
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width / 3,
-        height: 60,
-        decoration: index == _selectedItemIndex
-            ? BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    width: 4,
-                    color: kPrimaryColor,
-                  ),
-                ),
-                gradient: LinearGradient(colors: [
-                  kPrimaryColor.withOpacity(0.2),
-                  kSecondaryColor.withOpacity(0.02),
-                ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
-              )
-            : BoxDecoration(),
-        child: Icon(
-          icon,
-          color: index == _selectedItemIndex ? kBlackColor : kDarkGreyColor,
-        ),
-      ),
-    );
-  }
-
   Container buildBadgets(
       IconData icon, String title, Color backgroundColor, Color iconColor) {
     return Container(
@@ -219,6 +182,87 @@ class _BadgesPageState extends State<BadgesPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final Function(int) onChange;
+  final List<IconData> iconList;
+
+  CustomBottomNavigationBar(
+      {this.defaultSelectedIndex = 0,
+      required this.iconList,
+      required this.onChange});
+
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _selectedIndex = 0;
+  List<IconData> _iconList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _selectedIndex = widget.defaultSelectedIndex;
+    _iconList = widget.iconList;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> _navBarItemList = [];
+
+    for (var i = 0; i < _iconList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    }
+
+    return Row(
+      children: _navBarItemList,
+    );
+  }
+
+  Widget buildNavBarItem(IconData icon, int index) {
+    final _pageOptions = [
+      HomeScreen(),
+      CameraPage(),
+      BadgesPage(),
+      SettingsPage(),
+    ];
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => _pageOptions[index]));
+        widget.onChange(index);
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width / _iconList.length,
+        decoration: index == _selectedIndex
+            ? BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 4, color: Colors.green),
+                ),
+                gradient: LinearGradient(colors: [
+                  Colors.green.withOpacity(0.3),
+                  Colors.green.withOpacity(0.015),
+                ], begin: Alignment.bottomCenter, end: Alignment.topCenter)
+                // color: index == _selectedItemIndex ? Colors.green : Colors.white,
+                )
+            : BoxDecoration(),
+        child: Icon(
+          icon,
+          color: index == _selectedIndex ? Colors.black : Colors.grey,
+        ),
       ),
     );
   }

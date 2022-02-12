@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../classified_type_pages/components/custom_alert.dart';
+import '../badges/badges_page.dart';
+import '../settings/settings.dart';
 
 //import 'package:clean_trash_app/styles.dart';
 //import 'package:clean_trash_app/screens/home/home_screen.dart';
@@ -12,39 +14,40 @@ import '../classified_type_pages/components/custom_alert.dart';
 // FIX: the camera feature is running as the main app, need to make connect to the class buttons instead
 
 class CameraPage extends StatefulWidget {
-  const CameraPage({ Key? key }) : super(key: key);
+  const CameraPage({Key? key}) : super(key: key);
 
   @override
   _CameraPageState createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<CameraPage> {
+  int _selectedItem = 0;
   // Install Plugins
   // 1. Path Provider to get the path of files
   // 2. Image Picker that allows you to pick an image from different sources
 
-  // Create a new object 
+  // Create a new object
   // ignore: unused_field
-  File ? _image;
+  File? _image;
   // Create and instantiate our ImagePicker
   final ImagePicker imagePicker = ImagePicker();
 
   Future pickImage() async {
     final navigator = Navigator.of(context);
-    XFile? pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
+    XFile? pickedImage =
+        await imagePicker.pickImage(source: ImageSource.camera);
     if (pickedImage != null) {
       print(pickedImage.path);
       await navigator.push(
         MaterialPageRoute(
-          builder: (context) =>
-              _DisplayPictureScreen(
-                imagePath: pickedImage.path,
-              ),
+          builder: (context) => _DisplayPictureScreen(
+            imagePath: pickedImage.path,
+          ),
         ),
       );
-
     }
   }
+
   // Create a new function to get the Image from the camera
   //Future getImage() async{
   //  // Allows us access the camera and get the picture
@@ -84,15 +87,30 @@ class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        iconList: [
+          Icons.home,
+          Icons.camera_alt,
+          Icons.assignment_turned_in,
+          Icons.settings,
+        ],
+        onChange: (val) {
+          setState(() {
+            _selectedItem = val;
+          });
+        },
+        defaultSelectedIndex: 1,
+      ),
       body: Center(
         // ignore: unnecessary_null_comparison
-        child: _image == null ? const Text("No Images Selected") : const Text("Testing"),//Image.file(_image!),
+        child: _image == null
+            ? const Text("No Images Selected")
+            : const Text("Testing"), //Image.file(_image!),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: pickImage,
         child: const Icon(Icons.camera_alt),
-      ), 
+      ),
     );
   }
 }
@@ -100,7 +118,10 @@ class _CameraPageState extends State<CameraPage> {
 class _DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
 
-  const _DisplayPictureScreen({Key? key, required this.imagePath,}) : super(key: key);
+  const _DisplayPictureScreen({
+    Key? key,
+    required this.imagePath,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +150,8 @@ void _appModalBottomSheet(context) {
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
     ),
     builder: (context) => SafeArea(
       child: Padding(
@@ -153,7 +175,8 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()),
+                            MaterialPageRoute(
+                                builder: (context) => HomeScreen()),
                           );
                         },
                       ),
@@ -185,7 +208,8 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/coke_can.jpg'),
+                                child:
+                                    Image.asset('assets/images/coke_can.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -212,7 +236,8 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/milk_glass.jpg'),
+                                child:
+                                    Image.asset('assets/images/milk_glass.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -239,7 +264,8 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_water_bottle.jpg'),
+                                child: Image.asset(
+                                    'assets/images/plastic_water_bottle.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -264,7 +290,8 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/towelrolls.jpg'),
+                                child:
+                                    Image.asset('assets/images/towelrolls.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -381,3 +408,84 @@ Widget infoSection1 = Container(
     ],
   ),
 );
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final Function(int) onChange;
+  final List<IconData> iconList;
+
+  CustomBottomNavigationBar(
+      {this.defaultSelectedIndex = 0,
+      required this.iconList,
+      required this.onChange});
+
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _selectedIndex = 0;
+  List<IconData> _iconList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _selectedIndex = widget.defaultSelectedIndex;
+    _iconList = widget.iconList;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> _navBarItemList = [];
+
+    for (var i = 0; i < _iconList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    }
+
+    return Row(
+      children: _navBarItemList,
+    );
+  }
+
+  Widget buildNavBarItem(IconData icon, int index) {
+    final _pageOptions = [
+      HomeScreen(),
+      CameraPage(),
+      BadgesPage(),
+      SettingsPage(),
+    ];
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => _pageOptions[index]));
+        widget.onChange(index);
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width / _iconList.length,
+        decoration: index == _selectedIndex
+            ? BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 4, color: Colors.green),
+                ),
+                gradient: LinearGradient(colors: [
+                  Colors.green.withOpacity(0.3),
+                  Colors.green.withOpacity(0.015),
+                ], begin: Alignment.bottomCenter, end: Alignment.topCenter)
+                // color: index == _selectedItemIndex ? Colors.green : Colors.white,
+                )
+            : BoxDecoration(),
+        child: Icon(
+          icon,
+          color: index == _selectedIndex ? Colors.black : Colors.grey,
+        ),
+      ),
+    );
+  }
+}

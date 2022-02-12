@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Login/login_page.dart';
 import '../home/home_screen.dart';
+import '../badges/badges_page.dart';
+import '../camera/camera.dart';
 import 'user_profile.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -12,24 +14,23 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  int _selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 1,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
-            );
-          },
-        ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        iconList: [
+          Icons.home,
+          Icons.camera_alt,
+          Icons.assignment_turned_in,
+          Icons.settings,
+        ],
+        onChange: (val) {
+          setState(() {
+            _selectedItem = val;
+          });
+        },
+        defaultSelectedIndex: 3,
       ),
       body: Container(
         padding: const EdgeInsets.only(left: 16, top: 25, right: 16),
@@ -227,8 +228,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     onPressed: () {
                       print("Sign Out");
                       Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
                       );
                     },
                     style: OutlinedButton.styleFrom(
@@ -341,6 +342,87 @@ class _CupertinoSwitchWidgetState extends State<CupertinoSwitchWidget> {
       },
       activeColor: CupertinoColors.activeGreen,
       trackColor: CupertinoColors.systemGrey,
+    );
+  }
+}
+
+class CustomBottomNavigationBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final Function(int) onChange;
+  final List<IconData> iconList;
+
+  CustomBottomNavigationBar(
+      {this.defaultSelectedIndex = 0,
+      required this.iconList,
+      required this.onChange});
+
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  int _selectedIndex = 0;
+  List<IconData> _iconList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _selectedIndex = widget.defaultSelectedIndex;
+    _iconList = widget.iconList;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> _navBarItemList = [];
+
+    for (var i = 0; i < _iconList.length; i++) {
+      _navBarItemList.add(buildNavBarItem(_iconList[i], i));
+    }
+
+    return Row(
+      children: _navBarItemList,
+    );
+  }
+
+  Widget buildNavBarItem(IconData icon, int index) {
+    final _pageOptions = [
+      HomeScreen(),
+      CameraPage(),
+      BadgesPage(),
+      SettingsPage(),
+    ];
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => _pageOptions[index]));
+        widget.onChange(index);
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        height: 60,
+        width: MediaQuery.of(context).size.width / _iconList.length,
+        decoration: index == _selectedIndex
+            ? BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(width: 4, color: Colors.green),
+                ),
+                gradient: LinearGradient(colors: [
+                  Colors.green.withOpacity(0.3),
+                  Colors.green.withOpacity(0.015),
+                ], begin: Alignment.bottomCenter, end: Alignment.topCenter)
+                // color: index == _selectedItemIndex ? Colors.green : Colors.white,
+                )
+            : BoxDecoration(),
+        child: Icon(
+          icon,
+          color: index == _selectedIndex ? Colors.black : Colors.grey,
+        ),
+      ),
     );
   }
 }
