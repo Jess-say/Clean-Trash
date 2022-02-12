@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'settings.dart';
 import 'package:provider/provider.dart';
-import 'user/auth.dart';
+import '../Login/user/auth.dart';
 import '../../theme.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
@@ -17,7 +17,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final user = auth.FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
-
     final auth = Provider.of<Auth>(context);
 
     final _myController = TextEditingController.fromValue(TextEditingValue(
@@ -95,7 +94,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             border: Border.all(
                                 width: 4,
                                 color:
-                                Theme.of(context).scaffoldBackgroundColor),
+                                    Theme.of(context).scaffoldBackgroundColor),
                             color: Colors.green,
                           ),
                           child: const Icon(
@@ -119,7 +118,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   obscureText: true ? showPassword : false,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           showPassword = !showPassword;
                         });
@@ -206,12 +205,12 @@ Padding buildTextField(
       decoration: InputDecoration(
         suffixIcon: isPasswordTextField
             ? IconButton(
-          icon: const Icon(
-            Icons.remove_red_eye,
-            color: Colors.grey,
-          ),
-          onPressed: () {},
-        )
+                icon: const Icon(
+                  Icons.remove_red_eye,
+                  color: Colors.grey,
+                ),
+                onPressed: () {},
+              )
             : null,
         contentPadding: const EdgeInsets.only(bottom: 3),
         labelText: labelText,
