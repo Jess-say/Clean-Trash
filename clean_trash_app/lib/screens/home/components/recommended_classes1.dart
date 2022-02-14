@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../styles.dart';
+import '../../classified_type_pages/get_classification_modal.dart';
 
-import '../../camera/camera.dart';
+//import '../../camera/camera.dart';
+
+class Classification {
+  final String name;
+
+  Classification(this.name);
+}
 
 class RecomendsClasses extends StatelessWidget {
   const RecomendsClasses({
@@ -17,10 +24,11 @@ class RecomendsClasses extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
             onTap: () {
+              String className = "plastic";
               print("Pressed Plastic");
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CameraPage()),
+                MaterialPageRoute(builder: (context) => CameraPage(classification : Classification(className))),
               );
             },
             child: const RecomendClassCard(
@@ -31,10 +39,11 @@ class RecomendsClasses extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
+              String className = "cardboard";
               print("Pressed Cardboard");
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CameraPage()),
+                MaterialPageRoute(builder: (context) => CameraPage(classification : Classification(className))),
               );
             },
             child: const RecomendClassCard(
@@ -45,10 +54,11 @@ class RecomendsClasses extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
+              String className = "glass";
               print("Pressed Glass");
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CameraPage()),
+                MaterialPageRoute(builder: (context) => CameraPage(classification : Classification(className))),
               );
             },
             child: const RecomendClassCard(
