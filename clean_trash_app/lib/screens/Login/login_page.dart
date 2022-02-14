@@ -8,10 +8,34 @@ import '../../theme.dart';
 import 'user/auth.dart';
 import 'package:provider/provider.dart';
 
+class EmailFieldValidator {
+  static String? validate(String value) {
+    if (value == null || value.isEmpty) {
+      print("Print email");
+      return 'Please input email';
+    }
+    else {
+      return null;
+    }
+    //return value.isEmpty ? 'Email can\'t be empty' : null;
+  }
+}
+
+class PasswordFieldValidator {
+  static String? validate(String value) {
+    return value.isEmpty ? 'Password can\'t be empty' : null;
+  }
+}
+
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key, bool onSignedIn()?,}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
+
+  void onSignedIn() {
+    this.onSignedIn;
+  }
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -62,9 +86,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (String? value) {
-                  if (value == null || value.isEmpty)
-                    return 'Please input email';
-                  return null;
+                  EmailFieldValidator.validate(value!);
+                 // if (value == null || value.isEmpty)
+                   // return 'Please input email';
+                  //return null;
                 },
               ),
             ),
@@ -125,6 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                       final isValid = _formKey.currentState!.validate();
                       await auth .handleSignInEmail(
                           _email.text, _password.text).then((value) {
+                        widget.onSignedIn();
                         Navigator.push(context, MaterialPageRoute(builder:
                             (context) => const HomeScreen()));
                       }).catchError((e) => print(e));

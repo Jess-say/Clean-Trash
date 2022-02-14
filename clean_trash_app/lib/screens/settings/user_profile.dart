@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../Login/user/auth.dart';
 import 'settings.dart';
 import 'package:provider/provider.dart';
-import 'user/auth.dart';
+//import 'user/auth.dart';
 import '../../theme.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
