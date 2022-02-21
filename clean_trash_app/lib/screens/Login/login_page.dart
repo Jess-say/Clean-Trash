@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/Login/user/auth_provider.dart';
 import 'package:flutter/material.dart';
 import '../home/home_screen.dart';
 //import 'input_form.dart';
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
 
-    final auth = Provider.of<Auth>(context);
+    final BaseAuth  auth =  AuthProvider.of(context)!.auth;Provider.of<Auth>(context);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -148,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton(
                     onPressed: () async {
                       final isValid = _formKey.currentState!.validate();
-                      await auth .handleSignInEmail(
+                      await auth.handleSignInEmail(
                           _email.text, _password.text).then((value) {
                         widget.onSignedIn();
                         Navigator.push(context, MaterialPageRoute(builder:

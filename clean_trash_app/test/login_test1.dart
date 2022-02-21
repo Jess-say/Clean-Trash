@@ -11,11 +11,11 @@ import 'package:cleantrash_app/screens/Login/user/auth.dart';
 //import "package:test/test.dart";
 //import 'package:flutter_driver/flutter_driver.dart';
 
-class MockAuth extends Mock implements Auth {}
+class MockAuth extends Mock implements BaseAuth {}
 
 void main() {
 
-  Widget makeTestableWidget({required Widget child, required Auth auth}) {
+  Widget makeTestableWidget({required Widget child, required BaseAuth auth}) {
     return AuthProvider(
       auth: auth,
       child: MaterialApp(

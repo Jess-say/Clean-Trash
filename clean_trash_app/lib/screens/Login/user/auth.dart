@@ -1,6 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'user.dart';
 
+abstract class BaseAuth {
+  Future<String> handleSignInEmail(String email, String password);
+  Future<String> SignUp(String email, String password);
+  Future<String> currentUser();
+  Future<void> Logout();
+}
+
 class Auth {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
   late String _passw;
