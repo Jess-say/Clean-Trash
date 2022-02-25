@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
+import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PaperPage extends StatefulWidget {
@@ -67,7 +67,7 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeView()),
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
                           );
                         },
                       ),
@@ -153,7 +153,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/eggcartonpaper.jpg'),
+                                child: Image.asset('assets/images/ritz.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -178,7 +178,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/paper.jpg'),
+                                child: Image.asset('assets/images/graham.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -283,8 +283,8 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Remove cereal bag from the box and either recycle or discard according to box recycle logo. "
-                  "Check to make sure there are no left over cereal or crumbs in the box. "
+              "Remove plastic bag from the box and either recycle or discard according to box recycle logo. "
+                  "Check to make sure there are no left crumbs in the box. "
                   "Then flatten your box and place in appropriate bin.",
               style: TextStyle(
                 fontSize: 18,
