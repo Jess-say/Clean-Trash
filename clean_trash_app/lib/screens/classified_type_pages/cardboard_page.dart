@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
 import 'components/custom_alert.dart';
 
 
@@ -12,7 +11,6 @@ class CardboardPage extends StatefulWidget {
 }
 
 class _CardboardPageState extends State<CardboardPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -32,7 +30,6 @@ class _CardboardPageState extends State<CardboardPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset(
           'assets/images/cardboard.jpg',
           height: fheight,

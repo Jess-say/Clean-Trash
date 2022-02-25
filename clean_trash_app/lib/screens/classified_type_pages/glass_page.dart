@@ -1,4 +1,3 @@
-//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
 import '/screens/home/home_view.dart';
 import 'components/custom_alert.dart';
@@ -11,7 +10,6 @@ class GlassPage extends StatefulWidget {
 }
 
 class _GlassPageState extends State<GlassPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -31,7 +29,6 @@ class _GlassPageState extends State<GlassPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset(
           'assets/images/glass_soda.jpg',
           height: fheight,

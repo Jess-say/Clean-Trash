@@ -1,7 +1,5 @@
-//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
 import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
 import 'components/custom_alert.dart';
 
 class PlasticLaundryPage extends StatefulWidget {
@@ -10,7 +8,6 @@ class PlasticLaundryPage extends StatefulWidget {
 }
 
 class _PlasticLaundryPageState extends State<PlasticLaundryPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
