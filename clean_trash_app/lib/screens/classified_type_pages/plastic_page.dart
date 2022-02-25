@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
+import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PlasticLaundryPage extends StatefulWidget {
@@ -63,7 +63,7 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeView()),
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
                           );
                         },
                       ),
