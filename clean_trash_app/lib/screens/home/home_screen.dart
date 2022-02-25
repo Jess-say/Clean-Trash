@@ -73,7 +73,7 @@ class DataSearch extends SearchDelegate<RecyclableItem>{
           progress: transitionAnimation,
         ),
         onPressed: () {
-          //close(context, null);
+          close(context, RecyclableItem(name: "null"));
         });
   }
 
@@ -89,9 +89,13 @@ class DataSearch extends SearchDelegate<RecyclableItem>{
   Widget buildSuggestions(BuildContext context) {
     // show when someone searches for something 
     final itemsList = query.isEmpty? loadItemsList()
-    : loadItemsList().where((p) => p.name.contains(query)).toList();  
+    : loadItemsList().where((p) => p.name.toLowerCase().contains(query)).toList();  
 
-    return itemsList.isEmpty? const Text("No results found", style: TextStyle(fontSize: 20),): ListView.builder(
+    return itemsList.isEmpty? const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Text("No results found", style: TextStyle(fontSize: 20),),
+    )
+    : ListView.builder(
       itemCount: itemsList.length,
       itemBuilder: (context, index) => ListTile(
         onTap: (){
