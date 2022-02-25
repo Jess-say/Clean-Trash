@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
-class PaperPage extends StatefulWidget {
+class PaperBoxPage extends StatefulWidget {
   @override
-  _PaperPageState createState() => _PaperPageState();
+  _PaperBoxPageState createState() => _PaperBoxPageState();
 }
 
-class _PaperPageState extends State<PaperPage> {
+class _PaperBoxPageState extends State<PaperBoxPage> {
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -28,7 +28,7 @@ class _PaperPageState extends State<PaperPage> {
       ]),
       body: Container(
         child: Image.asset(
-          'assets/images/paper.jpg',
+          'assets/images/cereal.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill,
@@ -43,8 +43,8 @@ void _appModalBottomSheet(context) {
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-        ),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+    ),
     builder: (context) => SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -99,7 +99,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/junk_mail.jpg'),
+                                child: Image.asset('assets/images/cereal1.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -126,7 +126,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/magazine.jpg'),
+                                child: Image.asset('assets/images/eggo_paper.png'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -153,7 +153,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/envelope.jpg'),
+                                child: Image.asset('assets/images/ritz.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -178,7 +178,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/coupons.jpg'),
+                                child: Image.asset('assets/images/graham.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -283,8 +283,9 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Black out your information and place in bin."
-              "\nIf they contain confidential information consider shredding instead.",
+              "Remove plastic bag from the box and either recycle or discard according to box recycle logo. "
+                  "Check to make sure there are no left crumbs in the box. "
+                  "Then flatten your box and place in appropriate bin.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
