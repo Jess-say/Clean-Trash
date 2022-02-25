@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Login/login_page.dart';
+import 'delete_acc.dart';
 import '../home/home_screen.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';

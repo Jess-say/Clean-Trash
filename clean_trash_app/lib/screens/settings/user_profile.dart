@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/settings/delete_acc.dart';
 import 'package:flutter/material.dart';
 import 'settings.dart';
 import 'package:provider/provider.dart';
@@ -186,6 +187,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              // SIGN OUT button
+              Center(
+                child: OutlinedButton(
+                  onPressed: () {
+                    print("Delete Account");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DeletePage()),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                  ),
+                  child: const Text(
+                    "Delete Account",
+                    style: TextStyle(
+                        fontSize: 16,
+                        letterSpacing: 2.2,
+                        color: Colors.black),
+                  ),
+                ),
               )
             ],
           ),

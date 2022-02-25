@@ -197,14 +197,14 @@ class _CreateAccPageState extends State<CreateAccPage> {
             const SizedBox(
               height: 20,
             ),
-            const CheckBox(text: "Agree to terms and conditions."),
+            /*const CheckBox(text: "Agree to terms and conditions."),
             const SizedBox(
               height: 20,
             ),
             const CheckBox(text: "I am at least 13 years old."),
             const SizedBox(
               height: 20,
-            ),
+            ),*/
             Center(
               child: Column(
                 children: <Widget>[

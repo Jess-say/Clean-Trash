@@ -42,4 +42,12 @@ class Auth {
   Future<void> Logout() async {
     return await _firebaseAuth.signOut();
   }
+
+  Future<User?> deleteAccount(String email, String passw) async {
+
+
+    //auth.AuthCredential credential = auth.EmailAuthProvider.credential(email: email, password: passw);
+
+
+  }
 }
