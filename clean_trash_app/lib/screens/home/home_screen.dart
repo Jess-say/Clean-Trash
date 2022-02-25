@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 
 import '../../components/bottom_nav_bar.dart';
 import 'components/body.dart';
@@ -15,6 +17,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var _locationMessage = '';
+  String latitude = "";
+  String longitude = "";
+
   @override
   void initState() {
     super.initState();
@@ -22,8 +28,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedItem = 0;
 
+  void getCurrentLocation() async {
+    LocationPermission permission;
+    permission = await Geolocator.requestPermission();
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best,
+        forceAndroidLocationManager: true);
+
+    List<Placemark> placemarks = await placemarkFromCoordinates(
+      position.latitude,
+      position.longitude,
+    );
+    Placemark place = placemarks[0];
+
+    setState(() {
+      _locationMessage = "${place.locality}, ${place.administrativeArea}";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    getCurrentLocation();
     return Scaffold(
       appBar: buildAppBar(),
       body: const Body(),
@@ -51,6 +76,19 @@ class _HomeScreenState extends State<HomeScreen> {
         icon: SvgPicture.asset("assets/icons/menu.svg"),
         onPressed: () {},
       ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+              primary: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: [
+              Icon(Icons.location_on),
+              Text(_locationMessage),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
