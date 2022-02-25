@@ -6,6 +6,7 @@ import 'components/body.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
+import '../classified_type_pages/plastic_bottle_fullpage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -99,7 +100,9 @@ class DataSearch extends SearchDelegate<RecyclableItem>{
       itemCount: itemsList.length,
       itemBuilder: (context, index) => ListTile(
         onTap: (){
-          showResults(context);
+          //showResults(context);
+          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => PlasticBottleFullPage()));
+            
         },
         title: 
           Column(
