@@ -27,7 +27,6 @@ class _PlasticLaundryPageState extends State<PlasticLaundryPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset('assets/images/plastic_laundry_bottle1.jpg',
             height: fheight, width: fwidth, fit: BoxFit.fitWidth),
       ),
