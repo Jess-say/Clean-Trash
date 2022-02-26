@@ -172,7 +172,7 @@ class _StyrofoamFullPageState extends State<StyrofoamFullPage> {
                       builder: (_) => const CustomAlert(
                           "Awesome! You logged your first item! Did you know that only 12% of styrofoam is recycled!"),
                     );
-                    print("pressed Recyle Button");
+                    print("pressed Recycle Button");
                   },
                   child: const Text('Recycle'),
                 )

@@ -170,10 +170,10 @@ class _MetalFullPageState extends State<MetalFullPage> {
                       barrierDismissible: false,
                       context: context,
                       builder: (_) => const CustomAlert(
-                          "Awesome! Thank you for recyling correctly! Did you know that 1 in 4 items placed in recycling bins are in fact not recyclabe."),
+                          "Awesome! Thank you for recycling correctly! Did you know that 1 in 4 items placed in recycling bins are in fact not recyclabe."),
                       /*"Awesome! You logged your first item! Did you know that Steel is the most recycled material in North America—more than cardboard or paper!"),*/
                     );
-                    //print("pressed Recyle Button");
+                    //print("pressed Recycle Button");
                     print("pressed Throw Away Button");
                   },
                   child: const Text('Throw Away'),
@@ -208,7 +208,7 @@ Widget infoSection0 = Container(
               ),
             ),
             Text(
-              "Don't Recyle in Riverside County.",
+              "Don't Recycle in Riverside County.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

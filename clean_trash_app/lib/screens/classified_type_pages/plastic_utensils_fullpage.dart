@@ -206,7 +206,7 @@ Widget infoSection0 = Container(
               ),
             ),
             Text(
-              "Recyle in Riverside County.",
+              "Recycle in Riverside County.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

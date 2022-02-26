@@ -172,7 +172,7 @@ class _PaperFullPageState extends State<PaperFullPage> {
                       builder: (_) => const CustomAlert(
                           "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
                     );
-                    print("pressed Recyle Button");
+                    print("pressed Recycle Button");
                   },
                   child: const Text('Recycle'),
                 )
@@ -206,7 +206,7 @@ Widget infoSection0 = Container(
               ),
             ),
             Text(
-              "Recyle in Riverside County.",
+              "Recycle in Riverside County.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

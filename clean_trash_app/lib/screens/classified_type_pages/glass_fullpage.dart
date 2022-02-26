@@ -172,7 +172,7 @@ class _GlassFullPageState extends State<GlassFullPage> {
                       builder: (_) => const CustomAlert(
                           "Awesome! You logged your first item! Did you know that Americans dispose of 10 million metric tons of glass anually."),
                     );
-                    print("pressed Recyle Button");
+                    print("pressed Recycle Button");
                   },
                   child: const Text('Recycle'),
                 )
@@ -206,7 +206,7 @@ Widget infoSection0 = Container(
               ),
             ),
             Text(
-              "Recyle in Riverside County.",
+              "Recycle in Riverside County.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
