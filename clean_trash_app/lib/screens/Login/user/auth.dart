@@ -43,11 +43,9 @@ class Auth {
     return await _firebaseAuth.signOut();
   }
 
-  Future<User?> deleteAccount(String email, String passw) async {
+  Future<User?> DeleteAccount() async {
+    final del = auth.FirebaseAuth.instance.currentUser;
 
-
-    //auth.AuthCredential credential = auth.EmailAuthProvider.credential(email: email, password: passw);
-
-
+    del?.delete();
   }
 }

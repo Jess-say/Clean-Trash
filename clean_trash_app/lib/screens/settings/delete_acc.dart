@@ -1,11 +1,8 @@
-import 'package:cleantrash_app/screens/Login/user/user.dart';
 import 'package:cleantrash_app/screens/settings/user_profile.dart';
 import 'package:flutter/material.dart';
-import '../home/home_screen.dart';
 import '../Login/login_page.dart';
 import 'package:provider/provider.dart';
 import '../Login/user/auth.dart';
-import '../../theme.dart';
 
 
 class DeletePage extends StatefulWidget {
@@ -85,11 +82,14 @@ class _DeletePageState extends State<DeletePage> {
                   ),
                 ),
                 OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                    );
+                  onPressed: () async {
+                    await auth
+                    .DeleteAccount().then((value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    }).catchError((e) => print(e));
                   },
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
