@@ -240,7 +240,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Make sure it's clean and dry otherwise it is not recycable. "
+              "Make sure it's clean and dry otherwise it is not recyclable. "
                   "If there is tape please remove. "
                   "Flatten down the cardboard. Place in recycling bin.",
               style: TextStyle(
