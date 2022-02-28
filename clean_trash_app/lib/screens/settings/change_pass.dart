@@ -1,9 +1,11 @@
+import 'package:cleantrash_app/screens/settings/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Login/user/auth.dart';
 import '../../theme.dart';
 import '../Login/login_page.dart';
 import 'settings.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class ChangePassPage extends StatefulWidget {
   const ChangePassPage({Key? key}) : super(key: key);
@@ -17,7 +19,8 @@ class _ChangePassPageState extends State<ChangePassPage> {
   /*final TextEditingController _password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isObscure = true;*/
-  final _email = TextEditingController();
+  final user = auth.FirebaseAuth.instance.currentUser!;
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,97 +46,80 @@ class _ChangePassPageState extends State<ChangePassPage> {
           },
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.only(top:100, left: 30, right: 30),
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Text(
-                  "Change Password",
-                  style: titleText,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "You will recieve an email to change your password",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: TextFormField(
-                decoration:
-                const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  labelText: 'Email',
-                ),
-                keyboardType: TextInputType.emailAddress,
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please input email';
-                  }
-                  return null;
-                },
-                controller: _email,
-              ),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            Center(
-              child: Column(
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: () async {
+        body: Container(
+            padding: const EdgeInsets.only(left: 30, top: 25, right: 30),
 
-                      await auth
-                          .ResetPass(_email.text).then((value) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                        //Navigator.of(context).pop();
-                      }).catchError((e) => print(e));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: kPrimaryColor, // background
-                      onPrimary: kWhiteColor, // foreground
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 83, vertical: 14),
-                    ),
-                    child: const Text(
-                      "Change Password",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 1,
-                      ), //
-                    ),
+            child: ListView(
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                ],
-              ),
+                  const Text(
+                    "Change Password",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  const Text(
+                    "Are you sure you want to change your password?",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  buildTextField("Email will be sent to: ", user.email as String, false),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SettingsPage()),
+                          );
+                        },
+                        style: OutlinedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          padding: const EdgeInsets.symmetric(horizontal: 50),
+                        ),
+                        child: const Text(
+                          "NO",
+                          style: TextStyle(
+                              fontSize: 14,
+                              letterSpacing: 2.2,
+                              color: Colors.black),
+                        ),
+                      ),
+                      OutlinedButton(
+                        onPressed: () async {
+                          await auth
+                              .ChangePass(user.email).then((value) {
+                            Navigator.of(context).pop();
+                          }).catchError((e) => print(e));
+                        },
+                        style: OutlinedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          padding: const EdgeInsets.symmetric(horizontal: 50),
+                        ),
+                        child: const Text(
+                          "YES",
+                          style: TextStyle(
+                              fontSize: 14,
+                              letterSpacing: 2.2,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
+                ]
             )
-          ],
         ),
-      ),
       /*appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 1,
