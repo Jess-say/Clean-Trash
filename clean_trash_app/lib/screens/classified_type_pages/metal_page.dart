@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
-//import 'components/carousel_slider.dart';
+import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class MetalPage extends StatefulWidget {
@@ -9,7 +8,6 @@ class MetalPage extends StatefulWidget {
 }
 
 class _MetalPageState extends State<MetalPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -29,7 +27,6 @@ class _MetalPageState extends State<MetalPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset(
           'assets/images/metal_food_can.jpg',
           height: fheight,
@@ -70,7 +67,7 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeView()),
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
                           );
                         },
                       ),

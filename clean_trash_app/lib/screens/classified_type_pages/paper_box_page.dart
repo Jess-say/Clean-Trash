@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
-class PlasticBottlePage extends StatefulWidget {
+class PaperBoxPage extends StatefulWidget {
   @override
-  _PlasticBottlePageState createState() => _PlasticBottlePageState();
+  _PaperBoxPageState createState() => _PaperBoxPageState();
 }
 
-class _PlasticBottlePageState extends State<PlasticBottlePage> {
+class _PaperBoxPageState extends State<PaperBoxPage> {
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -27,8 +27,12 @@ class _PlasticBottlePageState extends State<PlasticBottlePage> {
             })
       ]),
       body: Container(
-        child: Image.asset('assets/images/plastic_water_bottle.jpg',
-            height: fheight, width: fwidth, fit: BoxFit.fitWidth),
+        child: Image.asset(
+          'assets/images/cereal.jpg',
+          height: fheight,
+          width: fwidth,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
@@ -39,8 +43,8 @@ void _appModalBottomSheet(context) {
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-        ),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+    ),
     builder: (context) => SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -95,7 +99,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_2liter.jpg'),
+                                child: Image.asset('assets/images/cereal1.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -122,32 +126,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_bottle1.jpg'),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            decoration: const BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 214, 214, 214),
-                                  blurRadius: 5.0,
-                                  offset: Offset(0, 7),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            //color: primaryColor,
-                            margin: const EdgeInsets.all(8),
-                            height: 120,
-                            width: 125,
-                            child: Card(
-                              child: Container(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_soda.jpg'),
+                                child: Image.asset('assets/images/eggo_paper.png'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -174,7 +153,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_juice.jpg'),
+                                child: Image.asset('assets/images/ritz.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -191,7 +170,31 @@ void _appModalBottomSheet(context) {
                               ],
                             ),
                           ),
-
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/images/graham.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       )),
                   infoSection0,
@@ -209,7 +212,7 @@ void _appModalBottomSheet(context) {
                         barrierDismissible: false,
                         context: context,
                         builder: (_) => const CustomAlert(
-                            "Awesome! You logged your first item! Did you know that recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more."),
+                            "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
                       );
                       print("pressed Recyle Button");
                     },
@@ -280,7 +283,9 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Rinse with warm water. Check if liquid is clear if not rinse again.",
+              "Remove plastic bag from the box and either recycle or discard according to box recycle logo. "
+                  "Check to make sure there are no left crumbs in the box. "
+                  "Then flatten your box and place in appropriate bin.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

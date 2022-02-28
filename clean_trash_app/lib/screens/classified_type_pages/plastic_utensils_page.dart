@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
-class PlasticBottlePage extends StatefulWidget {
+class PlasticUtensilsPage extends StatefulWidget {
+  const PlasticUtensilsPage({Key? key}) : super(key: key);
+
   @override
-  _PlasticBottlePageState createState() => _PlasticBottlePageState();
+  _PlasticUtensilsPageState createState() => _PlasticUtensilsPageState();
 }
 
-class _PlasticBottlePageState extends State<PlasticBottlePage> {
+class _PlasticUtensilsPageState extends State<PlasticUtensilsPage> {
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -27,8 +29,12 @@ class _PlasticBottlePageState extends State<PlasticBottlePage> {
             })
       ]),
       body: Container(
-        child: Image.asset('assets/images/plastic_water_bottle.jpg',
-            height: fheight, width: fwidth, fit: BoxFit.fitWidth),
+        child: Image.asset(
+          'assets/images/plastic_utensils.jpg',
+          height: fheight,
+          width: fwidth,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
@@ -39,8 +45,8 @@ void _appModalBottomSheet(context) {
     isScrollControlled: true,
     context: context,
     shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-        ),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
+    ),
     builder: (context) => SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -95,7 +101,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_2liter.jpg'),
+                                child: Image.asset('assets/images/plastic_cup.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -122,32 +128,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_bottle1.jpg'),
-                              ),
-                              shape: RoundedRectangleBorder(
-                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            decoration: const BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 214, 214, 214),
-                                  blurRadius: 5.0,
-                                  offset: Offset(0, 7),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            //color: primaryColor,
-                            margin: const EdgeInsets.all(8),
-                            height: 120,
-                            width: 125,
-                            child: Card(
-                              child: Container(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_soda.jpg'),
+                                child: Image.asset('assets/images/plastic_plate.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -174,7 +155,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/plastic_juice.jpg'),
+                                child: Image.asset('assets/images/plastic_bag.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -191,7 +172,31 @@ void _appModalBottomSheet(context) {
                               ],
                             ),
                           ),
-
+                          Container(
+                            //color: primaryColor,
+                            margin: const EdgeInsets.all(8),
+                            height: 120,
+                            width: 125,
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Image.asset('assets/images/plastic_utensils.jpg'),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            decoration: const BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 214, 214, 214),
+                                  blurRadius: 5.0,
+                                  offset: Offset(0, 7),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       )),
                   infoSection0,
@@ -280,7 +285,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Rinse with warm water. Check if liquid is clear if not rinse again.",
+              "Rinse with warm water to remove any substance.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
