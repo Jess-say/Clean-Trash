@@ -240,7 +240,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "With a small spatula or spoon scrape out any left over food. Rise can with warm water and if needed gently scrub.",
+              "Carefully remove lid. With a small spatula or spoon scrape out any left over food. Rise can with warm water and if needed gently scrub. Place the lid into the can.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
