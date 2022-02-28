@@ -79,7 +79,7 @@ class _PaperboxFullPageState extends State<PaperboxFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/eggo_paper.png'),
+                                  'assets/images/popcorn.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
