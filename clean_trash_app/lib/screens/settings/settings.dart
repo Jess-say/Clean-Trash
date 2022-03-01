@@ -5,6 +5,8 @@ import '../home/home_screen.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import 'user_profile.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:app_settings/app_settings.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -15,6 +17,12 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   int _selectedItem = 0;
+  bool _enableLocation = true;
+
+  Future checkService() async {
+    _enableLocation = await Geolocator.isLocationServiceEnabled();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,10 +223,85 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                const PrivacyOptionRow(title: "Enable Location"),
-                const PrivacyOptionRow(title: "Access to Camera"),
-                const PrivacyOptionRow(title: "Access to Gallery"),
-                const PrivacyOptionRow(title: "Access to ..."),
+                GestureDetector(
+                  onTap: () {
+                    AppSettings.openLocationSettings();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Enable Location Permission",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    AppSettings.openNotificationSettings();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Allow Notification",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    AppSettings.openAppSettings();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Other App Settings",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // const PrivacyOptionRow(title: "Enable Location"),
+                // const PrivacyOptionRow(title: "Access to Camera"),
+                // const PrivacyOptionRow(title: "Access to Gallery"),
+                // const PrivacyOptionRow(title: "Access to ..."),
                 const SizedBox(
                   height: 30,
                 ),
