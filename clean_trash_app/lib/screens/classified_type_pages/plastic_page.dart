@@ -1,7 +1,5 @@
-//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PlasticLaundryPage extends StatefulWidget {
@@ -10,7 +8,6 @@ class PlasticLaundryPage extends StatefulWidget {
 }
 
 class _PlasticLaundryPageState extends State<PlasticLaundryPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -30,7 +27,6 @@ class _PlasticLaundryPageState extends State<PlasticLaundryPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset('assets/images/plastic_laundry_bottle1.jpg',
             height: fheight, width: fwidth, fit: BoxFit.fitWidth),
       ),
@@ -67,7 +63,7 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeView()),
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
                           );
                         },
                       ),
