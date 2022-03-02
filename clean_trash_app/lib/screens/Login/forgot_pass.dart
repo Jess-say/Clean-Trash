@@ -16,7 +16,6 @@ class ForgotPass extends StatefulWidget {
 
 class _ForgotPassState extends State<ForgotPass> {
 
-  //final auth = FirebaseAuth.instance;
   final _email = TextEditingController();
 
   @override

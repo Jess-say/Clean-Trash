@@ -8,6 +8,24 @@ import '../../theme.dart';
 import 'user/auth.dart';
 import 'package:provider/provider.dart';
 
+class EmailFieldValidator {
+  static String? validate(String value) {
+    if (value == null || value.isEmpty) {
+      return 'Please input email can\'t be empty';
+    }
+    else {
+      return null;
+    }
+    //return value.isEmpty ? 'Please input email can\'t be empty' : null;
+  }
+}
+
+class PasswordFieldValidator {
+  static String? validate(String value) {
+    return value.isEmpty ? 'Please enter password can\'t be empty' : null;
+  }
+}
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
   @override
@@ -62,9 +80,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (String? value) {
-                  if (value == null || value.isEmpty)
-                    return 'Please input email';
-                  return null;
+                  EmailFieldValidator.validate;
+                  //if (value == null || value.isEmpty)
+                  //  return 'Please input email';
+                  //return null;
                 },
               ),
             ),
@@ -90,9 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Password',
                 ),
                 validator: (String? value) {
-                  if (value == null || value.isEmpty)
-                    return 'Please input password';
-                  return null;
+                  PasswordFieldValidator.validate;
+                  //if (value == null || value.isEmpty)
+                  //  return 'Please input password';
+                  //return null;
                 },
               ),
             ),

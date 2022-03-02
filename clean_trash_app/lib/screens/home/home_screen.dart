@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
-
+import './components/recyclable_item.dart';
 import '../../components/bottom_nav_bar.dart';
 import 'components/body.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
+import '../classified_type_pages/plastic_bottle_fullpage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -72,9 +73,70 @@ class _HomeScreenState extends State<HomeScreen> {
   AppBar buildAppBar() {
     return AppBar(
       elevation: 0,
-      leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/menu.svg"),
-        onPressed: () {},
+      title: const Text("Search"),
+      actions: <Widget>[
+        IconButton(onPressed: (){
+          showSearch(context: context, delegate: DataSearch());
+        }, icon: const Icon(Icons.search))
+      ]
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<RecyclableItem>{
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [IconButton(icon: const Icon(Icons.clear), onPressed: () {
+      query = "";
+    })];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+        icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_arrow,
+          progress: transitionAnimation,
+        ),
+        onPressed: () {
+          close(context, RecyclableItem(name: "null"));
+        });
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // do something with result of selecting an item 
+    return Center(
+      child: Text(query, style: const TextStyle(fontSize: 20),)
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // show when someone searches for something 
+    final itemsList = query.isEmpty? loadItemsList()
+    : loadItemsList().where((p) => p.name.toLowerCase().contains(query)).toList();  
+
+    return itemsList.isEmpty? const Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Text("No results found", style: TextStyle(fontSize: 20),),
+    )
+    : ListView.builder(
+      itemCount: itemsList.length,
+      itemBuilder: (context, index) => ListTile(
+        onTap: (){
+          //showResults(context);
+          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => PlasticBottleFullPage()));
+            
+        },
+        title: 
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget> [
+              Text(itemsList[index].name, style: const TextStyle(fontSize: 20)),
+              const Divider()
+            ],
+          )
       ),
       actions: <Widget>[
         TextButton(

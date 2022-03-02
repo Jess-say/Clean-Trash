@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PaperPage extends StatefulWidget {
@@ -9,7 +8,6 @@ class PaperPage extends StatefulWidget {
 }
 
 class _PaperPageState extends State<PaperPage> {
-  final primaryColor = const Color(0xFF81C784);
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -29,9 +27,8 @@ class _PaperPageState extends State<PaperPage> {
             })
       ]),
       body: Container(
-        color: primaryColor,
         child: Image.asset(
-          'assets/images/cereal.jpg',
+          'assets/images/paper.jpg',
           height: fheight,
           width: fwidth,
           fit: BoxFit.fill,
@@ -70,7 +67,7 @@ void _appModalBottomSheet(context) {
                           print("X Pressed");
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeView()),
+                            MaterialPageRoute(builder: (context) => HomeScreen()),
                           );
                         },
                       ),
@@ -102,7 +99,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/cereal1.jpg'),
+                                child: Image.asset('assets/images/junk_mail.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -129,7 +126,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/eggo_paper.png'),
+                                child: Image.asset('assets/images/magazine.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 side: const BorderSide(
@@ -156,7 +153,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/eggcartonpaper.jpg'),
+                                child: Image.asset('assets/images/envelope.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -181,7 +178,7 @@ void _appModalBottomSheet(context) {
                             child: Card(
                               child: Container(
                                 padding: const EdgeInsets.all(4.0),
-                                child: Image.asset('assets/images/paper.jpg'),
+                                child: Image.asset('assets/images/coupons.jpg'),
                               ),
                               shape: RoundedRectangleBorder(
                                 //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -286,9 +283,8 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Remove cereal bag from the box and either recycle or discard according to box recycle logo. "
-                  "Check to make sure there are no left over cereal or crumbs in the box. "
-                  "Then flatten your box and place in appropriate bin.",
+              "Black out your information and place in bin."
+              "\nIf they contain confidential information consider shredding instead.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],
