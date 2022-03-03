@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class CardboardFullPage extends StatefulWidget {
+class TissueBoxFullPage extends StatefulWidget {
   @override
-  _CardboardFullPageState createState() => _CardboardFullPageState();
+  _TissueBoxFullPageState createState() => _TissueBoxFullPageState();
 }
 
-class _CardboardFullPageState extends State<CardboardFullPage> {
+class _TissueBoxFullPageState extends State<TissueBoxFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/cardboard_box.jpg'),
+                                  'assets/images/tissuebox.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/cardboard.jpg'),
+                                  'assets/images/tissuebox1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,38 +105,12 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/towelrolls.jpg'),
+                              Image.asset('assets/images/tissuebox2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
                                   color: Color.fromARGB(255, 206, 204, 204),
                                   width: 1),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 214, 214, 214),
-                                blurRadius: 5.0,
-                                offset: Offset(0, 7),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          //color: primaryColor,
-                          margin: const EdgeInsets.all(8),
-                          height: 120,
-                          width: 125,
-                          child: Card(
-                            child: Container(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/cardboard-bundled.jpg'),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
@@ -240,9 +214,8 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Make sure it's clean and dry otherwise it is not recyclable. "
-                  "If there is tape please remove. "
-                  "Flatten down the cardboard. Place in recycling bin.",
+              "Make sure the box clean and dry otherwise it is not recyclable. "
+                  "Flatten down the box. Place in recycling bin.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class CardboardFullPage extends StatefulWidget {
+class PaperFrozenFoodFullPage extends StatefulWidget {
   @override
-  _CardboardFullPageState createState() => _CardboardFullPageState();
+  _PaperFrozenFoodFullPageState createState() => _PaperFrozenFoodFullPageState();
 }
 
-class _CardboardFullPageState extends State<CardboardFullPage> {
+class _PaperFrozenFoodFullPageState extends State<PaperFrozenFoodFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,6 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                     child: Row(
                       children: [
                         Container(
-                          //color: primaryColor,
                           margin: const EdgeInsets.all(8),
                           height: 120,
                           width: 125,
@@ -52,7 +51,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/cardboard_box.jpg'),
+                                  'assets/images/frozenfood1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -72,6 +71,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                           ),
                         ),
                         Container(
+                          //color: primaryColor,
                           margin: const EdgeInsets.all(8),
                           height: 120,
                           width: 125,
@@ -79,7 +79,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/cardboard.jpg'),
+                                  'assets/images/eggo_paper.png'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/towelrolls.jpg'),
+                              Image.asset('assets/images/frozenfood4.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/cardboard-bundled.jpg'),
+                                  'assets/images/frozenfood3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -170,7 +170,7 @@ class _CardboardFullPageState extends State<CardboardFullPage> {
                       barrierDismissible: false,
                       context: context,
                       builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that Recycling cardboard only takes 75% of the energy needed to make new cardboard."),
+                          "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
                     );
                     print("pressed Recycle Button");
                   },
@@ -240,13 +240,12 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Make sure it's clean and dry otherwise it is not recyclable. "
-                  "If there is tape please remove. "
-                  "Flatten down the cardboard. Place in recycling bin.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
+              "Remove plastic bag from the box and either recycle or discard according to box recycle logo. "
+                  "Check to make sure there are no left crumbs in the box. "
+                  "Then flatten your box and place in appropriate bin.",              style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey[500],
+            ),
             ),
           ],
         ),
