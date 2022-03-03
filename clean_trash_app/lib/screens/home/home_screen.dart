@@ -71,24 +71,37 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   AppBar buildAppBar() {
-    return AppBar(
-      elevation: 0,
-      title: const Text("Search"),
-      actions: <Widget>[
-        IconButton(onPressed: (){
-          showSearch(context: context, delegate: DataSearch());
-        }, icon: const Icon(Icons.search))
-      ]
-    );
+    return AppBar(elevation: 0, title: const Text("Search"), actions: <Widget>[
+      IconButton(
+          onPressed: () {
+            showSearch(context: context, delegate: DataSearch());
+          },
+          icon: const Icon(Icons.search)),
+      TextButton(
+        onPressed: () {},
+        style: TextButton.styleFrom(
+            primary: Theme.of(context).colorScheme.onPrimary),
+        child: Row(
+          children: [
+            Icon(Icons.location_on),
+            Text(_locationMessage),
+          ],
+        ),
+      ),
+    ]);
   }
 }
 
-class DataSearch extends SearchDelegate<RecyclableItem>{
+class DataSearch extends SearchDelegate<RecyclableItem> {
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: const Icon(Icons.clear), onPressed: () {
-      query = "";
-    })];
+    return [
+      IconButton(
+          icon: const Icon(Icons.clear),
+          onPressed: () {
+            query = "";
+          })
+    ];
   }
 
   @override
@@ -105,53 +118,49 @@ class DataSearch extends SearchDelegate<RecyclableItem>{
 
   @override
   Widget buildResults(BuildContext context) {
-    // do something with result of selecting an item 
+    // do something with result of selecting an item
     return Center(
-      child: Text(query, style: const TextStyle(fontSize: 20),)
-    );
+        child: Text(
+      query,
+      style: const TextStyle(fontSize: 20),
+    ));
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // show when someone searches for something 
-    final itemsList = query.isEmpty? loadItemsList()
-    : loadItemsList().where((p) => p.name.toLowerCase().contains(query)).toList();  
+    // show when someone searches for something
+    final itemsList = query.isEmpty
+        ? loadItemsList()
+        : loadItemsList()
+            .where((p) => p.name.toLowerCase().contains(query))
+            .toList();
 
-    return itemsList.isEmpty? const Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Text("No results found", style: TextStyle(fontSize: 20),),
-    )
-    : ListView.builder(
-      itemCount: itemsList.length,
-      itemBuilder: (context, index) => ListTile(
-        onTap: (){
-          //showResults(context);
-          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => PlasticBottleFullPage()));
-            
-        },
-        title: 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget> [
-              Text(itemsList[index].name, style: const TextStyle(fontSize: 20)),
-              const Divider()
-            ],
+    return itemsList.isEmpty
+        ? const Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Text(
+              "No results found",
+              style: TextStyle(fontSize: 20),
+            ),
           )
-      ),
-      actions: <Widget>[
-        TextButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(
-              primary: Theme.of(context).colorScheme.onPrimary),
-          child: Row(
-            children: [
-              Icon(Icons.location_on),
-              Text(_locationMessage),
-            ],
-          ),
-        )
-      ],
-    );
+        : ListView.builder(
+            itemCount: itemsList.length,
+            itemBuilder: (context, index) => ListTile(
+                onTap: () {
+                  //showResults(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          PlasticBottleFullPage()));
+                },
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(itemsList[index].name,
+                        style: const TextStyle(fontSize: 20)),
+                    const Divider()
+                  ],
+                )),
+          );
   }
 }
 
