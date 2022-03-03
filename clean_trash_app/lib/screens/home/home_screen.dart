@@ -76,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         icon: SvgPicture.asset("assets/icons/menu.svg"),
         onPressed: () {},
       ),
+      // show location
       actions: <Widget>[
         TextButton(
           onPressed: () {},
