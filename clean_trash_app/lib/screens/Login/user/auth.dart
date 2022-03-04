@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/Login/user/database.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'user.dart';
 
@@ -12,7 +13,7 @@ class Auth {
     return User(user.uid, user.email);
   }
 
-  Stream<User?>? get user{
+  Stream<User?>? get user {
     return _firebaseAuth.authStateChanges().map(_firebaseUser);
   }
 
@@ -27,6 +28,7 @@ class Auth {
     final res = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: passw);
     _passw = passw;
+    await DatabaseService(uid: res.user!.uid).updateUserData(0, 0, 0, 0, 0);
     return _firebaseUser(res.user);
   }
 
@@ -36,7 +38,6 @@ class Auth {
 
   Future<User?> ResetPass(String email) async {
     final res = await _firebaseAuth.sendPasswordResetEmail(email: email);
-
   }
 
   Future<void> Logout() async {

@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../components/bottom_nav_bar.dart';
 import 'components/body.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
+import '../Login/user/database.dart';
+import 'package:cleantrash_app/screens/home/user_list.dart';
+import 'package:cleantrash_app/model/users.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -49,22 +54,31 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     getCurrentLocation();
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: const Body(),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        iconList: [
-          Icons.home,
-          Icons.camera_alt,
-          Icons.assignment_turned_in,
-          Icons.settings,
-        ],
-        onChange: (val) {
-          setState(() {
-            _selectedItem = val;
-          });
-        },
-        defaultSelectedIndex: 0,
+    return StreamProvider<List<User>>.value(
+      initialData: [],
+      value: DatabaseService().users,
+      child: Scaffold(
+        appBar: buildAppBar(),
+        body: Column(
+          children: [
+            const Body(),
+            UserList(),
+          ],
+        ),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          iconList: [
+            Icons.home,
+            Icons.camera_alt,
+            Icons.assignment_turned_in,
+            Icons.settings,
+          ],
+          onChange: (val) {
+            setState(() {
+              _selectedItem = val;
+            });
+          },
+          defaultSelectedIndex: 0,
+        ),
       ),
     );
   }
