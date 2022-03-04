@@ -15,7 +15,6 @@ class BadgesPage extends StatefulWidget {
 }
 
 class _BadgesPageState extends State<BadgesPage> {
-
   late bool _isPressed1 = false;
   late bool _isPressed2 = false;
   late bool _isPressed3 = false;
@@ -57,7 +56,7 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.only(top: 20, left: 20, right: 30),
+                  padding: const EdgeInsets.only(top: 60, left: 20, right: 30),
                   child: ListView(
                     padding: const EdgeInsets.only(top: 15),
                     children: [
@@ -72,7 +71,6 @@ class _BadgesPageState extends State<BadgesPage> {
                         height: 5,
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.account_circle_rounded,
@@ -80,27 +78,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFBBDEFB),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("1/1  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed1 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked create\n");
-                              setState(() {
-                                _isPressed1 = !_isPressed1;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(1, 1),
                         ],
                       ),
                       Row(
@@ -112,31 +90,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC5CAE9),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/10  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed2 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked recycle 10\n");
-                              setState(() {
-                                _isPressed2 = !_isPressed2;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 10),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.delete_forever,
@@ -144,31 +101,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFB2BFDB),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/20  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed3 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked recycle 20\n");
-                              setState(() {
-                                _isPressed3 = !_isPressed3;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 20),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.inventory_2_outlined,
@@ -176,31 +112,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFE0B2),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/5  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed4 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked cardboard 5\n");
-                              setState(() {
-                                _isPressed4 = !_isPressed4;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 5),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.liquor_outlined,
@@ -208,31 +123,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFECB3),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/10  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed5 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked glass 10\n");
-                              setState(() {
-                                _isPressed5 = !_isPressed5;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 10),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.ad_units,
@@ -240,31 +134,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFF9C4),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/10  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed6 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked metal 10\n");
-                              setState(() {
-                                _isPressed6 = !_isPressed6;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 10),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.description_outlined,
@@ -272,31 +145,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFDCEDC8),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/10  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed7 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked paper 10\n");
-                              setState(() {
-                                _isPressed7 = !_isPressed7;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 10),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.credit_card_outlined,
@@ -304,31 +156,10 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC8E6C9),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/10  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed8 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked plastic 10\n");
-                              setState(() {
-                                _isPressed8 = !_isPressed8;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 10),
                         ],
                       ),
                       Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.fastfood_outlined,
@@ -336,27 +167,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC5E1A5),
                             kSecondaryColor,
                           ),
-                          //LinearProgressIndicator(),
-                          const Text("0/5  "),
-                          OutlinedButton(
-                            child: Text("CLAIM"),
-                            onPressed: _isPressed9 ? null : () {
-                              // once pressed can't press again (doesn't work yet)
-                              // if onPressed : null then button disabled
-                              print("clicked non 5\n");
-                              setState(() {
-                                _isPressed9 = !_isPressed9;
-                              });
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              backgroundColor: Colors.white,
-                              onSurface: Colors.grey,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ),
+                          Progress(0, 5),
                         ],
                       ),
                     ],
@@ -374,8 +185,8 @@ class _BadgesPageState extends State<BadgesPage> {
       IconData icon, String title, Color backgroundColor, Color iconColor) {
     return Container(
       margin: EdgeInsets.all(10),
-      height: 90,
-      width: 90,
+      height: 100,
+      width: 100,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
@@ -398,6 +209,62 @@ class _BadgesPageState extends State<BadgesPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container Progress(int temp, int total) {
+    return Container(
+      width: 220,
+      height: 110,
+      decoration: BoxDecoration(color: Colors.white),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 3,
+          ),
+          LinearProgressIndicator(
+            minHeight: 2,
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            value: temp / total,
+            backgroundColor: Colors.grey,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(temp.toString() + "/" + total.toString()),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              OutlinedButton(
+                child: const Text("CLAIM"),
+                onPressed: _isPressed1
+                    ? null
+                    : () {
+                        // once pressed can't press again (doesn't work yet)
+                        // if onPressed : null then button disabled
+                        print("clicked create\n");
+                        setState(() {
+                          _isPressed1 = !_isPressed1;
+                        });
+                      },
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
+                  backgroundColor: Colors.white,
+                  onSurface: Colors.grey,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
