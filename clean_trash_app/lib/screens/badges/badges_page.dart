@@ -46,12 +46,12 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.only(top: 100, left: 30, right: 30),
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 30),
                   child: ListView(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 15),
                     children: [
                       const Text(
-                        "Your Badges",
+                        "Badges",
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontSize: 25,
@@ -61,20 +61,30 @@ class _BadgesPageState extends State<BadgesPage> {
                         height: 5,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.account_circle_rounded,
                             "Create Account",
                             Color(0xFFBBDEFB),
                             kSecondaryColor,
-                          ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.delete,
                             "Recycle 10 Days",
                             Color(0xFFC5CAE9),
                             kSecondaryColor,
                           ),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.delete_forever,
                             "Recycle 20 Days",
@@ -83,7 +93,7 @@ class _BadgesPageState extends State<BadgesPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(
+                      /*const SizedBox(
                         height: 10,
                       ),
                       const Text(
@@ -95,9 +105,9 @@ class _BadgesPageState extends State<BadgesPage> {
                       ),
                       const SizedBox(
                         height: 10,
-                      ),
+                      ),*/
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.inventory_2_outlined,
@@ -105,12 +115,22 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFE0B2),
                             kSecondaryColor,
                           ),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.liquor_outlined,
                             "10 Glass",
                             Color(0xFFFFECB3),
                             kSecondaryColor,
                           ),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.ad_units,
                             "10 Metal",
@@ -120,7 +140,7 @@ class _BadgesPageState extends State<BadgesPage> {
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.description_outlined,
@@ -128,12 +148,22 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFDCEDC8),
                             kSecondaryColor,
                           ),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.credit_card_outlined,
                             "10 Plastic",
                             Color(0xFFC8E6C9),
                             kSecondaryColor,
                           ),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.fastfood_outlined,
                             "5 Non-Recycable",
