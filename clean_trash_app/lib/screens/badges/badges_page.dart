@@ -56,7 +56,7 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.only(top: 60, left: 20, right: 30),
+                  padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
                   child: ListView(
                     padding: const EdgeInsets.only(top: 15),
                     children: [
@@ -78,7 +78,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFBBDEFB),
                             kSecondaryColor,
                           ),
-                          Progress(1, 1),
+                          Progress(1, 1, _isPressed1),
                         ],
                       ),
                       Row(
@@ -90,7 +90,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC5CAE9),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10),
+                          Progress(0, 10, _isPressed2),
                         ],
                       ),
                       Row(
@@ -101,7 +101,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFB2BFDB),
                             kSecondaryColor,
                           ),
-                          Progress(0, 20),
+                          Progress(0, 20, _isPressed3),
                         ],
                       ),
                       Row(
@@ -112,7 +112,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFE0B2),
                             kSecondaryColor,
                           ),
-                          Progress(0, 5),
+                          Progress(0, 5, _isPressed4),
                         ],
                       ),
                       Row(
@@ -123,7 +123,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFECB3),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10),
+                          Progress(0, 10, _isPressed5),
                         ],
                       ),
                       Row(
@@ -134,7 +134,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFF9C4),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10),
+                          Progress(0, 10, _isPressed6),
                         ],
                       ),
                       Row(
@@ -145,7 +145,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFDCEDC8),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10),
+                          Progress(0, 10, _isPressed7),
                         ],
                       ),
                       Row(
@@ -156,7 +156,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC8E6C9),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10),
+                          Progress(0, 10, _isPressed8),
                         ],
                       ),
                       Row(
@@ -167,7 +167,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC5E1A5),
                             kSecondaryColor,
                           ),
-                          Progress(0, 5),
+                          Progress(0, 5, _isPressed9),
                         ],
                       ),
                     ],
@@ -184,7 +184,7 @@ class _BadgesPageState extends State<BadgesPage> {
   Container buildBadgets(
       IconData icon, String title, Color backgroundColor, Color iconColor) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(5),
       height: 100,
       width: 100,
       decoration: BoxDecoration(
@@ -214,7 +214,7 @@ class _BadgesPageState extends State<BadgesPage> {
     );
   }
 
-  Container Progress(int temp, int total) {
+  Container Progress(int temp, int total, bool pressed_temp) {
     return Container(
       width: 220,
       height: 110,
@@ -241,14 +241,14 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               OutlinedButton(
                 child: const Text("CLAIM"),
-                onPressed: _isPressed1
+                onPressed: pressed_temp
                     ? null
                     : () {
                         // once pressed can't press again (doesn't work yet)
                         // if onPressed : null then button disabled
                         print("clicked create\n");
                         setState(() {
-                          _isPressed1 = !_isPressed1;
+                          pressed_temp = !pressed_temp;
                         });
                       },
                 style: OutlinedButton.styleFrom(
