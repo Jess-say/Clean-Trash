@@ -224,11 +224,8 @@ class _BadgesPageState extends State<BadgesPage> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 3,
-          ),
           LinearProgressIndicator(
-            minHeight: 2,
+            minHeight: 5,
             valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
             value: temp / total,
             backgroundColor: Colors.grey,
