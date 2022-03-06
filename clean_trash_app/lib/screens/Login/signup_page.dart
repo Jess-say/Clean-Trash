@@ -118,12 +118,12 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 /*onSaved: (value) {
                   _email.text = value!;
                 },*/
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please input email';
-                  }
-                  return null;
-                },
+                validator: ValidEmail.validateEmail,//(String? value) {
+                //  if (value == null || value.isEmpty) {
+                //    return 'Please input email';
+                //  }
+                //  return null;
+                //},
                 controller: _email,
               ),
             ),
@@ -151,15 +151,16 @@ class _CreateAccPageState extends State<CreateAccPage> {
                   ),
                   labelText: 'Password',
                 ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please input password';
-                  }
-                  else if (value.length <= 5) {
-                    return 'Password should be more than 5 characters';
-                  }
-                  return null;
-                },
+                validator: PasswordValidator.validatePass,//(String? value) {
+                 // PasswordValidator.validatePass(value!);
+                 //if (value == null || value.isEmpty) {
+                 //  return 'Please input password';
+                 //}
+                 //else if (value.length <= 5) {
+                 //  return 'Password should be more than 5 characters';
+                 //}
+                 //return null;
+                //},
               ),
             ),
             Padding(
@@ -269,5 +270,31 @@ class _CreateAccPageState extends State<CreateAccPage> {
       ),
     );
   }
+
 }
 
+class ValidEmail{
+  static String? validateEmail(String? value){
+    if (value == null || value.isEmpty){
+      return 'Please input email can\'t be empty';
+    }
+    else if (!value.contains('@') || !value.contains('.')) {
+      return ('The e-mail is invalid!');
+    }
+    else{
+      return null;
+    }
+  }
+}
+
+class PasswordValidator{
+  static String? validatePass(String? value){
+    if (value == null || value.isEmpty) {
+      return 'Please input password can\'t be empty';
+    }
+    else if (value.length <= 5) {
+      return 'Password should be more than 5 characters';
+    }
+    return null;
+  }
+}
