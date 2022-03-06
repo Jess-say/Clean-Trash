@@ -33,10 +33,6 @@ class PasswordFieldValidator {
   }
 }
 
-//class Provider(
-//create: (_) => Auth(),
-//child: LoginPage();
-//)
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
