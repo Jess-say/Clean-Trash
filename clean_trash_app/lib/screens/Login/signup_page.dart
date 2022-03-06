@@ -190,6 +190,8 @@ class _CreateAccPageState extends State<CreateAccPage> {
                 validator: (String? value) {
                   if (_checkpass.text != _passw.text) {//value == null || value.isEmpty) {
                     return 'Passwords do not match ${_checkpass.text} and ${_passw.text}';
+                  }else if (value == null || value.isEmpty) {
+                    return 'Please input password can\'t be empty';
                   }
                   return null;
                 },
