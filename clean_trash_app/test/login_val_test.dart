@@ -4,25 +4,43 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  test('empty email returns error string', () {
+  test('Empty email returns error string', () {
 
     final result = EmailFieldValidator.validate('');
     expect(result, 'Please input email can\'t be empty');
   });
 
-  test('non-empty email returns null', () {
+  test('Invalid! Email returns error string for missing @', () {
+
+    final result = EmailFieldValidator.validate('email.');
+    expect(result, 'The e-mail is invalid!');
+  });
+
+  test('Invalid! Email returns error string for missing .', () {
+
+    final result = EmailFieldValidator.validate('email@');
+    expect(result, 'The e-mail is invalid!');
+  });
+
+  test('Invalid! Email returns error string for missing both @ and .', () {
 
     final result = EmailFieldValidator.validate('email');
+    expect(result, 'The e-mail is invalid!');
+  });
+
+  test('Non-empty email returns null', () {
+
+    final result = EmailFieldValidator.validate('email@gmail.com');
     expect(result, null);
   });
 
-  test('empty password returns error string', () {
+  test('Empty password returns error string', () {
 
     final result = PasswordFieldValidator.validate('');
-    expect(result, 'Please enter password can\'t be empty');
+    expect(result, 'Please input password can\'t be empty');
   });
 
-  test('non-empty password returns null', () {
+  test('Non-empty password returns null', () {
 
     final result = PasswordFieldValidator.validate('password');
     expect(result, null);
