@@ -52,7 +52,7 @@ class _MailPaperFullPageState extends State<MailPaperFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/newspaper.jpg'),
+                                  'assets/images/junkmail1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _MailPaperFullPageState extends State<MailPaperFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/coupons.jpg'),
+                                  'assets/images/junkmail2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
