@@ -1,5 +1,6 @@
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
@@ -36,7 +37,7 @@ import '../classified_type_pages/plastic_bottle_fullpage.dart';
 import '../classified_type_pages/plastic_utensils_fullpage.dart';
 import '../classified_type_pages/plastic_shampoo_fullpage.dart';
 import '../classified_type_pages/plastic_soda_fullpage.dart';
-import '../classified_type_pages/plastic_water_jug_fullpage.dart'; 
+import '../classified_type_pages/plastic_water_jug_fullpage.dart';
 import '../classified_type_pages/plastic_milk_jug_fullpage.dart'; 
 
 import '../classified_type_pages/glass_catsup_fullpage.dart';
@@ -213,8 +214,8 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Beverage Container': GlassDrinkFullPage(),
       'Catsup Bottle': GlassCatsupFullPage(),
       'Food Container':  GlassSolidFoodFullPage(),
-      'Juice Container': GlassDrinkFullPage(),  // has soda bottle, remove that
-      'Glass Soda Bottle':  GlassDrinkFullPage(), // ?? create glass soda bottle page
+      'Juice Container': GlassDrinkFullPage(),
+      'Glass Soda Bottle':  GlassSodaFullPage(),
       'Wine Bottle': WineFullPage(),
       'Liquor Bottle': GlassAlcoholFullPage(),
  
