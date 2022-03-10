@@ -1,6 +1,8 @@
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/envelope_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/magazine_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
@@ -11,6 +13,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/paper_book_fullpage
 import 'package:cleantrash_app/screens/classified_type_pages/paper_box_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_cartons_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_tube_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
@@ -226,7 +229,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Empty Aerosol Cans': MetalSprayFullPage(),
       'Metal Coat Hanger': MetalHangerFullPage(), 
       'Metal Food Can': MetalFoodFullPage(),
-      'Milk Can': MilkCanFullPage(),  // create page
+      'Milk Can': MilkCanFullPage(),
       'Juice Can': MetalDrinkFullPage(), 
       'Paint Can': PaintcanFullPage(),
       'Pet Food Can': MetalPetFoodFullPage(),  // separate page
@@ -244,13 +247,13 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Coupons': MailPaperFullPage(),    // coupons
       'Paper Bag': PaperBagFullPage(), 
       'Junk Mail': MailPaperFullPage(),
-      'Magazine': MailPaperFullPage(),    // magazine 
+      'Magazine': MagazineFullPage(),
       'Newspaper': MailPaperFullPage(),  
       'Paper Carton': PaperCartonFullPage(),
-      'Paper Tube': MailPaperFullPage(),    // paper tube
+      'Paper Tube': PaperTubeFullPage(),    // paper tube
       'Phone Book': PaperBookFullPage(),
       'Tissue Box': TissueBoxFullPage(),
-      'Envelope': MailPaperFullPage(),    // envelope 
+      'Envelope': EnvelopeFullPage(),    // envelope
       'Wrapping Paper': PaperWrappingFullPage(),
       
       'Egg Carton': PaperEggFullPage(),   // NOT ON LIST
