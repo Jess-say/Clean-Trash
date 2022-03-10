@@ -1,4 +1,5 @@
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/coupons_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/envelope_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage.dart';
@@ -242,18 +243,18 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Brochure': MailPaperFullPage(),    // brochure //
       'Cardboard': CardboardFullPage(),
       'catalog': MailPaperFullPage(),    // catalog 
-      'Cereal Box': PaperboxFullPage(),     // cereal box  
+      'Cereal Box': PaperboxFullPage(),     // cereal box
       'Computer Paper':  NormalPaperFullPage(),
-      'Coupons': MailPaperFullPage(),    // coupons
+      'Coupons': CouponsFullPage(),
       'Paper Bag': PaperBagFullPage(), 
       'Junk Mail': MailPaperFullPage(),
       'Magazine': MagazineFullPage(),
       'Newspaper': MailPaperFullPage(),  
       'Paper Carton': PaperCartonFullPage(),
-      'Paper Tube': PaperTubeFullPage(),    // paper tube
+      'Paper Tube': PaperTubeFullPage(),
       'Phone Book': PaperBookFullPage(),
       'Tissue Box': TissueBoxFullPage(),
-      'Envelope': EnvelopeFullPage(),    // envelope
+      'Envelope': EnvelopeFullPage(),
       'Wrapping Paper': PaperWrappingFullPage(),
       
       'Egg Carton': PaperEggFullPage(),   // NOT ON LIST
