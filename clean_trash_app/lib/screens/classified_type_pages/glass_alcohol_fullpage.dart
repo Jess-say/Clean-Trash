@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
-
+//Now the page for liquor
 class GlassAlcoholFullPage extends StatefulWidget {
   @override
   _GlassAlcoholFullPageState createState() => _GlassAlcoholFullPageState();
@@ -52,7 +52,7 @@ class _GlassAlcoholFullPageState extends State<GlassAlcoholFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/alcohol1.jpg'),
+                                  'assets/images/alcohol.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _GlassAlcoholFullPageState extends State<GlassAlcoholFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/alcohol.jpg'),
+                                  'assets/images/liquor1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _GlassAlcoholFullPageState extends State<GlassAlcoholFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/alcohol2.jpg'),
+                              Image.asset('assets/images/liquor3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _GlassAlcoholFullPageState extends State<GlassAlcoholFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/alcohol3.jpg'),
+                                  'assets/images/liquor2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
