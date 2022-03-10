@@ -79,7 +79,7 @@ class _PlasticUtensilsFullPageState extends State<PlasticUtensilsFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/plastic_cup.jpg'),
+                                  'assets/images/utensils1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _PlasticUtensilsFullPageState extends State<PlasticUtensilsFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/plastic_plate.jpg'),
+                              Image.asset('assets/images/utensils2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _PlasticUtensilsFullPageState extends State<PlasticUtensilsFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/plastic_bag.jpg'),
+                                  'assets/images/utensils3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
