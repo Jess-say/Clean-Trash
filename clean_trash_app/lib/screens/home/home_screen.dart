@@ -1,4 +1,5 @@
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/booklet_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/coupons_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/envelope_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
@@ -241,9 +242,9 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Styrofoam': StyrofoamFullPage(),
  
       // PAPER
-      'Brochure': MailPaperFullPage(),    // brochure //
+      'Brochure': BookletFullPage(),    // brochure //
       'Cardboard': CardboardFullPage(),
-      'catalog': MailPaperFullPage(),    // catalog 
+      'catalog': BookletFullPage(),    // catalog
       'Cereal Box': PaperboxFullPage(),     // cereal box
       'Computer Paper':  NormalPaperFullPage(),
       'Coupons': CouponsFullPage(),
