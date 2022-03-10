@@ -8,6 +8,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage
 import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_milk_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/newspaper_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/normal_paper_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paintcan_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_book_fullpage.dart';
@@ -249,7 +250,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Paper Bag': PaperBagFullPage(), 
       'Junk Mail': MailPaperFullPage(),
       'Magazine': MagazineFullPage(),
-      'Newspaper': MailPaperFullPage(),  
+      'Newspaper': NewspaperFullPage(),
       'Paper Carton': PaperCartonFullPage(),
       'Paper Tube': PaperTubeFullPage(),
       'Phone Book': PaperBookFullPage(),
