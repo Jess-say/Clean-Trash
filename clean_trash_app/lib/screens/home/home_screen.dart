@@ -200,8 +200,8 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Lotion Bottle': PlasticLotionFullPage(),
       'Motor Oil Container': MotorOilFullPage(),
       'Plastic Bag': PlasticBagFullPage(), 
-      'Plastic Container': PlasticBottleFullPage(),  // plastic container --> soda bottles? 
-      'Plastic Cups': PlasticCupFullPage(),  // plastic cups, make page
+      'Plastic Container': PlasticDisposableFullPage(),  // should I make this recyclable instead?
+      'Plastic Cups': PlasticCupFullPage(),
       'Plastic Utensil': PlasticUtensilsFullPage(), 
       'Shampoo Bottle': PlasticShampooFullPage(),
       'Plastic Soda Bottle': PlasticSodaFullPage(), 
