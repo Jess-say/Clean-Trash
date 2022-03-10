@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class PlasticMilkFullPage extends StatefulWidget {
+class PlasticWaterJugFullPage extends StatefulWidget {
   @override
-  _PlasticMilkFullPageState createState() => _PlasticMilkFullPageState();
+  _PlasticWaterJugFullPageState createState() => _PlasticWaterJugFullPageState();
 }
 
-class _PlasticMilkFullPageState extends State<PlasticMilkFullPage> {
+class _PlasticWaterJugFullPageState extends State<PlasticWaterJugFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _PlasticMilkFullPageState extends State<PlasticMilkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/milk.jpg'),
+                                  'assets/images/water.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _PlasticMilkFullPageState extends State<PlasticMilkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/milk3.jpg'),
+                                  'assets/images/water2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _PlasticMilkFullPageState extends State<PlasticMilkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/milk2.jpg'),
+                              Image.asset('assets/images/water3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _PlasticMilkFullPageState extends State<PlasticMilkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/milk4.jpg'),
+                                  'assets/images/water4.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -240,7 +240,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Rinse bottle to remove any leftover milk residue. Place the clean bottle in bin.",
+              "Place empty bottle in bin.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

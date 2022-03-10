@@ -1,3 +1,18 @@
+import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/normal_paper_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paintcan_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_book_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_box_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_cartons_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/tissuesbox_fullpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
@@ -8,7 +23,48 @@ import 'components/body.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
+
+import '../classified_type_pages/plastic_antifreeze_fullpage.dart';
+import '../classified_type_pages/plastic_laundry_fullpage.dart';
+import '../classified_type_pages/plastic_lotion_fullpage.dart';
+import '../classified_type_pages/motor_oil_fullpage.dart';
+import '../classified_type_pages/plastic_bag_fullpage.dart';
 import '../classified_type_pages/plastic_bottle_fullpage.dart';
+import '../classified_type_pages/plastic_utensils_fullpage.dart';
+import '../classified_type_pages/plastic_shampoo_fullpage.dart';
+import '../classified_type_pages/plastic_soda_fullpage.dart';
+import '../classified_type_pages/plastic_water_jug_fullpage.dart'; 
+import '../classified_type_pages/plastic_milk_jug_fullpage.dart'; 
+
+import '../classified_type_pages/glass_catsup_fullpage.dart';
+import '../classified_type_pages/glass_drink_fullpage.dart';
+import '../classified_type_pages/glass_solid_food_fullpage.dart';
+import '../classified_type_pages/glass_alcohol_fullpage.dart';
+
+import '../classified_type_pages/metal_aluminum_fullpage.dart';
+import '../classified_type_pages/metal_cap_fullpage.dart';
+import '../classified_type_pages/metal_spray_fullpage.dart';
+import '../classified_type_pages/metal_hanger_fullpage.dart';
+import '../classified_type_pages/metal_food_fullpage.dart';
+import '../classified_type_pages/paintcan_fullpage.dart';
+import '../classified_type_pages/metal_drink_fullpage.dart';
+import '../classified_type_pages/metal_pet_food_fullpage.dart';
+
+import '../classified_type_pages/styrofoam_fullpage.dart';
+
+import '../classified_type_pages/paper_bag_fullpage.dart';
+import '../classified_type_pages/paper_box_fullpage.dart';
+import '../classified_type_pages/normal_paper_fullpage.dart';
+import '../classified_type_pages/paper_book_fullpage.dart';
+import '../classified_type_pages/paper_cartons_fullpage.dart';
+import '../classified_type_pages/tissuesbox_fullpage.dart';
+import '../classified_type_pages/paper_wrapping_fullpage.dart';
+import '../classified_type_pages/mail_paper_fullpage.Dart.dart';
+
+import '../classified_type_pages/paper_egg_fullpage.dart';
+import '../classified_type_pages/paper_frozen_fullpage.dart';
+
+import '../classified_type_pages/cardboard_fullpage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -135,6 +191,68 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
             .where((p) => p.name.toLowerCase().contains(query))
             .toList();
 
+    Map<String, Widget> myRoutes = {
+      'Anti-Freeze Bottle': PlasticAntifreezeFullPage(),
+      'Laundry Product': PlasticLaundryFullPage(), 
+      'Lotion Bottle': PlasticLotionFullPage(),
+      'Motor Oil Container': MotorOilFullPage(),
+      'Plastic Bag': PlasticBagFullPage(), 
+      'Plastic Container': PlasticBottleFullPage(),  // plastic container --> soda bottles? 
+      'Plastic Cups': PlasticUtensilsFullPage(),  // plastic cups, make page
+      'Plastic Utensil': PlasticUtensilsFullPage(), 
+      'Shampoo Bottle': PlasticShampooFullPage(),
+      'Plastic Soda Bottle': PlasticSodaFullPage(), 
+      'Water Jug': PlasticWaterJugFullPage(), 
+      'Milk Jug': PlasticMilkJugFullPage(),
+       
+      // GLASS
+      'Beer Bottle': GlassAlcoholFullPage(),  // ?? create page for beers
+      'Beverage Container': GlassDrinkFullPage(),
+      'Catsup Bottle': GlassCatsupFullPage(),
+      'Food Container':  GlassSolidFoodFullPage(),
+      'Juice Container': GlassDrinkFullPage(),  // has soda bottle, remove that
+      'Glass Soda Bottle':  GlassDrinkFullPage(), // ?? create glass soda bottle page
+      'Wine Bottle': GlassAlcoholFullPage(),  // create separate page?
+      'Liquor Bottle': GlassAlcoholFullPage(),  // create separate page?
+ 
+      // METAL
+      'Aluminum': AluminumFullPage(), 
+      'Bottle Cap': MetalCapFullPage(),
+      'Empty Aerosol Cans': MetalSprayFullPage(),
+      'Metal Coat Hanger': MetalHangerFullPage(), 
+      'Metal Food Can': MetalFoodFullPage(),
+      'Milk Can': MetalDrinkFullPage(),  // create page
+      'Juice Can': MetalDrinkFullPage(), 
+      'Paint Can': PaintcanFullPage(),
+      'Pet Food Can': MetalPetFoodFullPage(),  // separate page
+      'Tin Can': MetalFullPage(),    // ?
+      
+      // Polystyrene
+      'Styrofoam': StyrofoamFullPage(),
+ 
+      // PAPER
+      'Brochure': MailPaperFullPage(),    // brochure //
+      'Cardboard': CardboardFullPage(),
+      'catalog': MailPaperFullPage(),    // catalog 
+      'Cereal Box': PaperboxFullPage(),     // cereal box  
+      'Computer Paper':  NormalPaperFullPage(),
+      'Coupons': MailPaperFullPage(),    // coupons
+      'Paper Bag': PaperBagFullPage(), 
+      'Junk Mail': MailPaperFullPage(),
+      'Magazine': MailPaperFullPage(),    // magazine 
+      'Newspaper': MailPaperFullPage(),  
+      'Paper Carton': PaperCartonFullPage(),
+      'Paper Tube': MailPaperFullPage(),    // paper tube
+      'Phone Book': PaperBookFullPage(),
+      'Tissue Box': TissueBoxFullPage(),
+      'Envelope': MailPaperFullPage(),    // envelope 
+      'Wrapping Paper': PaperWrappingFullPage(),
+      
+      'Egg Carton': PaperEggFullPage(),   // NOT ON LIST
+      'Frozen Food Box': PaperFrozenFoodFullPage(),
+    };
+
+
     return itemsList.isEmpty
         ? const Padding(
             padding: EdgeInsets.all(20.0),
@@ -147,10 +265,12 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
             itemCount: itemsList.length,
             itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  //showResults(context);
+                  // showResults(context);
+                  print(itemsList[index].name);
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) =>
-                          PlasticBottleFullPage()));
+                          myRoutes[itemsList[index].name] as Widget));
+                
                 },
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
