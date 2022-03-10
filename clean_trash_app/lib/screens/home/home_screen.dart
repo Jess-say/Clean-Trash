@@ -242,9 +242,9 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Styrofoam': StyrofoamFullPage(),
  
       // PAPER
-      'Brochure': BookletFullPage(),    // brochure //
+      'Brochure': BookletFullPage(),    // brochure
       'Cardboard': CardboardFullPage(),
-      'catalog': BookletFullPage(),    // catalog
+      'Catalog': BookletFullPage(),    // catalog
       'Cereal Box': PaperboxFullPage(),     // cereal box
       'Computer Paper':  NormalPaperFullPage(),
       'Coupons': CouponsFullPage(),
