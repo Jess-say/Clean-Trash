@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class GlassDrinkFullPage extends StatefulWidget {
+class PaperTubeFullPage extends StatefulWidget {
   @override
-  _GlassDrinkFullPageState createState() => _GlassDrinkFullPageState();
+  _PaperTubeFullPageState createState() => _PaperTubeFullPageState();
 }
 
-class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
+class _PaperTubeFullPageState extends State<PaperTubeFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/Fruit-Juice.jpg'),
+                                  'assets/images/paper_tube1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/snapple.jpg'),
+                                  'assets/images/paper_tube2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/glass_juice.jpg'),
+                              Image.asset('assets/images/paper_tube3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/glass_lemonade.jpg'),
+                                  'assets/images/paper_tube4.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -170,7 +170,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                       barrierDismissible: false,
                       context: context,
                       builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that Americans dispose of 10 million metric tons of glass annually."),
+                          "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
                     );
                     print("pressed Recycle Button");
                   },
@@ -240,7 +240,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Rinse with warm water. Place the bottle in the appropriate bin dedicated to recycling and discard the lid of the bottle.",
+              "If possible flatten down the tube and then place in recycling bin for paper.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

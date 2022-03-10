@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class GlassDrinkFullPage extends StatefulWidget {
+class WineFullPage extends StatefulWidget {
   @override
-  _GlassDrinkFullPageState createState() => _GlassDrinkFullPageState();
+  _WineFullPageState createState() => _WineFullPageState();
 }
 
-class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
+class _WineFullPageState extends State<WineFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/Fruit-Juice.jpg'),
+                                  'assets/images/alcohol1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/snapple.jpg'),
+                                  'assets/images/whitewine.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/glass_juice.jpg'),
+                              Image.asset('assets/images/alcohol3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/glass_lemonade.jpg'),
+                                  'assets/images/redwine.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),

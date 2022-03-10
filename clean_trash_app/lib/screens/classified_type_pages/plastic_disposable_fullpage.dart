@@ -133,7 +133,7 @@ class _PlasticDisposableFullPageState extends State<PlasticDisposableFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/disposable_plastic5.jpg'),
+                                  'assets/images/plastic_containers.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),

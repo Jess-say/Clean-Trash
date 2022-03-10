@@ -1,7 +1,4 @@
-//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 

@@ -79,7 +79,7 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/magazine.jpg'),
+                                  'assets/images/phonebook1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/catalog.jpg'),
+                              Image.asset('assets/images/phonebook2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/brochures.jpg'),
+                                  'assets/images/phonebook3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),

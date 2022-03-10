@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
-class GlassDrinkFullPage extends StatefulWidget {
+class BeerFullPage extends StatefulWidget {
   @override
-  _GlassDrinkFullPageState createState() => _GlassDrinkFullPageState();
+  _BeerFullPageState createState() => _BeerFullPageState();
 }
 
-class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
+class _BeerFullPageState extends State<BeerFullPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/Fruit-Juice.jpg'),
+                                  'assets/images/alcohol2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -79,7 +79,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/snapple.jpg'),
+                                  'assets/images/beer1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +105,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/glass_juice.jpg'),
+                              Image.asset('assets/images/beer3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/glass_lemonade.jpg'),
+                                  'assets/images/beer2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -240,7 +240,7 @@ Widget infoSection1 = Container(
               ),
             ),
             Text(
-              "Rinse with warm water. Place the bottle in the appropriate bin dedicated to recycling and discard the lid of the bottle.",
+              "Rinse with warm water. Place the bottle in the appropriate bin dedicated to recycling and review bottle cap for instructions in recycling the lid of the bottle.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.grey[500],

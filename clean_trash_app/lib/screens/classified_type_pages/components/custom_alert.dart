@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../home/home_screen.dart';
-import '/screens/home/home_view.dart';
 
 class CustomAlert extends StatelessWidget {
   final String message;
