@@ -22,6 +22,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/tincan_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/tissuesbox_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/wine_fullpage.dart';
 import 'package:flutter/material.dart';
@@ -236,7 +237,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Juice Can': MetalDrinkFullPage(), 
       'Paint Can': PaintcanFullPage(),
       'Pet Food Can': MetalPetFoodFullPage(),  // separate page
-      'Tin Can': MetalFullPage(),    // ?
+      'Tin Can': TincanFullPage(),    // ?
       
       // Polystyrene
       'Styrofoam': StyrofoamFullPage(),
