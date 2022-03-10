@@ -52,7 +52,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/glass_soda.jpg'),
+                                  'assets/images/Fruit-Juice.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -105,7 +105,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/glass_lemonade.jpg'),
+                              Image.asset('assets/images/glass_juice.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -133,7 +133,7 @@ class _GlassDrinkFullPageState extends State<GlassDrinkFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                  'assets/images/glass_juice.jpg'),
+                                  'assets/images/glass_lemonade.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
