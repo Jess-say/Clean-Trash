@@ -11,6 +11,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/paper_cartons_fullp
 import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/tissuesbox_fullpage.dart';
@@ -200,7 +201,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Motor Oil Container': MotorOilFullPage(),
       'Plastic Bag': PlasticBagFullPage(), 
       'Plastic Container': PlasticBottleFullPage(),  // plastic container --> soda bottles? 
-      'Plastic Cups': PlasticUtensilsFullPage(),  // plastic cups, make page
+      'Plastic Cups': PlasticCupFullPage(),  // plastic cups, make page
       'Plastic Utensil': PlasticUtensilsFullPage(), 
       'Shampoo Bottle': PlasticShampooFullPage(),
       'Plastic Soda Bottle': PlasticSodaFullPage(), 
