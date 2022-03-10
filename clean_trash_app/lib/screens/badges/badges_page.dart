@@ -3,7 +3,6 @@ import 'package:cleantrash_app/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 import '../../theme.dart';
-import '../home/home_view.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
 
