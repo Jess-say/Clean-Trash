@@ -4,6 +4,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage
 import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/metal_milk_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/normal_paper_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paintcan_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_book_fullpage.dart';
@@ -225,7 +226,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Empty Aerosol Cans': MetalSprayFullPage(),
       'Metal Coat Hanger': MetalHangerFullPage(), 
       'Metal Food Can': MetalFoodFullPage(),
-      'Milk Can': MetalDrinkFullPage(),  // create page
+      'Milk Can': MilkCanFullPage(),  // create page
       'Juice Can': MetalDrinkFullPage(), 
       'Paint Can': PaintcanFullPage(),
       'Pet Food Can': MetalPetFoodFullPage(),  // separate page
