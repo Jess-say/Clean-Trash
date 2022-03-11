@@ -1,6 +1,8 @@
+import 'package:cleantrash_app/screens/settings/change_pass.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Login/login_page.dart';
+import 'delete_acc.dart';
 import '../home/home_screen.dart';
 import '../badges/badges_page.dart';
 import '../camera/camera.dart';
@@ -111,10 +113,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => EditProfilePage()),
-                    // );
+                     Navigator.push(
+                       context,
+                       MaterialPageRoute(builder: (context) => ChangePassPage()),
+                     );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
