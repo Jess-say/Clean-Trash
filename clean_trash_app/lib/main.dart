@@ -28,7 +28,6 @@ import 'package:cleantrash_app/screens/classified_type_pages/paper_cartons_fullp
 import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_tube_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/plastic_bottle_page.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';

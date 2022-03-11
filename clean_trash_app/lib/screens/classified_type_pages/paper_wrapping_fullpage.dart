@@ -157,9 +157,87 @@ class _PaperWrappingFullPageState extends State<PaperWrappingFullPage> {
                       ],
                     )),
                 const SizedBox(height: 20,),
-                infoSection0,
-                const SizedBox(height: 20,),
-                infoSection1,
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5, top: 5),
+                              child: widget.recyclable == "True"
+                                  ? const Text(
+                                      'It\'s Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  : const Text(
+                                      'It\'s Not Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Recycle in Riverside County."
+                                  : "Do Not Recycle in Riverside County.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: const Text(
+                                'Instructions!',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Remove any bows or ribbons from the wrapping paper. You may reuse any bows with tape or reuse any ribbons but discard if you will not be doing either. Only recycle the wrapping paper in the appropriate bin."
+                                  : "Place in waste bin.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(height: 40,),
                 ElevatedButton(
                   style: TextButton.styleFrom(
@@ -170,15 +248,18 @@ class _PaperWrappingFullPageState extends State<PaperWrappingFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    String message =
+                        "Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
+                      builder: (_) => CustomAlert(message),
                     );
-                    print("pressed Recycle Button");
+                    // print("pressed Recycle Button");
                   },
-                  child: const Text('Recycle'),
+                  child: widget.recyclable == "True"
+                      ? const Text('Recycle')
+                      : const Text('Throw Away'),
                 )
               ],
             ),
@@ -188,71 +269,3 @@ class _PaperWrappingFullPageState extends State<PaperWrappingFullPage> {
     );
   }
 }
-
-Widget infoSection0 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5, top: 5),
-              child: const Text(
-                'It\'s Recyclable!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Recycle in Riverside County.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
-
-Widget infoSection1 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: const Text(
-                'Instructions!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Remove any bows or ribbons from the wrapping paper. You may reuse any bows with tape or reuse any ribbons but discard if you will not be doing either. Only recycle the wrapping paper in the appropriate bin.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
