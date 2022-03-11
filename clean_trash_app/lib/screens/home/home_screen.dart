@@ -307,8 +307,14 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
                   // String item_name_text = decoded_data["item"];
                   // print("item name text "+ item_name_text);
                   String chosen_item = myRoutes[itemsList[index].name].toString();
-                  print(chosen_item);
-                  Navigator.of(context).pushNamed(chosen_item, arguments: "TRUE");
+
+                  // test code to check that argument works 
+                  if (itemsList[index].name == "Egg Carton" || itemsList[index].name == "Frozen Food Box") {
+                    Navigator.of(context).pushNamed(chosen_item, arguments: "False");
+                  } else {
+                    Navigator.of(context).pushNamed(chosen_item, arguments: "True");
+                  }
+                  
                   // Navigator.of(context).push(MaterialPageRoute(
                   //     builder: (BuildContext context) =>
                   //         myRoutes[itemsList[index].name] as Widget));
