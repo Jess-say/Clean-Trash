@@ -10,7 +10,7 @@ class UserList extends StatefulWidget {
 class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
-    final users = Provider.of<List<User>>(context);
+    final users = Provider.of<List<User>>(context) ?? [];
     users.forEach((user) {
       print(user.cardboard);
       print(user.glass);
