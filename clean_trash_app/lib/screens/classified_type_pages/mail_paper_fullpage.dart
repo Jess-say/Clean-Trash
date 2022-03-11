@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class MailPaperFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const MailPaperFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _MailPaperFullPageState createState() => _MailPaperFullPageState();
 }

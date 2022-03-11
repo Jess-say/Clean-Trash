@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class GlassSolidFoodFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const GlassSolidFoodFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _GlassSolidFoodFullPageState createState() => _GlassSolidFoodFullPageState();
 }

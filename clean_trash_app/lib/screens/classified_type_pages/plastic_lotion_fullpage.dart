@@ -3,17 +3,20 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PlasticLotionFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PlasticLotionFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PlasticLotionFullPageState createState() => _PlasticLotionFullPageState();
 }
 
 class _PlasticLotionFullPageState extends State<PlasticLotionFullPage> {
-
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
-
+    print("REC = " + widget.recyclable);
     return Scaffold(
       appBar: AppBar(
         title: const Text(""),

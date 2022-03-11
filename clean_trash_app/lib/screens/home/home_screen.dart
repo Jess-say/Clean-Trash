@@ -8,7 +8,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/envelope_fullpage.d
 import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/magazine_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/metal_milk_fullpage.dart';
@@ -75,7 +75,7 @@ import '../classified_type_pages/paper_book_fullpage.dart';
 import '../classified_type_pages/paper_cartons_fullpage.dart';
 import '../classified_type_pages/tissuesbox_fullpage.dart';
 import '../classified_type_pages/paper_wrapping_fullpage.dart';
-import '../classified_type_pages/mail_paper_fullpage.Dart.dart';
+import '../classified_type_pages/mail_paper_fullpage.dart';
 
 import '../classified_type_pages/paper_egg_fullpage.dart';
 import '../classified_type_pages/paper_frozen_fullpage.dart';
@@ -212,65 +212,65 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
             .where((p) => p.name.toLowerCase().contains(query))
             .toList();
 
-    Map<String, Widget> myRoutes = {
-      'Anti-Freeze Bottle': PlasticAntifreezeFullPage(),
-      'Laundry Product': PlasticLaundryFullPage(), 
-      'Lotion Bottle': PlasticLotionFullPage(),
-      'Motor Oil Container': MotorOilFullPage(),
-      'Plastic Bag': PlasticBagFullPage(), 
-      'Plastic Container': PlasticBottlePage(),  // should I make this recyclable instead?
-      'Plastic Cups': PlasticCupFullPage(),
-      'Plastic Utensil': PlasticUtensilsFullPage(), 
-      'Shampoo Bottle': PlasticShampooFullPage(),
-      'Plastic Soda Bottle': PlasticSodaFullPage(), 
-      'Water Jug': PlasticWaterJugFullPage(), 
-      'Milk Jug': PlasticMilkJugFullPage(),
+    Map<String, String> myRoutes = {
+      'Anti-Freeze Bottle': '/antifreeze',
+      'Laundry Product': '/laundry_product', 
+      'Lotion Bottle': '/plastic_lotion_bottle',
+      'Motor Oil Container': '/motor_oil_container',
+      'Plastic Bag': '/plastic_bag', 
+      'Plastic Container': '/plastic_bottle',  // should I make this recyclable instead?
+      'Plastic Cups': '/plastic_bottle',
+      'Plastic Utensil': '/plastic_utensil', 
+      'Shampoo Bottle': '/plastic_shampoo',
+      'Plastic Soda Bottle': '/plastic_soda', 
+      'Water Jug': '/plastic_water_jug', 
+      'Milk Jug': '/plastic_milk_jug',
        
-      // GLASS
-      'Beer Bottle': BeerFullPage(),
-      'Beverage Container': GlassDrinkFullPage(),
-      'Catsup Bottle': GlassCatsupFullPage(),
-      'Food Container':  GlassSolidFoodFullPage(),
-      'Juice Container': GlassDrinkFullPage(),
-      'Glass Soda Bottle':  GlassSodaFullPage(),
-      'Wine Bottle': WineFullPage(),
-      'Liquor Bottle': GlassAlcoholFullPage(),
+      // // GLASS
+      'Beer Bottle': '/glass_beer',
+      'Beverage Container': '/glass_drink',
+      'Catsup Bottle': '/glass_catsup',
+      'Food Container':  '/glass_solid_food',
+      'Juice Container': '/glass_drink',
+      'Glass Soda Bottle':  '/glass_soda',
+      'Wine Bottle': '/glass_wine',
+      'Liquor Bottle': '/glass_alchohol',
  
-      // METAL
-      'Aluminum': AluminumFullPage(), 
-      'Bottle Cap': MetalCapFullPage(),
-      'Empty Aerosol Cans': MetalSprayFullPage(),
-      'Metal Coat Hanger': MetalHangerFullPage(), 
-      'Metal Food Can': MetalFoodFullPage(),
-      'Milk Can': MilkCanFullPage(),
-      'Juice Can': MetalDrinkFullPage(), 
-      'Paint Can': PaintcanFullPage(),
-      'Pet Food Can': MetalPetFoodFullPage(),  // separate page
-      'Tin Can': TincanFullPage(),    
+      // // METAL
+      'Aluminum': '/metal_aluminum', 
+      'Bottle Cap': '/metal_cap',
+      'Empty Aerosol Cans': '/metal_spray_can',
+      'Metal Coat Hanger': '/metal_hanger', 
+      'Metal Food Can': '/metal_food_can',
+      'Milk Can': '/metal_milk_can',
+      'Juice Can': '/metal_drink', 
+      'Paint Can': '/paint_can',
+      'Pet Food Can': '/metal_pet_food_can',  // separate page
+      'Tin Can': '/tin_can',    
       
-      // Polystyrene
-      'Styrofoam': StyrofoamFullPage(),
+      // // Polystyrene
+      'Styrofoam': '/styrofoam',
  
-      // PAPER
-      'Brochure': BookletFullPage(),    // brochure
-      'Cardboard': CardboardFullPage(),
-      'Catalog': BookletFullPage(),    // catalog
-      'Cereal Box': PaperboxFullPage(),     // cereal box
-      'Computer Paper':  NormalPaperFullPage(),
-      'Coupons': CouponsFullPage(),
-      'Paper Bag': PaperBagFullPage(), 
-      'Junk Mail': MailPaperFullPage(),
-      'Magazine': MagazineFullPage(),
-      'Newspaper': NewspaperFullPage(),
-      'Paper Carton': PaperCartonFullPage(),
-      'Paper Tube': PaperTubeFullPage(),
-      'Phone Book': PaperBookFullPage(),
-      'Tissue Box': TissueBoxFullPage(),
-      'Envelope': EnvelopeFullPage(),
-      'Wrapping Paper': PaperWrappingFullPage(),
+      // // PAPER
+      'Brochure': '/paper_booklet',    // brochure
+      'Cardboard': '/cardboard',
+      'Catalog': '/paper_booklet',    // catalog
+      'Cereal Box': '/paper_box',     // cereal box
+      'Computer Paper':  '/normal_paper',
+      'Coupons': '/coupons',
+      'Paper Bag': '/paper_bag', 
+      'Junk Mail': '/mail_paper',
+      'Magazine': '/magazine',
+      'Newspaper': '/newspaper',
+      'Paper Carton': '/paper_carton',
+      'Paper Tube': '/paper_tube',
+      'Phone Book': '/paper_book',
+      'Tissue Box': '/tissue_box',
+      'Envelope': '/envelope',
+      'Wrapping Paper': '/paper_wrapping_paper',
       
-      'Egg Carton': PaperEggFullPage(),   // NOT ON LIST
-      'Frozen Food Box': PaperFrozenFoodFullPage(),
+      'Egg Carton': '/paper_egg_carton',   // NOT ON LIST
+      'Frozen Food Box': '/paper_frozen_food',
     };
 
 
@@ -286,25 +286,33 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
             itemCount: itemsList.length,
             itemBuilder: (context, index) => ListTile(
                 onTap: () async {
-                  print("HEYEEYEYE");
-                  List<String> split_item = (itemsList[index].name).split(" ");
-                  for (var i = 0; i < split_item.length-1; i++) {
-                    item_name += split_item[i];
-                    item_name += "%20";
-                  }
-                  item_name += split_item[split_item.length-1];
+                  // print("HEYEEYEYE");
+                  // List<String> split_item = (itemsList[index].name).split(" ");
+                  // for (var i = 0; i < split_item.length-1; i++) {
+                  //   item_name += split_item[i];
+                  //   item_name += "%20";
+                  // }
+                  // item_name += split_item[split_item.length-1];
 
-                  url = 'http://localhost:5000/check_if_recyclable/' + item_name;
-                  print(url);
+                  // url = 'http://localhost:5000/check_if_recyclable/' + item_name;
+                  // print(url);
+                  // print("heyyy");
+                  // var parsed_url = Uri.parse(url); 
+                  // print(parsed_url);
                   // showResults(context);
                   // print(itemsList[index].name);
-                  Data  = await getdata(url);
-                  var decoded_data = jsonDecode(Data);
-                  String item_name_text = decoded_data["item"];
-        
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          myRoutes[itemsList[index].name] as Widget));
+                  // Data  = await getdata(parsed_url);
+                  
+                  // var decoded_data = jsonDecode(Data);
+                  // print(Data);
+                  // String item_name_text = decoded_data["item"];
+                  // print("item name text "+ item_name_text);
+                  String chosen_item = myRoutes[itemsList[index].name].toString();
+                  print(chosen_item);
+                  Navigator.of(context).pushNamed(chosen_item, arguments: "TRUE");
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (BuildContext context) =>
+                  //         myRoutes[itemsList[index].name] as Widget));
                 },
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

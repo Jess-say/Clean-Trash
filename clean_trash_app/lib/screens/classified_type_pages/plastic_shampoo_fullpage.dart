@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PlasticShampooFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PlasticShampooFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PlasticShampooFullPageState createState() => _PlasticShampooFullPageState();
 }

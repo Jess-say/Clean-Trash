@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class MotorOilFullPage extends StatefulWidget {
+  final String recyclable;
+  
+  const MotorOilFullPage({Key? key, required this.recyclable}) : super(key: key);
+
   @override
   _MotorOilFullPageState createState() => _MotorOilFullPageState();
 }
@@ -14,6 +18,7 @@ class _MotorOilFullPageState extends State<MotorOilFullPage> {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
 
+    print("---" + widget.recyclable);
     return Scaffold(
       appBar: AppBar(
         title: const Text(""),

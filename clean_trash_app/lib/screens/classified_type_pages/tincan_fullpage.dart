@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class TincanFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const TincanFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _TincanFullPageState createState() => _TincanFullPageState();
 }

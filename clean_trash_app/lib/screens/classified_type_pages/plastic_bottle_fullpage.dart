@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PlasticBottleFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PlasticBottleFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PlasticBottleFullPageState createState() => _PlasticBottleFullPageState();
 }

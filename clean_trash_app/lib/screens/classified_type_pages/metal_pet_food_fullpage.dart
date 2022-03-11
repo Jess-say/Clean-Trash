@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class MetalPetFoodFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const MetalPetFoodFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _MetalPetFoodFullPageState createState() => _MetalPetFoodFullPageState();
 }

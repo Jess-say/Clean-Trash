@@ -3,6 +3,10 @@ import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PlasticBottlePage extends StatefulWidget {
+  final String recyclable;
+
+  const PlasticBottlePage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PlasticBottlePageState createState() => _PlasticBottlePageState();
 }

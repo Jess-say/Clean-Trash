@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PaintcanFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PaintcanFullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PaintcanFullPageState createState() => _PaintcanFullPageState();
 }

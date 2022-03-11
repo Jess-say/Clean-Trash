@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class MetalSpray2FullPage extends StatefulWidget {
+  final String recyclable;
+
+  const MetalSpray2FullPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _MetalSpray2FullPageState createState() => _MetalSpray2FullPageState();
 }

@@ -3,6 +3,10 @@ import '/screens/home/home_screen.dart';
 import 'components/custom_alert.dart';
 
 class PaperBoxPage extends StatefulWidget {
+  final String recyclable;
+
+  const PaperBoxPage({Key? key, required this.recyclable}) : super(key: key);
+  
   @override
   _PaperBoxPageState createState() => _PaperBoxPageState();
 }

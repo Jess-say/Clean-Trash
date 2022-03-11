@@ -3,6 +3,10 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PaperFullPage extends StatefulWidget {
+final String recyclable;
+
+  const PaperFullPage({Key? key, required this.recyclable}) : super(key: key);
+
   @override
   _PaperFullPageState createState() => _PaperFullPageState();
 }
