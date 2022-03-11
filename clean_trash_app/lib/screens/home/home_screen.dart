@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:cleantrash_app/item_api.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/booklet_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/coupons_fullpage.dart';
@@ -19,6 +22,7 @@ import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.
 import 'package:cleantrash_app/screens/classified_type_pages/paper_tube_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_fullpage.dart';
+import 'package:cleantrash_app/screens/classified_type_pages/plastic_bottle_page.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';
@@ -77,6 +81,8 @@ import '../classified_type_pages/paper_egg_fullpage.dart';
 import '../classified_type_pages/paper_frozen_fullpage.dart';
 
 import '../classified_type_pages/cardboard_fullpage.dart';
+
+// import 'package:cleantrash_app/item_api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -197,6 +203,9 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
   @override
   Widget buildSuggestions(BuildContext context) {
     // show when someone searches for something
+    String url;  // ?? need
+    String item_name =  "";
+    var Data;
     final itemsList = query.isEmpty
         ? loadItemsList()
         : loadItemsList()
@@ -209,7 +218,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Lotion Bottle': PlasticLotionFullPage(),
       'Motor Oil Container': MotorOilFullPage(),
       'Plastic Bag': PlasticBagFullPage(), 
-      'Plastic Container': PlasticDisposableFullPage(),  // should I make this recyclable instead?
+      'Plastic Container': PlasticBottlePage(),  // should I make this recyclable instead?
       'Plastic Cups': PlasticCupFullPage(),
       'Plastic Utensil': PlasticUtensilsFullPage(), 
       'Shampoo Bottle': PlasticShampooFullPage(),
@@ -237,7 +246,7 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Juice Can': MetalDrinkFullPage(), 
       'Paint Can': PaintcanFullPage(),
       'Pet Food Can': MetalPetFoodFullPage(),  // separate page
-      'Tin Can': TincanFullPage(),    // ?
+      'Tin Can': TincanFullPage(),    
       
       // Polystyrene
       'Styrofoam': StyrofoamFullPage(),
@@ -276,13 +285,26 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
         : ListView.builder(
             itemCount: itemsList.length,
             itemBuilder: (context, index) => ListTile(
-                onTap: () {
+                onTap: () async {
+                  print("HEYEEYEYE");
+                  List<String> split_item = (itemsList[index].name).split(" ");
+                  for (var i = 0; i < split_item.length-1; i++) {
+                    item_name += split_item[i];
+                    item_name += "%20";
+                  }
+                  item_name += split_item[split_item.length-1];
+
+                  url = 'http://localhost:5000/check_if_recyclable/' + item_name;
+                  print(url);
                   // showResults(context);
-                  print(itemsList[index].name);
+                  // print(itemsList[index].name);
+                  Data  = await getdata(url);
+                  var decoded_data = jsonDecode(Data);
+                  String item_name_text = decoded_data["item"];
+        
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) =>
                           myRoutes[itemsList[index].name] as Widget));
-                
                 },
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
