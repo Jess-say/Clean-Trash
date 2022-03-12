@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 //import 'package:path_provider/path_provider.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../classified_type_pages/components/custom_alert.dart';
+import '../home/classified_type_pages/components/custom_alert.dart';
 import '../badges/badges_page.dart';
 import '../settings/settings.dart';
 

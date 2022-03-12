@@ -1,30 +1,3 @@
-import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/booklet_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/coupons_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/envelope_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/glass_liquid_food_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/glass_soda_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/magazine_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/mail_paper_fullpage.Dart.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/metal_food_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/metal_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/metal_milk_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/newspaper_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/normal_paper_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paintcan_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_book_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_box_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_cartons_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_egg_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_tube_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/paper_wrapping_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/plastic_antifreeze_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/plastic_cup.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/plastic_disposable_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/styrofoam_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/tincan_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/tissuesbox_fullpage.dart';
-import 'package:cleantrash_app/screens/classified_type_pages/wine_fullpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geolocator/geolocator.dart';
@@ -39,50 +12,67 @@ import '../badges/badges_page.dart';
 import '../camera/camera.dart';
 import '../settings/settings.dart';
 import '../Login/user/database.dart';
-import 'package:cleantrash_app/screens/home/user_list.dart';
 import 'package:cleantrash_app/model/users.dart';
-
-import '../classified_type_pages/plastic_antifreeze_fullpage.dart';
-import '../classified_type_pages/plastic_laundry_fullpage.dart';
-import '../classified_type_pages/plastic_lotion_fullpage.dart';
-import '../classified_type_pages/motor_oil_fullpage.dart';
-import '../classified_type_pages/plastic_bag_fullpage.dart';
-import '../classified_type_pages/plastic_bottle_fullpage.dart';
-import '../classified_type_pages/plastic_utensils_fullpage.dart';
-import '../classified_type_pages/plastic_shampoo_fullpage.dart';
-import '../classified_type_pages/plastic_soda_fullpage.dart';
-import '../classified_type_pages/plastic_water_jug_fullpage.dart';
-import '../classified_type_pages/plastic_milk_jug_fullpage.dart'; 
-
-import '../classified_type_pages/glass_catsup_fullpage.dart';
-import '../classified_type_pages/glass_drink_fullpage.dart';
-import '../classified_type_pages/glass_solid_food_fullpage.dart';
-import '../classified_type_pages/glass_alcohol_fullpage.dart';
-
-import '../classified_type_pages/metal_aluminum_fullpage.dart';
-import '../classified_type_pages/metal_cap_fullpage.dart';
-import '../classified_type_pages/metal_spray_fullpage.dart';
-import '../classified_type_pages/metal_hanger_fullpage.dart';
-import '../classified_type_pages/metal_food_fullpage.dart';
-import '../classified_type_pages/paintcan_fullpage.dart';
-import '../classified_type_pages/metal_drink_fullpage.dart';
-import '../classified_type_pages/metal_pet_food_fullpage.dart';
-
-import '../classified_type_pages/styrofoam_fullpage.dart';
-
-import '../classified_type_pages/paper_bag_fullpage.dart';
-import '../classified_type_pages/paper_box_fullpage.dart';
-import '../classified_type_pages/normal_paper_fullpage.dart';
-import '../classified_type_pages/paper_book_fullpage.dart';
-import '../classified_type_pages/paper_cartons_fullpage.dart';
-import '../classified_type_pages/tissuesbox_fullpage.dart';
-import '../classified_type_pages/paper_wrapping_fullpage.dart';
-import '../classified_type_pages/mail_paper_fullpage.Dart.dart';
-
-import '../classified_type_pages/paper_egg_fullpage.dart';
-import '../classified_type_pages/paper_frozen_fullpage.dart';
-
-import '../classified_type_pages/cardboard_fullpage.dart';
+// classified_type_pages
+import 'classified_type_pages/beer_fullpage.dart';
+import 'classified_type_pages/booklet_fullpage.dart';
+import 'classified_type_pages/cardboard_fullpage.dart';
+import 'classified_type_pages/coupons_fullpage.dart';
+import 'classified_type_pages/envelope_fullpage.dart';
+import 'classified_type_pages/glass_alcohol_fullpage.dart';
+import 'classified_type_pages/glass_catsup_fullpage.dart';
+import 'classified_type_pages/glass_drink_fullpage.dart';
+import 'classified_type_pages/glass_fullpage.dart';
+import 'classified_type_pages/glass_liquid_food_fullpage.dart';
+import 'classified_type_pages/glass_soda_fullpage.dart';
+import 'classified_type_pages/glass_solid_food_fullpage.dart';
+import 'classified_type_pages/magazine_fullpage.dart';
+import 'classified_type_pages/mail_paper_fullpage.Dart.dart';
+import 'classified_type_pages/metal_aluminum_fullpage.dart';
+import 'classified_type_pages/metal_cap_fullpage.dart';
+import 'classified_type_pages/metal_drink_fullpage.dart';
+import 'classified_type_pages/metal_food_fullpage.dart';
+import 'classified_type_pages/metal_fullpage.dart';
+import 'classified_type_pages/metal_hanger_fullpage.dart';
+import 'classified_type_pages/metal_milk_fullpage.dart';
+import 'classified_type_pages/metal_pet_food_fullpage.dart';
+import 'classified_type_pages/metal_spray_fullpage.dart';
+import 'classified_type_pages/metal_spray2_fullpage.dart';
+import 'classified_type_pages/motor_oil_fullpage.dart';
+import 'classified_type_pages/newspaper_fullpage.dart';
+import 'classified_type_pages/normal_paper_fullpage.dart';
+import 'classified_type_pages/paintcan_fullpage.dart';
+import 'classified_type_pages/paper_bag_fullpage.dart';
+import 'classified_type_pages/paper_book_fullpage.dart';
+import 'classified_type_pages/paper_box_fullpage.dart';
+import 'classified_type_pages/paper_box_page.dart';
+import 'classified_type_pages/paper_cartons_fullpage.dart';
+import 'classified_type_pages/paper_egg_fullpage.dart';
+import 'classified_type_pages/paper_frozen_fullpage.dart';
+import 'classified_type_pages/paper_fullpage.dart';
+import 'classified_type_pages/paper_tube_fullpage.dart';
+import 'classified_type_pages/paper_wrapping_fullpage.dart';
+import 'classified_type_pages/plastic_antifreeze_fullpage.dart';
+import 'classified_type_pages/plastic_antifreeze_fullpage.dart';
+import 'classified_type_pages/plastic_bag_fullpage.dart';
+import 'classified_type_pages/plastic_bottle_fullpage.dart';
+import 'classified_type_pages/plastic_bottle_page.dart';
+import 'classified_type_pages/plastic_cup.dart';
+import 'classified_type_pages/plastic_disposable_fullpage.dart';
+import 'classified_type_pages/plastic_laundry_fullpage.dart';
+import 'classified_type_pages/plastic_lotion_fullpage.dart';
+import 'classified_type_pages/plastic_milk_jug_fullpage.dart';
+import 'classified_type_pages/plastic_shampoo_fullpage.dart';
+import 'classified_type_pages/plastic_soda_fullpage.dart';
+import 'classified_type_pages/plastic_utensils_fullpage.dart';
+import 'classified_type_pages/plastic_water_jug_fullpage.dart';
+import 'classified_type_pages/styrofoam_fullpage.dart';
+import 'classified_type_pages/tincan_fullpage.dart';
+import 'classified_type_pages/tissuesbox_fullpage.dart';
+import 'classified_type_pages/wine_fullpage.dart';
+// classfied_type_pages/components
+import 'classified_type_pages/components/custom_alert.dart';
+import 'classified_type_pages/components/scroll_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -124,31 +114,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     getCurrentLocation();
-    return StreamProvider<List<User>>.value(
-      initialData: [],
-      value: DatabaseService().users,
-      child: Scaffold(
-        appBar: buildAppBar(),
-        body: Column(
-          children: [
-            const Body(),
-            UserList(),
-          ],
-        ),
-        bottomNavigationBar: CustomBottomNavigationBar(
-          iconList: [
-            Icons.home,
-            Icons.camera_alt,
-            Icons.assignment_turned_in,
-            Icons.settings,
-          ],
-          onChange: (val) {
-            setState(() {
-              _selectedItem = val;
-            });
-          },
-          defaultSelectedIndex: 0,
-        ),
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: Column(
+        children: [
+          const Body(),
+          // UserList(),
+        ],
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        iconList: [
+          Icons.home,
+          Icons.camera_alt,
+          Icons.assignment_turned_in,
+          Icons.settings,
+        ],
+        onChange: (val) {
+          setState(() {
+            _selectedItem = val;
+          });
+        },
+        defaultSelectedIndex: 0,
       ),
     );
   }
@@ -220,51 +206,52 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
 
     Map<String, Widget> myRoutes = {
       'Anti-Freeze Bottle': PlasticAntifreezeFullPage(),
-      'Laundry Product': PlasticLaundryFullPage(), 
+      'Laundry Product': PlasticLaundryFullPage(),
       'Lotion Bottle': PlasticLotionFullPage(),
       'Motor Oil Container': MotorOilFullPage(),
-      'Plastic Bag': PlasticBagFullPage(), 
-      'Plastic Container': PlasticDisposableFullPage(),  // should I make this recyclable instead?
+      'Plastic Bag': PlasticBagFullPage(),
+      'Plastic Container':
+          PlasticDisposableFullPage(), // should I make this recyclable instead?
       'Plastic Cups': PlasticCupFullPage(),
-      'Plastic Utensil': PlasticUtensilsFullPage(), 
+      'Plastic Utensil': PlasticUtensilsFullPage(),
       'Shampoo Bottle': PlasticShampooFullPage(),
-      'Plastic Soda Bottle': PlasticSodaFullPage(), 
-      'Water Jug': PlasticWaterJugFullPage(), 
+      'Plastic Soda Bottle': PlasticSodaFullPage(),
+      'Water Jug': PlasticWaterJugFullPage(),
       'Milk Jug': PlasticMilkJugFullPage(),
-       
+
       // GLASS
       'Beer Bottle': BeerFullPage(),
       'Beverage Container': GlassDrinkFullPage(),
       'Catsup Bottle': GlassCatsupFullPage(),
-      'Food Container':  GlassSolidFoodFullPage(),
+      'Food Container': GlassSolidFoodFullPage(),
       'Juice Container': GlassDrinkFullPage(),
-      'Glass Soda Bottle':  GlassSodaFullPage(),
+      'Glass Soda Bottle': GlassSodaFullPage(),
       'Wine Bottle': WineFullPage(),
       'Liquor Bottle': GlassAlcoholFullPage(),
- 
+
       // METAL
-      'Aluminum': AluminumFullPage(), 
+      'Aluminum': AluminumFullPage(),
       'Bottle Cap': MetalCapFullPage(),
       'Empty Aerosol Cans': MetalSprayFullPage(),
-      'Metal Coat Hanger': MetalHangerFullPage(), 
+      'Metal Coat Hanger': MetalHangerFullPage(),
       'Metal Food Can': MetalFoodFullPage(),
       'Milk Can': MilkCanFullPage(),
-      'Juice Can': MetalDrinkFullPage(), 
+      'Juice Can': MetalDrinkFullPage(),
       'Paint Can': PaintcanFullPage(),
-      'Pet Food Can': MetalPetFoodFullPage(),  // separate page
-      'Tin Can': TincanFullPage(),    // ?
-      
+      'Pet Food Can': MetalPetFoodFullPage(), // separate page
+      'Tin Can': TincanFullPage(), // ?
+
       // Polystyrene
       'Styrofoam': StyrofoamFullPage(),
- 
+
       // PAPER
-      'Brochure': BookletFullPage(),    // brochure
+      'Brochure': BookletFullPage(), // brochure
       'Cardboard': CardboardFullPage(),
-      'Catalog': BookletFullPage(),    // catalog
-      'Cereal Box': PaperboxFullPage(),     // cereal box
-      'Computer Paper':  NormalPaperFullPage(),
+      'Catalog': BookletFullPage(), // catalog
+      'Cereal Box': PaperboxFullPage(), // cereal box
+      'Computer Paper': NormalPaperFullPage(),
       'Coupons': CouponsFullPage(),
-      'Paper Bag': PaperBagFullPage(), 
+      'Paper Bag': PaperBagFullPage(),
       'Junk Mail': MailPaperFullPage(),
       'Magazine': MagazineFullPage(),
       'Newspaper': NewspaperFullPage(),
@@ -274,11 +261,10 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
       'Tissue Box': TissueBoxFullPage(),
       'Envelope': EnvelopeFullPage(),
       'Wrapping Paper': PaperWrappingFullPage(),
-      
-      'Egg Carton': PaperEggFullPage(),   // NOT ON LIST
+
+      'Egg Carton': PaperEggFullPage(), // NOT ON LIST
       'Frozen Food Box': PaperFrozenFoodFullPage(),
     };
-
 
     return itemsList.isEmpty
         ? const Padding(
@@ -297,7 +283,6 @@ class DataSearch extends SearchDelegate<RecyclableItem> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) =>
                           myRoutes[itemsList[index].name] as Widget));
-                
                 },
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
