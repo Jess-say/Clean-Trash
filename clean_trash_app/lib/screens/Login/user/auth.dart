@@ -7,25 +7,25 @@ class Auth {
   late String _passw;
   late String tempEmail;
 
-  User? _firebaseUser(auth.User? user) {
+  Users? _firebaseUser(auth.User? user) {
     if (user == null) {
       return null;
     }
-    return User(user.uid, user.email);
+    return Users(user.uid, user.email);
   }
 
-  Stream<User?>? get user {
+  Stream<Users?>? get user {
     return _firebaseAuth.authStateChanges().map(_firebaseUser);
   }
 
-  Future<User?> handleSignInEmail(String email, String passw) async {
+  Future<Users?> handleSignInEmail(String email, String passw) async {
     final res = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: passw);
     _passw = passw;
     return _firebaseUser(res.user);
   }
 
-  Future<User?> SignUp(String email, String passw) async {
+  Future<Users?> SignUp(String email, String passw) async {
     final res = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: passw);
     _passw = passw;
@@ -37,11 +37,11 @@ class Auth {
     return _passw;
   }
 
-  Future<User?> ResetPass(String email) async {
+  Future<Users?> ResetPass(String email) async {
     final res = await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
-  Future<User?> ChangePass(String? email) async {
+  Future<Users?> ChangePass(String? email) async {
     tempEmail = email as String;
     final res = await _firebaseAuth.sendPasswordResetEmail(email: tempEmail);
   }
@@ -50,7 +50,7 @@ class Auth {
     return await _firebaseAuth.signOut();
   }
 
-  Future<User?> DeleteAccount() async {
+  Future<Users?> DeleteAccount() async {
     final del = auth.FirebaseAuth.instance.currentUser;
 
     del?.delete();
