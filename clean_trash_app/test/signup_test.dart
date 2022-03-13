@@ -1,5 +1,4 @@
 import 'package:cleantrash_app/screens/Login/signup_page.dart';
-//import 'package:cleantrash_app/screens/Login/user/auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -50,10 +49,5 @@ void main() {
     expect(result, null);
   });
 
-  //await auth
-  //    .SignUp(_email.text, _passw.text).then((value) {
-  //  Navigator.push(context, MaterialPageRoute(builder: (context) => Verify()));
-   //   }).catchError((e) => print(e));
-//}
 
 }
