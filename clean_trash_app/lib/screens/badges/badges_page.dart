@@ -89,7 +89,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFC5CAE9),
                             kSecondaryColor,
                           ),
-                          Progress(0, 10, _isPressed2),
+                          Progress(1, 10, _isPressed2),
                         ],
                       ),
                       Row(
@@ -100,7 +100,7 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFB2BFDB),
                             kSecondaryColor,
                           ),
-                          Progress(0, 20, _isPressed3),
+                          Progress(1, 20, _isPressed3),
                         ],
                       ),
                       Row(
@@ -249,29 +249,29 @@ class _BadgesPageState extends State<BadgesPage> {
                         setState(() {
                           if (pressed_temp == _isPressed1 && temp == total) {
                             _isPressed1 = !_isPressed1;
-                          }
-                          else if (pressed_temp == _isPressed2 && temp == total) {
+                          } else if (pressed_temp == _isPressed2 &&
+                              temp == total) {
                             _isPressed2 = !_isPressed2;
-                          }
-                          else if (pressed_temp == _isPressed3 && temp == total) {
+                          } else if (pressed_temp == _isPressed3 &&
+                              temp == total) {
                             _isPressed3 = !_isPressed3;
-                          }
-                          else if (pressed_temp == _isPressed4 && temp == total) {
+                          } else if (pressed_temp == _isPressed4 &&
+                              temp == total) {
                             _isPressed4 = !_isPressed4;
-                          }
-                          else if (pressed_temp == _isPressed5 && temp == total) {
+                          } else if (pressed_temp == _isPressed5 &&
+                              temp == total) {
                             _isPressed5 = !_isPressed5;
-                          }
-                          else if (pressed_temp == _isPressed6 && temp == total) {
+                          } else if (pressed_temp == _isPressed6 &&
+                              temp == total) {
                             _isPressed6 = !_isPressed6;
-                          }
-                          else if (pressed_temp == _isPressed7 && temp == total) {
+                          } else if (pressed_temp == _isPressed7 &&
+                              temp == total) {
                             _isPressed7 = !_isPressed7;
-                          }
-                          else if (pressed_temp == _isPressed8 && temp == total) {
+                          } else if (pressed_temp == _isPressed8 &&
+                              temp == total) {
                             _isPressed8 = !_isPressed8;
-                          }
-                          else if (pressed_temp == _isPressed9  && temp == total) {
+                          } else if (pressed_temp == _isPressed9 &&
+                              temp == total) {
                             _isPressed9 = !_isPressed9;
                           }
                           //pressed_temp = !pressed_temp;
