@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
+
+import 'components/random_facts.dart';
 
 class NormalPaperFullPage extends StatefulWidget {
   final String recyclable;
@@ -18,6 +22,23 @@ class _NormalPaperFullPageState extends State<NormalPaperFullPage> {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
 
+    final _random = new Random();
+    String message = "";
+    
+    try {
+      if (widget.recyclable == 'True') {
+        int num = Random().nextInt(paper_list.length);
+        // print(glass_list.length);
+        message = paper_list[num];
+      } else {
+        message = other_list[_random.nextInt(other_list.length)];
+      }
+    } on RangeError catch (e) {
+      message = default_message;
+    } catch (e) {
+      message = default_message;
+    }
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text(""),
@@ -252,8 +273,6 @@ class _NormalPaperFullPageState extends State<NormalPaperFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
-                    String message =
-                        "Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,

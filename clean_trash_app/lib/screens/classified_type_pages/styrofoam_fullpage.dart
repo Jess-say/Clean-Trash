@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
+
+import 'components/random_facts.dart';
 
 class StyrofoamFullPage extends StatefulWidget {
   final String recyclable;
@@ -17,6 +21,23 @@ class _StyrofoamFullPageState extends State<StyrofoamFullPage> {
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
+
+    final _random = new Random();
+    String message = "";
+    
+    try {
+      if (widget.recyclable == 'True') {
+        int num = Random().nextInt(polystyrene_list.length);
+        // print(glass_list.length);
+        message = polystyrene_list[num];
+      } else {
+        message = other_list[_random.nextInt(other_list.length)];
+      }
+    } on RangeError catch (e) {
+      message = default_message;
+    } catch (e) {
+      message = default_message;
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -256,8 +277,6 @@ class _StyrofoamFullPageState extends State<StyrofoamFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
-                    String message =
-                        "Did you know that only 12% of styrofoam is recycled!";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
