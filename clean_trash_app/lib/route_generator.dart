@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/Login/login_page.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/beer_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/booklet_fullpage.dart';
 import 'package:cleantrash_app/screens/classified_type_pages/cardboard_fullpage.dart';
@@ -55,245 +56,386 @@ class RouteGenerator {
     print("settings name");
     print(settings.name);
 
-    switch(settings.name) {
+    switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => LoginPage());
       case '/antifreeze':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticAntifreezeFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticAntifreezeFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/laundry_product':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticLaundryFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticLaundryFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_lotion_bottle':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticLotionFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticLotionFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/motor_oil_container':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MotorOilFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MotorOilFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_bag':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticBagFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticBagFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_bottle':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticBottleFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticBottleFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_cup':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticCupFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticCupFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_utensil':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticUtensilsFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticUtensilsFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_shampoo':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticShampooFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticShampooFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_soda':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticSodaFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticSodaFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_water_jug':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticWaterJugFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticWaterJugFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/plastic_milk_jug':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PlasticMilkJugFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PlasticMilkJugFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
 ///////////////////////////////////
       case '/glass_beer':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => BeerFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => BeerFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_solid_food':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => GlassSolidFoodFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => GlassSolidFoodFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_drink':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => GlassDrinkFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => GlassDrinkFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_catsup':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => GlassCatsupFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => GlassCatsupFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_soda':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => GlassSodaFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => GlassSodaFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_wine':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => WineFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => WineFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/glass_alchohol':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => GlassAlcoholFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => GlassAlcoholFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_aluminum':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => AluminumFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => AluminumFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_cap':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalCapFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalCapFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_spray_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalSprayFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalSprayFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_hanger':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalHangerFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalHangerFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
-       case '/metal_food_can':
+      case '/metal_food_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalFoodFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalFoodFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_milk_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MilkCanFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MilkCanFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_drink':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalDrinkFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalDrinkFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paint_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaintcanFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaintcanFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/metal_pet_food_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MetalPetFoodFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MetalPetFoodFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/tin_can':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => TincanFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => TincanFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/styrofoam':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => StyrofoamFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => StyrofoamFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_booklet':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => BookletFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => BookletFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/cardboard':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => CardboardFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => CardboardFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_box':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperBookFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperBookFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/normal_paper':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => NormalPaperFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => NormalPaperFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/coupons':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => CouponsFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => CouponsFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_bag':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperBagFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperBagFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/mail_paper':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MailPaperFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MailPaperFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/magazine':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => MagazineFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => MagazineFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/newspaper':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => NewspaperFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => NewspaperFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_carton':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperCartonFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperCartonFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_tube':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperTubeFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperTubeFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_book':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperBagFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperBagFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/tissue_box':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => TissueBoxFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => TissueBoxFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/envelope':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => EnvelopeFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => EnvelopeFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_wrapping_paper':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperWrappingFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperWrappingFullPage(
+                    recyclable: args,
+                  ));
         }
         return _errorRoute();
       case '/paper_egg_carton':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperEggFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperEggFullPage(
+                    recyclable: args,
+                  ));
         }
-        return _errorRoute(); 
+        return _errorRoute();
       case '/paper_frozen_food':
         if (args is String) {
-          return MaterialPageRoute(builder: (_) => PaperFrozenFoodFullPage(recyclable: args,));
+          return MaterialPageRoute(
+              builder: (_) => PaperFrozenFoodFullPage(
+                    recyclable: args,
+                  ));
         }
-        return _errorRoute(); 
+        return _errorRoute();
       default:
         return _errorRoute();
     }
