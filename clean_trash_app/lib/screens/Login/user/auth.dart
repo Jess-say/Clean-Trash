@@ -1,6 +1,7 @@
 import 'package:cleantrash_app/screens/Login/user/database.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'user.dart';
+//import 'database.dart';
 
 class Auth {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
@@ -26,11 +27,19 @@ class Auth {
   }
 
   Future<User?> SignUp(String email, String passw) async {
-    final res = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: passw);
-    _passw = passw;
-    await DatabaseService(uid: res.user!.uid).updateUserData(0, 0, 0, 0, 0);
-    return _firebaseUser(res.user);
+    try {
+      final res = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: passw);
+      _passw = passw;
+
+      //User user = res.user as User;
+      // create new doc for user
+      //await BadgesService(uid: user.uid).updateUserData(1);
+
+      return _firebaseUser(res.user);
+    }catch(e) {
+      return null;
+    }
   }
 
   String getPass() {

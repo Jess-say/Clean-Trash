@@ -14,6 +14,16 @@ class BadgesPage extends StatefulWidget {
 }
 
 class _BadgesPageState extends State<BadgesPage> {
+  late bool _isPressed1 = false;
+  late bool _isPressed2 = false;
+  late bool _isPressed3 = false;
+  late bool _isPressed4 = false;
+  late bool _isPressed5 = false;
+  late bool _isPressed6 = false;
+  late bool _isPressed7 = false;
+  late bool _isPressed8 = false;
+  late bool _isPressed9 = false;
+
   @override
   void initState() {
     super.initState();
@@ -45,12 +55,12 @@ class _BadgesPageState extends State<BadgesPage> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.only(top: 100, left: 30, right: 30),
+                  padding: const EdgeInsets.only(top: 60, left: 30, right: 30),
                   child: ListView(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 15),
                     children: [
                       const Text(
-                        "Your Badges",
+                        "Badges",
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontSize: 25,
@@ -60,7 +70,6 @@ class _BadgesPageState extends State<BadgesPage> {
                         height: 5,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.account_circle_rounded,
@@ -68,35 +77,33 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFBBDEFB),
                             kSecondaryColor,
                           ),
+                          Progress(1, 1, _isPressed1),
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           buildBadgets(
                             Icons.delete,
                             "Recycle 10 Days",
                             Color(0xFFC5CAE9),
                             kSecondaryColor,
                           ),
+                          Progress(0, 10, _isPressed2),
+                        ],
+                      ),
+                      Row(
+                        children: [
                           buildBadgets(
                             Icons.delete_forever,
                             "Recycle 20 Days",
                             Color(0xFFB2BFDB),
                             kSecondaryColor,
                           ),
+                          Progress(0, 20, _isPressed3),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        "Badges To Earn",
-                        style: TextStyle(
-                            color: kPrimaryColor,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.inventory_2_outlined,
@@ -104,22 +111,32 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFFFE0B2),
                             kSecondaryColor,
                           ),
+                          Progress(0, 5, _isPressed4),
+                        ],
+                      ),
+                      Row(
+                        children: [
                           buildBadgets(
                             Icons.liquor_outlined,
                             "10 Glass",
                             Color(0xFFFFECB3),
                             kSecondaryColor,
                           ),
+                          Progress(0, 10, _isPressed5),
+                        ],
+                      ),
+                      Row(
+                        children: [
                           buildBadgets(
                             Icons.ad_units,
                             "10 Metal",
                             Color(0xFFFFF9C4),
                             kSecondaryColor,
                           ),
+                          Progress(0, 10, _isPressed6),
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           buildBadgets(
                             Icons.description_outlined,
@@ -127,18 +144,29 @@ class _BadgesPageState extends State<BadgesPage> {
                             Color(0xFFDCEDC8),
                             kSecondaryColor,
                           ),
+                          Progress(0, 10, _isPressed7),
+                        ],
+                      ),
+                      Row(
+                        children: [
                           buildBadgets(
                             Icons.credit_card_outlined,
                             "10 Plastic",
                             Color(0xFFC8E6C9),
                             kSecondaryColor,
                           ),
+                          Progress(0, 10, _isPressed8),
+                        ],
+                      ),
+                      Row(
+                        children: [
                           buildBadgets(
                             Icons.fastfood_outlined,
                             "5 Non-Recycable",
                             Color(0xFFC5E1A5),
                             kSecondaryColor,
                           ),
+                          Progress(0, 5, _isPressed9),
                         ],
                       ),
                     ],
@@ -155,9 +183,9 @@ class _BadgesPageState extends State<BadgesPage> {
   Container buildBadgets(
       IconData icon, String title, Color backgroundColor, Color iconColor) {
     return Container(
-      margin: EdgeInsets.all(10),
-      height: 90,
-      width: 90,
+      margin: EdgeInsets.all(5),
+      height: 100,
+      width: 100,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
@@ -180,6 +208,59 @@ class _BadgesPageState extends State<BadgesPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Container Progress(int temp, int total, bool pressed_temp) {
+    return Container(
+      width: 220,
+      height: 110,
+      decoration: BoxDecoration(color: Colors.white),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          LinearProgressIndicator(
+            minHeight: 5,
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+            value: temp / total,
+            backgroundColor: Colors.grey,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(temp.toString() + "/" + total.toString()),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              OutlinedButton(
+                child: const Text("CLAIM"),
+                onPressed: pressed_temp
+                    ? null
+                    : () {
+                        // once pressed can't press again (doesn't work yet)
+                        // if onPressed : null then button disabled
+                        print("clicked create\n");
+                        setState(() {
+                          pressed_temp = !pressed_temp;
+                        });
+                      },
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
+                  backgroundColor: Colors.white,
+                  onSurface: Colors.grey,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
