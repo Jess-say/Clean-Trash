@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
+
+import 'components/random_facts.dart';
 
 class GlassSodaFullPage extends StatefulWidget {
   final String recyclable;
@@ -18,6 +22,23 @@ class _GlassSodaFullPageState extends State<GlassSodaFullPage> {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
 
+    final _random = new Random();
+    String message = "";
+    
+    try {
+      if (widget.recyclable == 'True') {
+        int num = Random().nextInt(glass_list.length);
+        // print(glass_list.length);
+        message = glass_list[num];
+      } else {
+        message = other_list[_random.nextInt(other_list.length)];
+      }
+    } on RangeError catch (e) {
+      message = default_message;
+    } catch (e) {
+      message = default_message;
+    }
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text(""),
@@ -253,8 +274,6 @@ class _GlassSodaFullPageState extends State<GlassSodaFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
-                    String message =
-                        "Did you know that Americans dispose of 10 million metric tons of glass annually.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,

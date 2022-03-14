@@ -5,26 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="525ca9e4-599c-45a0-896a-7e22069f7e0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/settings/delete_acc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/senior-design-project-clean_trash_app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_trash_app/lib/screens/Login/signup_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/Login/signup_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_trash_app/lib/screens/Login/user/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/Login/user/auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_trash_app/lib/screens/settings/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/settings/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_trash_app/lib/screens/settings/user_profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/settings/user_profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clean_trash_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean_trash_app/lib/screens/badges/badges_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/lib/screens/badges/badges_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/clean_trash_app/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\lujes\.android\avd\Pixel_3a_API_30_2.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[97PAY11H2B]" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>

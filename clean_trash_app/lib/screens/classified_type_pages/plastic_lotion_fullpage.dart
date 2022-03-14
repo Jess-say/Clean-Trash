@@ -1,6 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
+
+import 'components/random_facts.dart';
 
 class PlasticLotionFullPage extends StatefulWidget {
   final String recyclable;
@@ -17,7 +21,24 @@ class _PlasticLotionFullPageState extends State<PlasticLotionFullPage> {
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
     final fheight = MediaQuery.of(context).size.height;
-    print("REC = " + widget.recyclable);
+    final _random = new Random();
+    String message = "";
+    
+    try {
+      if (widget.recyclable == 'True') {
+        int num = Random().nextInt(plastic_list.length);
+        // print(glass_list.length);
+        message = plastic_list[num];
+      } else {
+        message = other_list[_random.nextInt(other_list.length)];
+      }
+    } on RangeError catch (e) {
+      message = default_message;
+    } catch (e) {
+      message = default_message;
+    }
+    
+    // print("REC = " + widget.recyclable);
     return Scaffold(
       appBar: AppBar(
         title: const Text(""),
@@ -254,8 +275,6 @@ class _PlasticLotionFullPageState extends State<PlasticLotionFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
-                    String message =
-                        "Did you know that recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
