@@ -16,7 +16,7 @@ class CustomAlert extends StatelessWidget {
         clipBehavior: Clip.none, alignment: Alignment.topCenter,
         children: [
           SizedBox(
-            height: 350,
+            height: 425,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 80, 20, 20),
               child: Column(
