@@ -62,6 +62,10 @@ List<RecyclableItem> loadItemsList(){
     RecyclableItem(name: "Tissue Box"),
     RecyclableItem(name: "Envelope"),
     RecyclableItem(name: "Wrapping Paper"),
+
+    // NOT ON LIST
+    RecyclableItem(name: "Egg Carton"),
+    RecyclableItem(name: "Frozen Food Box"),
   ];
   return _items;
 }

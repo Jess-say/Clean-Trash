@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/Login/user/auth.dart';
 import 'package:flutter/material.dart';
 import '../home/home_screen.dart';
 //import 'input_form.dart';
@@ -5,26 +6,33 @@ import 'signup_page.dart';
 import 'forgot_pass.dart';
 import 'colors.dart' as color;
 import '../../theme.dart';
-import 'user/auth.dart';
+//import 'user/auth.dart';
 import 'package:provider/provider.dart';
 
 class EmailFieldValidator {
-  static String? validate(String value) {
+  static String? validate(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please input email can\'t be empty';
+    }
+    else if (!value.contains('@') || !value.contains('.')) {
+      return ('The e-mail is invalid!');
     }
     else {
       return null;
     }
-    //return value.isEmpty ? 'Please input email can\'t be empty' : null;
   }
 }
 
 class PasswordFieldValidator {
-  static String? validate(String value) {
-    return value.isEmpty ? 'Please enter password can\'t be empty' : null;
+  static String? validate(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please input password can\'t be empty';
+    }
+    return null;
+    //return value?.isEmpty ? 'Please input password can\'t be empty' : null;
   }
 }
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -36,7 +44,10 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  //final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  //final GlobalKey<FormState> _formKey = new GlobalKey(debugLabel: 'form');
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   bool _isObscure = true;
 
   @override
@@ -52,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     final auth = Provider.of<Auth>(context);
 
     return Scaffold(
+      key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       backgroundColor: color.AppColor.homePageBackground,
       body: Form(
@@ -73,24 +85,26 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
+                key: Key('email'),
                 controller: _email,
                 decoration:
                 const InputDecoration(
                   labelText: 'Email',
                 ),
                 keyboardType: TextInputType.emailAddress,
-                validator: (String? value) {
-                  EmailFieldValidator.validate;
+                validator: //(String? value) {
+                  EmailFieldValidator.validate,
                   //if (value == null || value.isEmpty)
                   //  return 'Please input email';
                   //return null;
-                },
+                //},
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               child: TextFormField(
                 obscureText: true ? _isObscure : false,
+                key: Key('password'),
                 controller: _password,
                 decoration:
 
@@ -108,12 +122,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   labelText: 'Password',
                 ),
-                validator: (String? value) {
-                  PasswordFieldValidator.validate;
+                validator: //(String? value) {
+                  PasswordFieldValidator.validate,
                   //if (value == null || value.isEmpty)
                   //  return 'Please input password';
                   //return null;
-                },
+                //},
               ),
             ),
             SizedBox(

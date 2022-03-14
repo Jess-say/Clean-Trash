@@ -1,11 +1,13 @@
-//import 'components/scroll_page.dart';
 import 'package:flutter/material.dart';
-import '/screens/home/home_view.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PlasticBottleFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PlasticBottleFullPage({Key? key, required this.recyclable})
+      : super(key: key);
+
   @override
   _PlasticBottleFullPageState createState() => _PlasticBottleFullPageState();
 }
@@ -27,7 +29,9 @@ class _PlasticBottleFullPageState extends State<PlasticBottleFullPage> {
           children: [
             Column(
               children: <Widget>[
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
@@ -41,7 +45,9 @@ class _PlasticBottleFullPageState extends State<PlasticBottleFullPage> {
                     ),
                   ]),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -156,11 +162,93 @@ class _PlasticBottleFullPageState extends State<PlasticBottleFullPage> {
                         ),
                       ],
                     )),
-                const SizedBox(height: 20,),
-                infoSection0,
-                const SizedBox(height: 20,),
-                infoSection1,
-                const SizedBox(height: 40,),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5, top: 5),
+                              child: widget.recyclable == "True"
+                                  ? const Text(
+                                      'It\'s Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  : const Text(
+                                      'It\'s Not Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Recycle in Riverside County."
+                                  : "Do Not Recycle in Riverside County.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: const Text(
+                                'Instructions!',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Rinse with warm water. Check if liquid is clear if not rinse again."
+                                  : "Place in waste bin.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
                 ElevatedButton(
                   style: TextButton.styleFrom(
                       padding: const EdgeInsets.all(18.0),
@@ -170,15 +258,18 @@ class _PlasticBottleFullPageState extends State<PlasticBottleFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    String message =
+                        "Did you know that recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that recycling a single plastic bottle will save enough energy to power a lightbulb for three hours or more."),
+                      builder: (_) => CustomAlert(message),
                     );
-                    print("pressed Recyle Button");
+                    // print("pressed Recycle Button");
                   },
-                  child: const Text('Recycle'),
+                  child: widget.recyclable == "True"
+                      ? const Text('Recycle')
+                      : const Text('Throw Away'),
                 )
               ],
             ),
@@ -188,71 +279,3 @@ class _PlasticBottleFullPageState extends State<PlasticBottleFullPage> {
     );
   }
 }
-
-Widget infoSection0 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5, top: 5),
-              child: const Text(
-                'It\'s Recyclable!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Recyle in Riverside County.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
-
-Widget infoSection1 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: const Text(
-                'Instructions!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Rinse with warm water. Check if liquid is clear if not rinse again.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);

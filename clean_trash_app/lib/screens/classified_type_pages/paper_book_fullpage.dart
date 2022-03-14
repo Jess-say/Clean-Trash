@@ -3,12 +3,16 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PaperBookFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PaperBookFullPage({Key? key, required this.recyclable})
+      : super(key: key);
+
   @override
   _PaperBookFullPageState createState() => _PaperBookFullPageState();
 }
 
 class _PaperBookFullPageState extends State<PaperBookFullPage> {
-
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -24,7 +28,9 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
           children: [
             Column(
               children: <Widget>[
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
@@ -38,7 +44,9 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                     ),
                   ]),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -51,8 +59,7 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/phonebook.jpg'),
+                              child: Image.asset('assets/images/phonebook.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -78,8 +85,8 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/magazine.jpg'),
+                              child:
+                                  Image.asset('assets/images/phonebook1.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +112,7 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/catalog.jpg'),
+                                  Image.asset('assets/images/phonebook2.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -132,8 +139,8 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/brochures.jpg'),
+                              child:
+                                  Image.asset('assets/images/phonebook3.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -152,11 +159,93 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                         ),
                       ],
                     )),
-                const SizedBox(height: 20,),
-                infoSection0,
-                const SizedBox(height: 20,),
-                infoSection1,
-                const SizedBox(height: 40,),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5, top: 5),
+                              child: widget.recyclable == "True"
+                                  ? const Text(
+                                      'It\'s Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  : const Text(
+                                      'It\'s Not Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Recycle in Riverside County."
+                                  : "Do Not Recycle in Riverside County.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: const Text(
+                                'Instructions!',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Place in recycling bin for paper."
+                                  : "Place in waste bin.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
                 ElevatedButton(
                   style: TextButton.styleFrom(
                       padding: const EdgeInsets.all(18.0),
@@ -166,15 +255,18 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    String message =
+                        "Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
+                      builder: (_) => CustomAlert(message),
                     );
-                    print("pressed Recycle Button");
+                    // print("pressed Recycle Button");
                   },
-                  child: const Text('Recycle'),
+                  child: widget.recyclable == "True"
+                      ? const Text('Recycle')
+                      : const Text('Throw Away'),
                 )
               ],
             ),
@@ -184,71 +276,3 @@ class _PaperBookFullPageState extends State<PaperBookFullPage> {
     );
   }
 }
-
-Widget infoSection0 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5, top: 5),
-              child: const Text(
-                'It\'s Recyclable!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Recycle in Riverside County.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
-
-Widget infoSection1 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: const Text(
-                'Instructions!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Place in recycling bin designed for paper.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);

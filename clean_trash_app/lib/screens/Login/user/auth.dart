@@ -1,3 +1,4 @@
+import 'package:cleantrash_app/screens/Login/user/database.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'user.dart';
 //import 'database.dart';
@@ -14,7 +15,7 @@ class Auth {
     return User(user.uid, user.email);
   }
 
-  Stream<User?>? get user{
+  Stream<User?>? get user {
     return _firebaseAuth.authStateChanges().map(_firebaseUser);
   }
 

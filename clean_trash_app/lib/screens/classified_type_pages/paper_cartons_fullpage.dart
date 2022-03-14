@@ -3,12 +3,16 @@ import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 
 class PaperCartonFullPage extends StatefulWidget {
+  final String recyclable;
+
+  const PaperCartonFullPage({Key? key, required this.recyclable})
+      : super(key: key);
+
   @override
   _PaperCartonFullPageState createState() => _PaperCartonFullPageState();
 }
 
 class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
-
   @override
   Widget build(BuildContext context) {
     final fwidth = MediaQuery.of(context).size.width;
@@ -24,7 +28,9 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
           children: [
             Column(
               children: <Widget>[
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
@@ -38,7 +44,9 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                     ),
                   ]),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -51,8 +59,8 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/milkcarton.jpg'),
+                              child:
+                                  Image.asset('assets/images/milkcarton.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -78,8 +86,8 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/juicecarton.jpg'),
+                              child:
+                                  Image.asset('assets/images/juicecarton.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -105,7 +113,7 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
                               child:
-                              Image.asset('assets/images/heavycream.jpg'),
+                                  Image.asset('assets/images/heavycream.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               side: const BorderSide(
@@ -132,8 +140,7 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                           child: Card(
                             child: Container(
                               padding: const EdgeInsets.all(4.0),
-                              child: Image.asset(
-                                  'assets/images/cartons.jpg'),
+                              child: Image.asset('assets/images/cartons.jpg'),
                             ),
                             shape: RoundedRectangleBorder(
                               //side: const BorderSide(color: Color.fromARGB(255, 255, 254, 254), width: 1),
@@ -152,11 +159,93 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                         ),
                       ],
                     )),
-                const SizedBox(height: 20,),
-                infoSection0,
-                const SizedBox(height: 20,),
-                infoSection1,
-                const SizedBox(height: 40,),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5, top: 5),
+                              child: widget.recyclable == "True"
+                                  ? const Text(
+                                      'It\'s Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  : const Text(
+                                      'It\'s Not Recyclable!',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Recycle in Riverside County."
+                                  : "Do Not Recycle in Riverside County.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        /*1*/
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            /*2*/
+                            Container(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: const Text(
+                                'Instructions!',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              widget.recyclable == "True"
+                                  ? "Rinse out liquid with warm water. May have to repeat a few times."
+                                  : "Place in waste bin.",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
                 ElevatedButton(
                   style: TextButton.styleFrom(
                       padding: const EdgeInsets.all(18.0),
@@ -166,15 +255,18 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    String message =
+                        "Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees.";
                     showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (_) => const CustomAlert(
-                          "Awesome! You logged your first item! Did you know that using old paper to make new paper uses 30 to 50 percent less energy than making paper from trees."),
+                      builder: (_) => CustomAlert(message),
                     );
-                    print("pressed Recycle Button");
+                    // print("pressed Recycle Button");
                   },
-                  child: const Text('Recycle'),
+                  child: widget.recyclable == "True"
+                      ? const Text('Recycle')
+                      : const Text('Throw Away'),
                 )
               ],
             ),
@@ -184,71 +276,3 @@ class _PaperCartonFullPageState extends State<PaperCartonFullPage> {
     );
   }
 }
-
-Widget infoSection0 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5, top: 5),
-              child: const Text(
-                'It\'s Recyclable!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Recycle in Riverside County.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
-
-Widget infoSection1 = Container(
-  padding: const EdgeInsets.all(12),
-  child: Row(
-    children: [
-      Expanded(
-        /*1*/
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /*2*/
-            Container(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: const Text(
-                'Instructions!',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Text(
-              "Rinse out liquid with warm water. May have to repeat a few times.",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
