@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
@@ -23,7 +25,8 @@ class _MilkCanFullPageState extends State<MilkCanFullPage> {
 
     final _random = new Random();
     String message = "";
-    
+    final firestoreInstance = FirebaseFirestore.instance;
+
     try {
       if (widget.recyclable == 'True') {
         int num = Random().nextInt(metal_list.length);
@@ -272,6 +275,13 @@ class _MilkCanFullPageState extends State<MilkCanFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    var firebaseUser = FirebaseAuth.instance.currentUser;
+                    firestoreInstance
+                        .collection("users")
+                        .doc(firebaseUser?.uid)
+                        .update({"metal": FieldValue.increment(1)}).then((_) {
+                      print("success!");
+                    });
                     showDialog(
                       barrierDismissible: false,
                       context: context,
