@@ -1,9 +1,12 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'components/custom_alert.dart';
 import 'package:cleantrash_app/styles.dart';
 import 'components/random_facts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class BeerFullPage extends StatefulWidget {
   final String recyclable;
@@ -21,7 +24,7 @@ class _BeerFullPageState extends State<BeerFullPage> {
     final fheight = MediaQuery.of(context).size.height;
     final _random = new Random();
     String message = "";
-
+    final firestoreInstance = FirebaseFirestore.instance;
     try {
       if (widget.recyclable == 'True') {
         int num = Random().nextInt(glass_list.length);
@@ -270,6 +273,13 @@ class _BeerFullPageState extends State<BeerFullPage> {
                         borderRadius: BorderRadius.circular(10),
                       )),
                   onPressed: () {
+                    var firebaseUser = FirebaseAuth.instance.currentUser;
+                    firestoreInstance
+                        .collection("users")
+                        .doc(firebaseUser?.uid)
+                        .update({"glass": FieldValue.increment(1)}).then((_) {
+                      print("success!");
+                    });
                     showDialog(
                       barrierDismissible: false,
                       context: context,
